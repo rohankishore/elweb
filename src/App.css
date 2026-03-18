@@ -31,9 +31,9 @@
 
 .site-nav {
   position: fixed;
-  left: 50%;
+  right: 1rem;
   top: 0.95rem;
-  transform: translateX(-50%) translateY(-14px);
+  transform: translateY(-14px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 260ms ease, transform 260ms ease;
@@ -42,7 +42,7 @@
 
 .site-nav.is-visible {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
   pointer-events: auto;
 }
 
@@ -55,6 +55,7 @@
 
 .site-nav .site-staggered .staggered-menu-header {
   padding: 1rem 1.2rem;
+  justify-content: flex-end;
 }
 
 .site-nav .site-staggered .sm-logo-img {
@@ -437,7 +438,8 @@ h2 {
   }
 
   .site-nav {
-    width: calc(100% - 1rem);
+    width: auto;
+    right: 0.7rem;
     top: 0.7rem;
   }
 

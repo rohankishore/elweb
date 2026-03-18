@@ -266,8 +266,9 @@ function App() {
           className="site-staggered"
           isFixed
           position="right"
-          closedLabel="Index"
+          closedLabel="Menu"
           openedLabel="Close"
+          showLogo={false}
           logoUrl="/frames/ezgif-frame-001.jpg"
           items={navItems}
           displaySocials={false}
