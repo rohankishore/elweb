@@ -286,8 +286,7 @@ function App() {
           <div className="caption-wrap" ref={captionRef}>
             <p className="eyebrow">College of Engineering Trivandrum</p>
             <p className="subline">
-              Scroll to navigate the visual sequence and explore the discipline
-              where intelligent systems, circuits, and computation converge.
+              content venamm
             </p>
           </div>
         </div>
@@ -391,7 +390,7 @@ function App() {
         <section className="reveal-section academic-section faculty-section" id="faculty">
           <header className="section-head" data-animate>
             <p className="section-eyebrow">Faculty</p>
-            <h2>Meet Our Faculty Team</h2>
+            <h2>Meet Our Faculty Team (ethekyo aalkar)</h2>
           </header>
 
           <div className="faculty-grid">
