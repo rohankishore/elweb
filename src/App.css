@@ -46,8 +46,29 @@
   pointer-events: auto;
 }
 
-.site-nav .pill-nav-container {
-  position: static;
+.site-nav .site-staggered.staggered-menu-wrapper.fixed-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.site-nav .site-staggered .staggered-menu-header {
+  padding: 1rem 1.2rem;
+}
+
+.site-nav .site-staggered .sm-logo-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.site-nav .site-staggered .sm-toggle {
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
 }
 
 .scroll-indicator {
@@ -420,8 +441,8 @@ h2 {
     top: 0.7rem;
   }
 
-  .site-nav .pill-nav-container {
-    width: 100%;
+  .site-nav .site-staggered .staggered-menu-header {
+    padding: 0.75rem 0.8rem;
   }
 
   .academic-section {

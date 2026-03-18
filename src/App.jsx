@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import anime from 'animejs/lib/anime.es.js'
-import PillNav from './component/PillNav'
+import StaggeredMenu from './component/StaggeredMenu'
 import './App.css'
 
 function App() {
@@ -13,11 +13,11 @@ function App() {
 
   const navItems = useMemo(
     () => [
-      { label: 'Hero', href: '#hero' },
-      { label: 'Overview', href: '#overview' },
-      { label: 'Domains', href: '#domains' },
-      { label: 'Outcomes', href: '#pathways' },
-      { label: 'Faculty', href: '#faculty' },
+      { label: 'Hero', link: '#hero' },
+      { label: 'Overview', link: '#overview' },
+      { label: 'Domains', link: '#domains' },
+      { label: 'Outcomes', link: '#pathways' },
+      { label: 'Faculty', link: '#faculty' },
     ],
     [],
   )
@@ -262,16 +262,18 @@ function App() {
   return (
     <>
       <div className={`site-nav${isNavVisible ? ' is-visible' : ''}`}>
-        <PillNav
-          logo="/frames/ezgif-frame-001.jpg"
-          logoAlt="ECE"
+        <StaggeredMenu
+          className="site-staggered"
+          isFixed
+          position="right"
+          logoUrl="/frames/ezgif-frame-001.jpg"
           items={navItems}
-          activeHref=""
-          initialLoadAnimation={false}
-          baseColor="#e7f6ff"
-          pillColor="#0a2038"
-          pillTextColor="#e7f6ff"
-          hoveredPillTextColor="#091526"
+          displaySocials={false}
+          displayItemNumbering={false}
+          colors={['#143252', '#0d2742']}
+          accentColor="#2c7dc8"
+          menuButtonColor="#e7f6ff"
+          openMenuButtonColor="#e7f6ff"
         />
       </div>
 
