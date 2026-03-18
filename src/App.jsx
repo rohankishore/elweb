@@ -6,6 +6,7 @@ function App() {
   const totalFrames = 240
   const canvasRef = useRef(null)
   const captionRef = useRef(null)
+  const journeyRef = useRef(null)
 
   const frameList = useMemo(
     () =>
@@ -81,21 +82,28 @@ function App() {
       lastDrawnFrame = drawIndex
     }
 
-    const updateTarget = () => {
-      const maxScroll = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
+    const getJourneyProgress = () => {
+      const journey = journeyRef.current
+      if (!journey) return 0
+
+      const journeyStart = journey.offsetTop
+      const journeyEnd = Math.max(
+        journeyStart + journey.offsetHeight - window.innerHeight,
+        journeyStart + 1,
+      )
+      return Math.min(
+        Math.max((window.scrollY - journeyStart) / (journeyEnd - journeyStart), 0),
         1,
       )
-      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1)
+    }
+
+    const updateTarget = () => {
+      const progress = getJourneyProgress()
       targetFrame = progress * (totalFrames - 1)
     }
 
     const updateCaptionReveal = () => {
-      const maxScroll = Math.max(
-        document.documentElement.scrollHeight - window.innerHeight,
-        1,
-      )
-      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1)
+      const progress = getJourneyProgress()
       const reveal = Math.min(Math.max((progress - 0.5) / 0.2, 0), 1)
       captionRef.current?.style.setProperty('--caption-reveal', reveal.toFixed(3))
     }
@@ -190,12 +198,12 @@ function App() {
 
   return (
     <>
-      <div className="frame-stage" aria-hidden="true">
-        <canvas className="frame-canvas" ref={canvasRef} />
-        <div className="frame-overlay" />
-      </div>
+      <section className="scroll-journey" ref={journeyRef}>
+        <div className="frame-stage" aria-hidden="true">
+          <canvas className="frame-canvas" ref={canvasRef} />
+          <div className="frame-overlay" />
+        </div>
 
-      <section className="scroll-journey">
         <div className="hero-wrap">
           <h1>Electrical and Computer Engineering</h1>
           <div className="caption-wrap" ref={captionRef}>
@@ -209,79 +217,95 @@ function App() {
       </section>
 
       <main className="content-sections">
-        <section className="reveal-section">
-          <div className="section-shell">
-            <p className="section-kicker" data-animate>
-              Core Spectrum
+        <section className="reveal-section academic-section" id="overview">
+          <header className="section-head" data-animate>
+            <p className="section-eyebrow">Program Overview</p>
+            <h2>Electrical and Computer Engineering at a Glance</h2>
+          </header>
+          <div className="section-body two-col">
+            <p className="lead" data-animate>
+              The curriculum unifies devices, information, and power systems in
+              one coherent learning path. Students move from core engineering
+              principles to system-level design with strong mathematical and
+              computational foundations.
             </p>
-            <h2 data-animate>Engineering Across Atoms, Bits, and Energy</h2>
-            <p className="section-copy" data-animate>
-              From microelectronics and embedded architectures to renewable
-              systems and intelligent control, the program blends physical
-              design with computational thinking.
-            </p>
-            <div className="metric-grid">
-              <article data-animate>
-                <span>Signal Systems</span>
-                <strong>Adaptive DSP + AI</strong>
-              </article>
-              <article data-animate>
-                <span>Power Networks</span>
-                <strong>Grid + Storage Intelligence</strong>
-              </article>
-              <article data-animate>
-                <span>Embedded Platforms</span>
-                <strong>Low-latency Compute Design</strong>
-              </article>
-            </div>
+            <dl className="definition-grid" data-animate>
+              <div>
+                <dt>Duration</dt>
+                <dd>4 Years</dd>
+              </div>
+              <div>
+                <dt>Structure</dt>
+                <dd>Core + Electives + Labs</dd>
+              </div>
+              <div>
+                <dt>Capstone</dt>
+                <dd>Industry or Research Project</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Hardware-Software Systems</dd>
+              </div>
+            </dl>
           </div>
         </section>
 
-        <section className="reveal-section">
-          <div className="section-shell">
-            <p className="section-kicker" data-animate>
-              Applied Research
-            </p>
-            <h2 data-animate>Build, Validate, Iterate in Live Systems</h2>
-            <p className="section-copy" data-animate>
-              Studio-style labs connect hardware prototyping and software
-              simulation to real constraints: efficiency, reliability, and
-              human-centered operation.
-            </p>
-            <div className="chip-row" data-animate>
-              <span>Autonomous Robotics</span>
-              <span>IoT Instrumentation</span>
-              <span>Machine Vision</span>
-              <span>VLSI and FPGA</span>
-              <span>Smart Energy Control</span>
-            </div>
+        <section className="reveal-section academic-section" id="domains">
+          <header className="section-head" data-animate>
+            <p className="section-eyebrow">Study Domains</p>
+            <h2>Major Academic and Technical Areas</h2>
+          </header>
+          <div className="section-body three-col" data-animate>
+            <article>
+              <h3>Electronics and Devices</h3>
+              <ul>
+                <li>Analog and digital circuit design</li>
+                <li>Microelectronics and VLSI basics</li>
+                <li>Embedded system integration</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Computing and Intelligence</h3>
+              <ul>
+                <li>Signals, systems, and control</li>
+                <li>Machine learning for engineering</li>
+                <li>Real-time architecture and automation</li>
+              </ul>
+            </article>
+            <article>
+              <h3>Energy and Infrastructure</h3>
+              <ul>
+                <li>Power electronics and drives</li>
+                <li>Smart grids and energy management</li>
+                <li>Sustainable electrical systems</li>
+              </ul>
+            </article>
           </div>
         </section>
 
-        <section className="reveal-section">
-          <div className="section-shell">
-            <p className="section-kicker" data-animate>
-              Career Trajectory
-            </p>
-            <h2 data-animate>Design the Systems That Move the Future</h2>
-            <p className="section-copy" data-animate>
-              Graduate into product engineering, R&amp;D, and innovation teams
-              that shape communication infrastructure, autonomous platforms, and
-              next-generation computing.
-            </p>
-            <div className="timeline" data-animate>
-              <div>
-                <span>01</span>
-                <p>Foundation in circuits, computation, and modeling</p>
-              </div>
-              <div>
-                <span>02</span>
-                <p>Deep specialization through labs and advanced electives</p>
-              </div>
-              <div>
-                <span>03</span>
-                <p>Capstone systems built for measurable real-world impact</p>
-              </div>
+        <section className="reveal-section academic-section" id="pathways">
+          <header className="section-head" data-animate>
+            <p className="section-eyebrow">Outcomes</p>
+            <h2>Career and Higher-Study Pathways</h2>
+          </header>
+          <div className="section-body split-list" data-animate>
+            <div>
+              <h3>Professional Roles</h3>
+              <ul>
+                <li>Embedded Systems Engineer</li>
+                <li>Control and Automation Engineer</li>
+                <li>Power Systems and Grid Analyst</li>
+                <li>Electronics Product Development Engineer</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Advanced Tracks</h3>
+              <ul>
+                <li>MS and MTech in ECE, EE, and CS domains</li>
+                <li>Research pathways in AI, robotics, and IC design</li>
+                <li>Interdisciplinary programs in data and energy systems</li>
+                <li>Innovation and startup-oriented technical ventures</li>
+              </ul>
             </div>
           </div>
         </section>
