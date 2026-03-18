@@ -66,9 +66,8 @@ function App() {
     const context = canvas.getContext('2d', { alpha: false })
     if (!context) return
 
-    const isMobile = window.matchMedia('(max-width: 768px)').matches
     context.imageSmoothingEnabled = true
-    context.imageSmoothingQuality = isMobile ? 'low' : 'high'
+    context.imageSmoothingQuality = 'high'
 
     const images = new Array(totalFrames)
     const loaded = new Array(totalFrames).fill(false)
@@ -80,8 +79,7 @@ function App() {
     let lastDrawnFrame = -1
 
     const sizeCanvas = () => {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches
-      const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 2)
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
       const width = Math.round(window.innerWidth * dpr)
       const height = Math.round(window.innerHeight * dpr)
       if (canvas.width !== width || canvas.height !== height) {
@@ -189,10 +187,7 @@ function App() {
       rafId = requestAnimationFrame(animate)
     }
 
-    const skipFrames = isMobile ? 3 : 1 // Load only every 3rd frame on mobile to save bandwidth & memory (80 frames instead of 240)
     frameList.forEach((src, index) => {
-      if (index % skipFrames !== 0 && index !== totalFrames - 1) return // Always load the very last frame
-
       const image = new Image()
       image.decoding = 'async'
       image.src = src
