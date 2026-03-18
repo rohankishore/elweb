@@ -6,6 +6,7 @@ function App() {
   const totalFrames = 240
   const canvasRef = useRef(null)
   const captionRef = useRef(null)
+  const scrollHintRef = useRef(null)
   const journeyRef = useRef(null)
 
   const frameList = useMemo(
@@ -108,9 +109,16 @@ function App() {
       captionRef.current?.style.setProperty('--caption-reveal', reveal.toFixed(3))
     }
 
+    const updateScrollHint = () => {
+      const progress = getJourneyProgress()
+      const hintOpacity = Math.min(Math.max(1 - progress / 0.18, 0), 1)
+      scrollHintRef.current?.style.setProperty('--hint-opacity', hintOpacity.toFixed(3))
+    }
+
     const onScroll = () => {
       updateTarget()
       updateCaptionReveal()
+      updateScrollHint()
     }
 
     const onResize = () => {
@@ -118,6 +126,7 @@ function App() {
       lastDrawnFrame = -1
       updateTarget()
       updateCaptionReveal()
+      updateScrollHint()
       drawFrame(currentFrame, true)
     }
 
@@ -147,6 +156,7 @@ function App() {
     sizeCanvas()
     updateTarget()
     updateCaptionReveal()
+    updateScrollHint()
     drawFrame(0, true)
     rafId = requestAnimationFrame(animate)
 
@@ -213,6 +223,11 @@ function App() {
               where intelligent systems, circuits, and computation converge.
             </p>
           </div>
+        </div>
+
+        <div className="scroll-indicator" ref={scrollHintRef}>
+          <span className="scroll-indicator-mouse" aria-hidden="true" />
+          <span className="scroll-indicator-label">Scroll</span>
         </div>
       </section>
 
