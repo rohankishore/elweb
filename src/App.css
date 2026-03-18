@@ -410,6 +410,11 @@ h2 {
 }
 
 @media (max-width: 720px) {
+  .frame-canvas {
+    filter: none; /* Expensive filters removed on mobile */
+    transform: none; /* Scale not needed without filter bleeding boundaries */
+  }
+
   .scroll-journey {
     height: 340vh;
   }
