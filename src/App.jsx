@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
+import anime from 'animejs/lib/anime.es.js'
 import './App.css'
 
 function App() {
@@ -152,6 +153,41 @@ function App() {
     }
   }, [frameList, totalFrames])
 
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll('.reveal-section'))
+    if (!sections.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          const section = entry.target
+          section.classList.add('is-visible')
+
+          anime.remove(section.querySelectorAll('[data-animate]'))
+          anime({
+            targets: section.querySelectorAll('[data-animate]'),
+            opacity: [0, 1],
+            translateY: [42, 0],
+            scale: [0.985, 1],
+            easing: 'easeOutExpo',
+            duration: 920,
+            delay: anime.stagger(120),
+          })
+
+          observer.unobserve(section)
+        })
+      },
+      {
+        threshold: 0.28,
+        rootMargin: '0px 0px -10% 0px',
+      },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <>
       <div className="frame-stage" aria-hidden="true">
@@ -171,6 +207,85 @@ function App() {
           </div>
         </div>
       </section>
+
+      <main className="content-sections">
+        <section className="reveal-section">
+          <div className="section-shell">
+            <p className="section-kicker" data-animate>
+              Core Spectrum
+            </p>
+            <h2 data-animate>Engineering Across Atoms, Bits, and Energy</h2>
+            <p className="section-copy" data-animate>
+              From microelectronics and embedded architectures to renewable
+              systems and intelligent control, the program blends physical
+              design with computational thinking.
+            </p>
+            <div className="metric-grid">
+              <article data-animate>
+                <span>Signal Systems</span>
+                <strong>Adaptive DSP + AI</strong>
+              </article>
+              <article data-animate>
+                <span>Power Networks</span>
+                <strong>Grid + Storage Intelligence</strong>
+              </article>
+              <article data-animate>
+                <span>Embedded Platforms</span>
+                <strong>Low-latency Compute Design</strong>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="reveal-section">
+          <div className="section-shell">
+            <p className="section-kicker" data-animate>
+              Applied Research
+            </p>
+            <h2 data-animate>Build, Validate, Iterate in Live Systems</h2>
+            <p className="section-copy" data-animate>
+              Studio-style labs connect hardware prototyping and software
+              simulation to real constraints: efficiency, reliability, and
+              human-centered operation.
+            </p>
+            <div className="chip-row" data-animate>
+              <span>Autonomous Robotics</span>
+              <span>IoT Instrumentation</span>
+              <span>Machine Vision</span>
+              <span>VLSI and FPGA</span>
+              <span>Smart Energy Control</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="reveal-section">
+          <div className="section-shell">
+            <p className="section-kicker" data-animate>
+              Career Trajectory
+            </p>
+            <h2 data-animate>Design the Systems That Move the Future</h2>
+            <p className="section-copy" data-animate>
+              Graduate into product engineering, R&amp;D, and innovation teams
+              that shape communication infrastructure, autonomous platforms, and
+              next-generation computing.
+            </p>
+            <div className="timeline" data-animate>
+              <div>
+                <span>01</span>
+                <p>Foundation in circuits, computation, and modeling</p>
+              </div>
+              <div>
+                <span>02</span>
+                <p>Deep specialization through labs and advanced electives</p>
+              </div>
+              <div>
+                <span>03</span>
+                <p>Capstone systems built for measurable real-world impact</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   )
 }
