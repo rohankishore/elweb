@@ -1,119 +1,174 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { useEffect, useMemo, useRef } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const totalFrames = 240
+  const canvasRef = useRef(null)
+  const heroRef = useRef(null)
+
+  const frameList = useMemo(
+    () =>
+      Array.from({ length: totalFrames }, (_, i) => {
+        const n = String(i + 1).padStart(3, '0')
+        return `/frames/ezgif-frame-${n}.jpg`
+      }),
+    [totalFrames],
+  )
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const context = canvas.getContext('2d', { alpha: false })
+    if (!context) return
+
+    context.imageSmoothingEnabled = true
+    context.imageSmoothingQuality = 'high'
+
+    const images = new Array(totalFrames)
+    const loaded = new Array(totalFrames).fill(false)
+
+    let rafId = 0
+    let disposed = false
+    let targetFrame = 0
+    let currentFrame = 0
+    let lastDrawnFrame = -1
+
+    const sizeCanvas = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      const width = Math.round(window.innerWidth * dpr)
+      const height = Math.round(window.innerHeight * dpr)
+      if (canvas.width !== width || canvas.height !== height) {
+        canvas.width = width
+        canvas.height = height
+      }
+      canvas.style.width = `${window.innerWidth}px`
+      canvas.style.height = `${window.innerHeight}px`
+      context.setTransform(dpr, 0, 0, dpr, 0, 0)
+    }
+
+    const drawFrame = (frameFloat, force = false) => {
+      const intended = Math.max(
+        0,
+        Math.min(totalFrames - 1, Math.round(frameFloat)),
+      )
+
+      let drawIndex = intended
+      if (!loaded[drawIndex]) {
+        while (drawIndex >= 0 && !loaded[drawIndex]) {
+          drawIndex -= 1
+        }
+      }
+
+      if (drawIndex < 0 || !images[drawIndex]) return
+      if (!force && drawIndex === lastDrawnFrame) return
+
+      const image = images[drawIndex]
+      const viewWidth = window.innerWidth
+      const viewHeight = window.innerHeight
+      const scale = Math.max(
+        viewWidth / image.naturalWidth,
+        viewHeight / image.naturalHeight,
+      )
+      const drawWidth = image.naturalWidth * scale
+      const drawHeight = image.naturalHeight * scale
+      const x = (viewWidth - drawWidth) / 2
+      const y = (viewHeight - drawHeight) / 2
+
+      context.clearRect(0, 0, viewWidth, viewHeight)
+      context.drawImage(image, x, y, drawWidth, drawHeight)
+      lastDrawnFrame = drawIndex
+    }
+
+    const updateTarget = () => {
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
+        1,
+      )
+      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1)
+      targetFrame = progress * (totalFrames - 1)
+    }
+
+    const updateHeroReveal = () => {
+      const revealStart = Math.min(window.innerHeight * 0.08, 110)
+      const revealDistance = Math.max(window.innerHeight * 0.24, 180)
+      const reveal = Math.min(
+        Math.max((window.scrollY - revealStart) / revealDistance, 0),
+        1,
+      )
+      heroRef.current?.style.setProperty('--hero-reveal', reveal.toFixed(3))
+    }
+
+    const onScroll = () => {
+      updateTarget()
+      updateHeroReveal()
+    }
+
+    const onResize = () => {
+      sizeCanvas()
+      lastDrawnFrame = -1
+      updateTarget()
+      updateHeroReveal()
+      drawFrame(currentFrame, true)
+    }
+
+    const animate = () => {
+      if (disposed) return
+      currentFrame += (targetFrame - currentFrame) * 0.16
+      if (Math.abs(targetFrame - currentFrame) < 0.02) {
+        currentFrame = targetFrame
+      }
+      drawFrame(currentFrame)
+      rafId = requestAnimationFrame(animate)
+    }
+
+    frameList.forEach((src, index) => {
+      const image = new Image()
+      image.decoding = 'async'
+      image.src = src
+      image.onload = () => {
+        loaded[index] = true
+        if (index === 0 || Math.round(currentFrame) === index) {
+          drawFrame(currentFrame, true)
+        }
+      }
+      images[index] = image
+    })
+
+    sizeCanvas()
+    updateTarget()
+    updateHeroReveal()
+    drawFrame(0, true)
+    rafId = requestAnimationFrame(animate)
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      disposed = true
+      cancelAnimationFrame(rafId)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [frameList, totalFrames])
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
+      <div className="frame-stage" aria-hidden="true">
+        <canvas className="frame-canvas" ref={canvasRef} />
+        <div className="frame-overlay" />
+      </div>
+
+      <section className="scroll-journey">
+        <div className="hero-wrap" ref={heroRef}>
+          <p className="eyebrow">College of Engineering Trivandrum</p>
+          <h1>Electrical and Computer Engineering</h1>
+          <p className="subline">
+            Scroll to navigate the visual sequence and explore the discipline
+            where intelligent systems, circuits, and computation converge.
           </p>
         </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
     </>
   )
 }
