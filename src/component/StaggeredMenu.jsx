@@ -17,6 +17,8 @@ export const StaggeredMenu = ({
   changeMenuColorOnOpen = true,
   isFixed = false,
   closeOnClickAway = true,
+  closedLabel = 'Index',
+  openedLabel = 'Close',
   onMenuOpen,
   onMenuClose
 }) => {
@@ -30,7 +32,7 @@ export const StaggeredMenu = ({
   const iconRef = useRef(null);
   const textInnerRef = useRef(null);
   const textWrapRef = useRef(null);
-  const [textLines, setTextLines] = useState(['Menu', 'Close']);
+  const [textLines, setTextLines] = useState([closedLabel, openedLabel]);
 
   const openTlRef = useRef(null);
   const closeTweenRef = useRef(null);
@@ -275,8 +277,8 @@ export const StaggeredMenu = ({
     if (!inner) return;
     textCycleAnimRef.current?.kill();
 
-    const currentLabel = opening ? 'Menu' : 'Close';
-    const targetLabel = opening ? 'Close' : 'Menu';
+    const currentLabel = opening ? closedLabel : openedLabel;
+    const targetLabel = opening ? openedLabel : closedLabel;
     const cycles = 3;
     const seq = [currentLabel];
     let last = currentLabel;
@@ -296,7 +298,7 @@ export const StaggeredMenu = ({
       duration: 0.5 + lineCount * 0.07,
       ease: 'power4.out'
     });
-  }, []);
+  }, [closedLabel, openedLabel]);
 
   const toggleMenu = useCallback(() => {
     const target = !openRef.current;
@@ -378,7 +380,7 @@ export const StaggeredMenu = ({
         <button
           ref={toggleBtnRef}
           className="sm-toggle"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? `${openedLabel} menu` : `${closedLabel} menu`}
           aria-expanded={open}
           aria-controls="staggered-menu-panel"
           onClick={toggleMenu}
