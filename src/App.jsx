@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import StaggeredMenu from './component/StaggeredMenu'
+import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
@@ -268,8 +269,9 @@ function App() {
           position="right"
           closedLabel="Menu"
           openedLabel="Close"
-          showLogo={false}
-          logoUrl="/frames/ezgif-frame-001.jpg"
+          showLogo
+          logoUrl={reactLogo}
+          logoText="ECE"
           items={navItems}
           displaySocials={false}
           displayItemNumbering={false}
