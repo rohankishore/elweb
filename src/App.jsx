@@ -269,14 +269,14 @@ function App() {
           openedLabel="Close"
           showLogo
           logoUrl={reactLogo}
-          logoText="ECE"
+          logoText=""
           items={navItems}
           displaySocials={false}
           displayItemNumbering={false}
           colors={['#143252', '#0d2742']}
-          accentColor="#2c7dc8"
-          menuButtonColor="#e7f6ff"
-          openMenuButtonColor="#e7f6ff"
+          accentColor="#081c3b"
+          menuButtonColor="#ffffff"
+          openMenuButtonColor="#121212"
         />
       </div>
 
