@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   const totalFrames = 240
   const canvasRef = useRef(null)
-  const heroRef = useRef(null)
+  const captionRef = useRef(null)
 
   const frameList = useMemo(
     () =>
@@ -89,26 +89,26 @@ function App() {
       targetFrame = progress * (totalFrames - 1)
     }
 
-    const updateHeroReveal = () => {
-      const revealStart = Math.min(window.innerHeight * 0.08, 110)
-      const revealDistance = Math.max(window.innerHeight * 0.24, 180)
-      const reveal = Math.min(
-        Math.max((window.scrollY - revealStart) / revealDistance, 0),
+    const updateCaptionReveal = () => {
+      const maxScroll = Math.max(
+        document.documentElement.scrollHeight - window.innerHeight,
         1,
       )
-      heroRef.current?.style.setProperty('--hero-reveal', reveal.toFixed(3))
+      const progress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1)
+      const reveal = Math.min(Math.max((progress - 0.5) / 0.2, 0), 1)
+      captionRef.current?.style.setProperty('--caption-reveal', reveal.toFixed(3))
     }
 
     const onScroll = () => {
       updateTarget()
-      updateHeroReveal()
+      updateCaptionReveal()
     }
 
     const onResize = () => {
       sizeCanvas()
       lastDrawnFrame = -1
       updateTarget()
-      updateHeroReveal()
+      updateCaptionReveal()
       drawFrame(currentFrame, true)
     }
 
@@ -137,7 +137,7 @@ function App() {
 
     sizeCanvas()
     updateTarget()
-    updateHeroReveal()
+    updateCaptionReveal()
     drawFrame(0, true)
     rafId = requestAnimationFrame(animate)
 
@@ -160,13 +160,15 @@ function App() {
       </div>
 
       <section className="scroll-journey">
-        <div className="hero-wrap" ref={heroRef}>
-          <p className="eyebrow">College of Engineering Trivandrum</p>
+        <div className="hero-wrap">
           <h1>Electrical and Computer Engineering</h1>
-          <p className="subline">
-            Scroll to navigate the visual sequence and explore the discipline
-            where intelligent systems, circuits, and computation converge.
-          </p>
+          <div className="caption-wrap" ref={captionRef}>
+            <p className="eyebrow">College of Engineering Trivandrum</p>
+            <p className="subline">
+              Scroll to navigate the visual sequence and explore the discipline
+              where intelligent systems, circuits, and computation converge.
+            </p>
+          </div>
         </div>
       </section>
     </>

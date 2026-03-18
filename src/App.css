@@ -29,7 +29,6 @@
 }
 
 .hero-wrap {
-  --hero-reveal: 0;
   position: sticky;
   top: 0;
   min-height: 100svh;
@@ -41,9 +40,15 @@
   text-align: center;
   gap: 1.15rem;
   padding: 3rem 1.5rem;
-  opacity: var(--hero-reveal);
-  transform: translate3d(0, calc((1 - var(--hero-reveal)) * 46px), 0)
-    scale(calc(0.96 + (var(--hero-reveal) * 0.04)));
+}
+
+.caption-wrap {
+  --caption-reveal: 0;
+  display: grid;
+  justify-items: center;
+  gap: 1.15rem;
+  opacity: var(--caption-reveal);
+  transform: translate3d(0, calc((1 - var(--caption-reveal)) * 38px), 0);
   transition: opacity 120ms linear, transform 120ms linear;
 }
 
@@ -87,6 +92,9 @@ h1 {
   .hero-wrap {
     width: calc(100vw - 1.6rem);
     padding: 2rem 0.4rem;
+  }
+
+  .caption-wrap {
     gap: 1rem;
   }
 
