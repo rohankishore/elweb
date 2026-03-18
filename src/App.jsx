@@ -227,7 +227,6 @@ function App() {
 
         <div className="scroll-indicator" ref={scrollHintRef}>
           <span className="scroll-indicator-mouse" aria-hidden="true" />
-          <span className="scroll-indicator-label">Scroll</span>
         </div>
       </section>
 
