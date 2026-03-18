@@ -29,6 +29,27 @@
   position: relative;
 }
 
+.site-nav {
+  position: fixed;
+  left: 50%;
+  top: 0.95rem;
+  transform: translateX(-50%) translateY(-14px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 260ms ease, transform 260ms ease;
+  z-index: 120;
+}
+
+.site-nav.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.site-nav .pill-nav-container {
+  position: static;
+}
+
 .scroll-indicator {
   --hint-opacity: 1;
   position: fixed;
@@ -290,6 +311,68 @@ h2 {
   padding-top: 0.9rem;
 }
 
+.faculty-section {
+  padding-bottom: clamp(2.1rem, 4.5vw, 3.3rem);
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.faculty-card {
+  border: 1px solid rgba(143, 201, 232, 0.3);
+  background: rgba(10, 22, 37, 0.56);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+}
+
+.faculty-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.faculty-content {
+  padding: 0.9rem 0.85rem 1rem;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.faculty-content h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1.02rem;
+  color: rgba(237, 248, 255, 0.98);
+}
+
+.faculty-content p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: rgba(193, 223, 241, 0.94);
+}
+
+.faculty-actions {
+  margin-top: 1.4rem;
+}
+
+.faculty-button {
+  border: 1px solid rgba(171, 218, 242, 0.38);
+  background: rgba(9, 24, 40, 0.56);
+  color: rgba(233, 247, 255, 0.97);
+  border-radius: 999px;
+  padding: 0.72rem 1.15rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
 .reveal-section [data-animate] {
   opacity: 0;
   transform: translateY(42px) scale(0.985);
@@ -332,6 +415,15 @@ h2 {
     padding: 2.8rem 0.75rem 5rem;
   }
 
+  .site-nav {
+    width: calc(100% - 1rem);
+    top: 0.7rem;
+  }
+
+  .site-nav .pill-nav-container {
+    width: 100%;
+  }
+
   .academic-section {
     padding: 1.2rem 0;
   }
@@ -346,5 +438,9 @@ h2 {
   .three-col article {
     border-right: 0;
     padding-right: 0;
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

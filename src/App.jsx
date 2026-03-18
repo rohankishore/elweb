@@ -1,13 +1,57 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import anime from 'animejs/lib/anime.es.js'
+import PillNav from './component/PillNav'
 import './App.css'
 
 function App() {
   const totalFrames = 240
+  const [isNavVisible, setIsNavVisible] = useState(false)
   const canvasRef = useRef(null)
   const captionRef = useRef(null)
   const scrollHintRef = useRef(null)
   const journeyRef = useRef(null)
+
+  const navItems = useMemo(
+    () => [
+      { label: 'Hero', href: '#hero' },
+      { label: 'Overview', href: '#overview' },
+      { label: 'Domains', href: '#domains' },
+      { label: 'Outcomes', href: '#pathways' },
+      { label: 'Faculty', href: '#faculty' },
+    ],
+    [],
+  )
+
+  const facultyProfiles = useMemo(
+    () => [
+      {
+        name: 'Faculty 1',
+        position: 'Professor, Embedded Systems',
+        photo: 'https://i.pravatar.cc/420?img=12',
+      },
+      {
+        name: 'Faculty 2',
+        position: 'Associate Professor, Power Electronics',
+        photo: 'https://i.pravatar.cc/420?img=32',
+      },
+      {
+        name: 'Faculty 3',
+        position: 'Assistant Professor, Signal Processing',
+        photo: 'https://i.pravatar.cc/420?img=36',
+      },
+      {
+        name: 'Faculty 4',
+        position: 'Professor, Communication Systems',
+        photo: 'https://i.pravatar.cc/420?img=47',
+      },
+      {
+        name: 'Faculty 5',
+        position: 'Assistant Professor, Intelligent Control',
+        photo: 'https://i.pravatar.cc/420?img=52',
+      },
+    ],
+    [],
+  )
 
   const frameList = useMemo(
     () =>
@@ -115,10 +159,17 @@ function App() {
       scrollHintRef.current?.style.setProperty('--hint-opacity', hintOpacity.toFixed(3))
     }
 
+    const updateNavVisibility = () => {
+      const progress = getJourneyProgress()
+      const shouldShow = progress >= 0.99
+      setIsNavVisible((prev) => (prev === shouldShow ? prev : shouldShow))
+    }
+
     const onScroll = () => {
       updateTarget()
       updateCaptionReveal()
       updateScrollHint()
+      updateNavVisibility()
     }
 
     const onResize = () => {
@@ -127,6 +178,7 @@ function App() {
       updateTarget()
       updateCaptionReveal()
       updateScrollHint()
+      updateNavVisibility()
       drawFrame(currentFrame, true)
     }
 
@@ -157,6 +209,7 @@ function App() {
     updateTarget()
     updateCaptionReveal()
     updateScrollHint()
+    updateNavVisibility()
     drawFrame(0, true)
     rafId = requestAnimationFrame(animate)
 
@@ -208,7 +261,21 @@ function App() {
 
   return (
     <>
-      <section className="scroll-journey" ref={journeyRef}>
+      <div className={`site-nav${isNavVisible ? ' is-visible' : ''}`}>
+        <PillNav
+          logo="/frames/ezgif-frame-001.jpg"
+          logoAlt="ECE"
+          items={navItems}
+          activeHref=""
+          initialLoadAnimation={false}
+          baseColor="#e7f6ff"
+          pillColor="#0a2038"
+          pillTextColor="#e7f6ff"
+          hoveredPillTextColor="#091526"
+        />
+      </div>
+
+      <section className="scroll-journey" id="hero" ref={journeyRef}>
         <div className="frame-stage" aria-hidden="true">
           <canvas className="frame-canvas" ref={canvasRef} />
           <div className="frame-overlay" />
@@ -318,6 +385,31 @@ function App() {
                 <li>Innovation and startup-oriented technical ventures</li>
               </ul>
             </div>
+          </div>
+        </section>
+
+        <section className="reveal-section academic-section faculty-section" id="faculty">
+          <header className="section-head" data-animate>
+            <p className="section-eyebrow">Faculty</p>
+            <h2>Meet Our Faculty Team</h2>
+          </header>
+
+          <div className="faculty-grid">
+            {facultyProfiles.map((faculty) => (
+              <article className="faculty-card" key={faculty.name} data-animate>
+                <img src={faculty.photo} alt={faculty.name} className="faculty-photo" />
+                <div className="faculty-content">
+                  <h3>{faculty.name}</h3>
+                  <p>{faculty.position}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="faculty-actions" data-animate>
+            <button className="faculty-button" type="button">
+              View All Faculties
+            </button>
           </div>
         </section>
       </main>
