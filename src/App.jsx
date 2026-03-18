@@ -160,8 +160,10 @@ function App() {
     }
 
     const updateNavVisibility = () => {
-      const progress = getJourneyProgress()
-      const shouldShow = progress >= 0.99
+      const journey = journeyRef.current
+      if (!journey) return
+      const rect = journey.getBoundingClientRect()
+      const shouldShow = rect.bottom <= window.innerHeight + 2
       setIsNavVisible((prev) => (prev === shouldShow ? prev : shouldShow))
     }
 
