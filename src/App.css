@@ -31,19 +31,12 @@
 
 .site-nav {
   position: fixed;
-  right: 1rem;
-  top: 0.95rem;
-  transform: translateY(-14px);
-  opacity: 0;
+  inset: 0;
   pointer-events: none;
-  transition: opacity 260ms ease, transform 260ms ease;
   z-index: 120;
 }
 
 .site-nav.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 .site-nav .site-staggered.staggered-menu-wrapper.fixed-wrapper {
