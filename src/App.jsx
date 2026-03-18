@@ -238,10 +238,7 @@ function App() {
           </header>
           <div className="section-body two-col">
             <p className="lead" data-animate>
-              The curriculum unifies devices, information, and power systems in
-              one coherent learning path. Students move from core engineering
-              principles to system-level design with strong mathematical and
-              computational foundations.
+              content kitteetilla sir
             </p>
             <dl className="definition-grid" data-animate>
               <div>
@@ -267,7 +264,7 @@ function App() {
         <section className="reveal-section academic-section" id="domains">
           <header className="section-head" data-animate>
             <p className="section-eyebrow">Study Domains</p>
-            <h2>Major Academic and Technical Areas</h2>
+            <h2>Major Academic and Technical Areas (as of now only random details mathre illu)</h2>
           </header>
           <div className="section-body three-col" data-animate>
             <article>
