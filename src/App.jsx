@@ -161,9 +161,7 @@ function App() {
     }
 
     const updateNavVisibility = () => {
-      const progress = getJourneyProgress()
-      const shouldShow = progress >= 0.7
-      setIsNavVisible((prev) => (prev === shouldShow ? prev : shouldShow))
+      setIsNavVisible(true)
     }
 
     const onScroll = () => {
