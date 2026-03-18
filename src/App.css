@@ -33,8 +33,8 @@
   --hint-opacity: 1;
   position: fixed;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 2.2rem;
+  transform: translateX(-50%);
   z-index: 3;
   width: fit-content;
   margin-inline: 0;
