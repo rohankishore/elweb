@@ -257,7 +257,7 @@ function App() {
           openedLabel="Close"
           showLogo
           logoUrl="/el-logo.svg"
-          logoText="EL"
+          logoText=""
           items={navItems}
           displaySocials={false}
           displayItemNumbering={false}
