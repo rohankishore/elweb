@@ -5,7 +5,7 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
-  const totalFrames = 240
+  const totalFrames = 110
   const [isNavVisible, setIsNavVisible] = useState(false)
   const canvasRef = useRef(null)
   const captionRef = useRef(null)
@@ -54,7 +54,7 @@ function App() {
     () =>
       Array.from({ length: totalFrames }, (_, i) => {
         const n = String(i + 1).padStart(3, '0')
-        return `/frames/ezgif-frame-${n}.jpg`
+        return `/frames/${n}.png`
       }),
     [totalFrames],
   )
