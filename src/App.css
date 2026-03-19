@@ -12,8 +12,7 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  transform: scale(1.02);
-  filter: saturate(1.05) contrast(1.08);
+  will-change: contents;
 }
 
 .frame-overlay {

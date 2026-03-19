@@ -4,6 +4,9 @@ import StaggeredMenu from './component/StaggeredMenu'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+// entha mwonu ingottokke nokkane?
+// tea veno?
+
 function App() {
   const [isNavVisible, setIsNavVisible] = useState(false)
   const videoRef = useRef(null)
@@ -24,7 +27,7 @@ function App() {
 
   const facultyProfiles = useMemo(
     () => [
-      {
+      { // i lowk dont know any of these. these are all random bozos
         name: 'Faculty 1',
         position: 'Professor, Embedded Systems',
         photo: 'https://i.pravatar.cc/420?img=12',
@@ -53,12 +56,16 @@ function App() {
     const video = videoRef.current
     if (!video) return
 
+    const scrubFps = 30
+    const frameStep = 1 / scrubFps
     let duration = 0
+    let desiredTime = 0
     let lastAppliedTime = -1
     let pendingTime = null
     let isSeeking = false
     let hasInitializedVideo = false
     let scrollRafId = 0
+    let scrubRafId = 0
 
     const getJourneyProgress = () => {
       const journey = journeyRef.current
@@ -80,8 +87,13 @@ function App() {
       return progress * duration
     }
 
+    const updateDesiredFromScroll = () => {
+      if (duration <= 0) return
+      desiredTime = Math.min(Math.max(updateTarget(), 0), duration)
+    }
+
     const seekToTime = (time) => {
-      if (Math.abs(time - lastAppliedTime) < 1 / 60) return
+      if (Math.abs(time - lastAppliedTime) < frameStep * 0.85) return
 
       if (isSeeking) {
         pendingTime = time
@@ -100,6 +112,16 @@ function App() {
         }
       }
       video.currentTime = time
+    }
+
+    const pumpScrub = () => {
+      if (duration > 0) {
+        const quantizedTime = Math.round(desiredTime / frameStep) * frameStep
+        const targetTime = Math.min(Math.max(quantizedTime, 0), duration)
+        seekToTime(targetTime)
+      }
+
+      scrubRafId = requestAnimationFrame(pumpScrub)
     }
 
     const updateCaptionReveal = () => {
@@ -122,7 +144,7 @@ function App() {
       if (scrollRafId) return
       scrollRafId = requestAnimationFrame(() => {
         scrollRafId = 0
-        syncVideoToScroll()
+        updateDesiredFromScroll()
         updateCaptionReveal()
         updateScrollHint()
         updateNavVisibility()
@@ -133,7 +155,7 @@ function App() {
       pendingTime = null
       isSeeking = false
       lastAppliedTime = -1
-      syncVideoToScroll()
+      updateDesiredFromScroll()
       updateCaptionReveal()
       updateScrollHint()
       updateNavVisibility()
@@ -141,8 +163,7 @@ function App() {
 
     const syncVideoToScroll = () => {
       if (duration <= 0) return
-      const targetTime = Math.min(Math.max(updateTarget(), 0), duration)
-      seekToTime(targetTime)
+      updateDesiredFromScroll()
     }
 
     const onVideoReady = () => {
@@ -172,6 +193,7 @@ function App() {
     updateCaptionReveal()
     updateScrollHint()
     updateNavVisibility()
+    scrubRafId = requestAnimationFrame(pumpScrub)
 
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
@@ -179,6 +201,9 @@ function App() {
     return () => {
       if (scrollRafId) {
         cancelAnimationFrame(scrollRafId)
+      }
+      if (scrubRafId) {
+        cancelAnimationFrame(scrubRafId)
       }
       video.removeEventListener('loadedmetadata', onVideoReady)
       video.removeEventListener('seeked', onVideoSeeked)
