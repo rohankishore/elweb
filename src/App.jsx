@@ -104,7 +104,7 @@ function App() {
           video.fastSeek(time)
           return
         } catch {
-          // Fallback to currentTime assignment if fastSeek is unavailable at runtime.
+          // ellam sugham thanne?
         }
       }
       video.currentTime = time
