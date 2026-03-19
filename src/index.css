@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@500;700&family=Sora:wght@400;600;700&display=swap');
 
+@font-face {
+  font-family: 'TacticSans';
+  src: url('/fonts/TacticSans-Reg.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --display: 'Sora', sans-serif;
   --sans: 'Manrope', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
+  --hero-display: 'TacticSans', 'Sora', sans-serif;
   --text-main: #f4fbff;
   --bg-base: #04070d;
 }
