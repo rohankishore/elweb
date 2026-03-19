@@ -1,8 +1,14 @@
-<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">EL logo</title>
-  <desc id="desc">Stylized EL monogram for Electrical and Computer Engineering</desc>
-  <rect x="8" y="8" width="112" height="112" rx="18" fill="#0B2A45"/>
-  <rect x="14" y="14" width="100" height="100" rx="14" stroke="#7ED0FF" stroke-opacity="0.45" stroke-width="2"/>
-  <path d="M40 38H85V50H53V61H80V72H53V90H40V38Z" fill="#EAF7FF"/>
-  <path d="M91 38V79H72V90H103V38H91Z" fill="#8FE8D1"/>
+  <desc id="desc">Letters EL</desc>
+  <text
+    x="64"
+    y="78"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="62"
+    font-weight="700"
+    letter-spacing="1"
+    fill="#EAF7FF"
+  >EL</text>
 </svg>
