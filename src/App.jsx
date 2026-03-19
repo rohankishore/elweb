@@ -285,7 +285,7 @@ function App() {
           <div className="caption-wrap" ref={captionRef}>
             <p className="eyebrow">College of Engineering Trivandrum</p>
             <p className="subline">
-              Build future-ready systems across electronics, computing, and sustainable energy.
+            content nahiii
             </p>
           </div>
         </div>
@@ -303,7 +303,7 @@ function App() {
           </header>
           <div className="section-body two-col">
             <p className="lead" data-animate>
-              The ECE program combines strong engineering fundamentals with hands-on labs, interdisciplinary electives, and project-based learning for real-world problem solving.
+            content illaaa... but goated course thanne 
             </p>
             <dl className="definition-grid" data-animate>
               <div>
@@ -329,7 +329,7 @@ function App() {
         <section className="reveal-section academic-section" id="domains">
           <header className="section-head" data-animate>
             <p className="section-eyebrow">Study Domains</p>
-            <h2>Major Academic and Technical Areas</h2>
+            <h2>Major Academic and Technical Areas (aka random shi coz CONTENT ILLA)</h2>
           </header>
           <div className="section-body three-col domain-cards" data-animate>
             <article>
@@ -362,7 +362,7 @@ function App() {
         <section className="reveal-section academic-section" id="pathways">
           <header className="section-head" data-animate>
             <p className="section-eyebrow">Outcomes</p>
-            <h2>Career and Higher-Study Pathways</h2>
+            <h2>Career and Higher-Study Pathways (content nahi so random bs)</h2>
           </header>
           <div className="section-body split-list pathway-cards" data-animate>
             <div>
@@ -389,7 +389,7 @@ function App() {
         <section className="reveal-section academic-section faculty-section" id="faculty">
           <header className="section-head" data-animate>
             <p className="section-eyebrow">Faculty</p>
-            <h2>Meet Our Faculty Team</h2>
+            <h2>Meet Our Faculty Team (ivarokke aara?)</h2>
           </header>
 
           <div className="faculty-grid">
