@@ -56,7 +56,7 @@ function App() {
     const video = videoRef.current
     if (!video) return
 
-    const scrubFps = 30
+    const scrubFps = 24
     const frameStep = 1 / scrubFps
     let duration = 0
     let desiredTime = 0
@@ -274,7 +274,7 @@ function App() {
           <video
             className="frame-video"
             ref={videoRef}
-            src="/frames.mp4"
+            src="/frames-scrub.mp4"
             preload="auto"
             muted
             playsInline
