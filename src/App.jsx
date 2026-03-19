@@ -5,9 +5,8 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
-  const totalFrames = 110
   const [isNavVisible, setIsNavVisible] = useState(false)
-  const canvasRef = useRef(null)
+  const videoRef = useRef(null)
   const captionRef = useRef(null)
   const scrollHintRef = useRef(null)
   const journeyRef = useRef(null)
@@ -50,79 +49,16 @@ function App() {
     [],
   )
 
-  const frameList = useMemo(
-    () =>
-      Array.from({ length: totalFrames }, (_, i) => {
-        const n = String(i + 1).padStart(3, '0')
-        return `/frames/${n}.png`
-      }),
-    [totalFrames],
-  )
-
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const video = videoRef.current
+    if (!video) return
 
-    const context = canvas.getContext('2d', { alpha: false })
-    if (!context) return
-
-    context.imageSmoothingEnabled = true
-    context.imageSmoothingQuality = 'high'
-
-    const images = new Array(totalFrames)
-    const loaded = new Array(totalFrames).fill(false)
-
-    let rafId = 0
-    let disposed = false
-    let targetFrame = 0
-    let currentFrame = 0
-    let lastDrawnFrame = -1
-
-    const sizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
-      const width = Math.round(window.innerWidth * dpr)
-      const height = Math.round(window.innerHeight * dpr)
-      if (canvas.width !== width || canvas.height !== height) {
-        canvas.width = width
-        canvas.height = height
-      }
-      canvas.style.width = `${window.innerWidth}px`
-      canvas.style.height = `${window.innerHeight}px`
-      context.setTransform(dpr, 0, 0, dpr, 0, 0)
-    }
-
-    const drawFrame = (frameFloat, force = false) => {
-      const intended = Math.max(
-        0,
-        Math.min(totalFrames - 1, Math.round(frameFloat)),
-      )
-
-      let drawIndex = intended
-      if (!loaded[drawIndex]) {
-        while (drawIndex >= 0 && !loaded[drawIndex]) {
-          drawIndex -= 1
-        }
-      }
-
-      if (drawIndex < 0 || !images[drawIndex]) return
-      if (!force && drawIndex === lastDrawnFrame) return
-
-      const image = images[drawIndex]
-      const viewWidth = window.innerWidth
-      const viewHeight = window.innerHeight
-      const scale = Math.max(
-        viewWidth / image.naturalWidth,
-        viewHeight / image.naturalHeight,
-      )
-      const drawWidth = image.naturalWidth * scale
-      const drawHeight = image.naturalHeight * scale
-      const x = (viewWidth - drawWidth) / 2
-      const y = (viewHeight - drawHeight) / 2
-
-      context.clearRect(0, 0, viewWidth, viewHeight)
-      context.drawImage(image, x, y, drawWidth, drawHeight)
-      lastDrawnFrame = drawIndex
-    }
+    let duration = 0
+    let lastAppliedTime = -1
+    let pendingTime = null
+    let isSeeking = false
+    let hasInitializedVideo = false
+    let scrollRafId = 0
 
     const getJourneyProgress = () => {
       const journey = journeyRef.current
@@ -141,7 +77,29 @@ function App() {
 
     const updateTarget = () => {
       const progress = getJourneyProgress()
-      targetFrame = progress * (totalFrames - 1)
+      return progress * duration
+    }
+
+    const seekToTime = (time) => {
+      if (Math.abs(time - lastAppliedTime) < 1 / 60) return
+
+      if (isSeeking) {
+        pendingTime = time
+        return
+      }
+
+      isSeeking = true
+      lastAppliedTime = time
+
+      if (typeof video.fastSeek === 'function') {
+        try {
+          video.fastSeek(time)
+          return
+        } catch {
+          // Fallback to currentTime assignment if fastSeek is unavailable at runtime.
+        }
+      }
+      video.currentTime = time
     }
 
     const updateCaptionReveal = () => {
@@ -161,63 +119,73 @@ function App() {
     }
 
     const onScroll = () => {
-      updateTarget()
-      updateCaptionReveal()
-      updateScrollHint()
-      updateNavVisibility()
+      if (scrollRafId) return
+      scrollRafId = requestAnimationFrame(() => {
+        scrollRafId = 0
+        syncVideoToScroll()
+        updateCaptionReveal()
+        updateScrollHint()
+        updateNavVisibility()
+      })
     }
 
     const onResize = () => {
-      sizeCanvas()
-      lastDrawnFrame = -1
-      updateTarget()
+      pendingTime = null
+      isSeeking = false
+      lastAppliedTime = -1
+      syncVideoToScroll()
       updateCaptionReveal()
       updateScrollHint()
       updateNavVisibility()
-      drawFrame(currentFrame, true)
     }
 
-    const animate = () => {
-      if (disposed) return
-      currentFrame += (targetFrame - currentFrame) * 0.16
-      if (Math.abs(targetFrame - currentFrame) < 0.02) {
-        currentFrame = targetFrame
-      }
-      drawFrame(currentFrame)
-      rafId = requestAnimationFrame(animate)
+    const syncVideoToScroll = () => {
+      if (duration <= 0) return
+      const targetTime = Math.min(Math.max(updateTarget(), 0), duration)
+      seekToTime(targetTime)
     }
 
-    frameList.forEach((src, index) => {
-      const image = new Image()
-      image.decoding = 'async'
-      image.src = src
-      image.onload = () => {
-        loaded[index] = true
-        if (index === 0 || Math.round(currentFrame) === index) {
-          drawFrame(currentFrame, true)
-        }
-      }
-      images[index] = image
-    })
+    const onVideoReady = () => {
+      if (hasInitializedVideo) return
+      hasInitializedVideo = true
+      duration = Number.isFinite(video.duration) ? video.duration : 0
+      syncVideoToScroll()
+    }
 
-    sizeCanvas()
-    updateTarget()
+    const onVideoSeeked = () => {
+      isSeeking = false
+      if (pendingTime === null) return
+
+      const nextTime = pendingTime
+      pendingTime = null
+      seekToTime(nextTime)
+    }
+
+    video.preload = 'auto'
+    video.muted = true
+    video.playsInline = true
+    video.pause()
+    video.addEventListener('loadedmetadata', onVideoReady)
+    video.addEventListener('seeked', onVideoSeeked)
+
+    syncVideoToScroll()
     updateCaptionReveal()
     updateScrollHint()
     updateNavVisibility()
-    drawFrame(0, true)
-    rafId = requestAnimationFrame(animate)
 
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
 
     return () => {
-      disposed = true
-      cancelAnimationFrame(rafId)
+      if (scrollRafId) {
+        cancelAnimationFrame(scrollRafId)
+      }
+      video.removeEventListener('loadedmetadata', onVideoReady)
+      video.removeEventListener('seeked', onVideoSeeked)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
     }
-  }, [frameList, totalFrames])
+  }, [])
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll('.reveal-section'))
@@ -278,7 +246,16 @@ function App() {
 
       <section className="scroll-journey" id="hero" ref={journeyRef}>
         <div className="frame-stage" aria-hidden="true">
-          <canvas className="frame-canvas" ref={canvasRef} />
+          <video
+            className="frame-video"
+            ref={videoRef}
+            src="/frames.mp4"
+            preload="auto"
+            muted
+            playsInline
+            tabIndex={-1}
+            aria-hidden="true"
+          />
           <div className="frame-overlay" />
         </div>
 
