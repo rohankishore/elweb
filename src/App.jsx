@@ -109,6 +109,7 @@ function App() {
       }
       video.currentTime = time
     }
+    
 
     const pumpScrub = () => {
       if (duration > 0) {
