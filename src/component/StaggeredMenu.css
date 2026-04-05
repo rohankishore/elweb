@@ -345,6 +345,30 @@
     width: 100%;
     left: 0;
     right: 0;
+    padding: 5.2em 1.2em 1.4em 1.2em;
+  }
+
+  .staggered-menu-header {
+    padding: 1rem 1.1rem;
+  }
+
+  .sm-toggle {
+    min-height: 44px;
+    gap: 0.42rem;
+  }
+
+  .sm-panel-item {
+    font-size: clamp(2.4rem, 11vw, 3.2rem);
+    padding-right: 1.2em;
+    letter-spacing: -1.5px;
+  }
+
+  .sm-panel-list {
+    gap: 0.25rem;
+  }
+
+  .sm-socials {
+    padding-top: 1.25rem;
   }
 
   .staggered-menu-wrapper[data-open] .sm-logo-img {
