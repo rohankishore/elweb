@@ -281,7 +281,7 @@ function App() {
           <div className="caption-wrap" ref={captionRef}>
             <p className="eyebrow">College of Engineering Trivandrum</p>
             <p className="subline">
-              Explore the future of engineering with us.
+              Bridging electrical engineering and computing for tomorrow’s technology.
             </p>
           </div>
         </div>
