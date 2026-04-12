@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import anime from 'animejs/lib/anime.es.js'
 import StaggeredMenu from './component/StaggeredMenu'
+import MarqueeLinks from './component/MarqueeLinks'
 import './App.css'
 
 function App() {
@@ -294,7 +295,10 @@ function App() {
         <div className="scroll-indicator" ref={scrollHintRef}>
           <span className="scroll-indicator-mouse" aria-hidden="true" />
         </div>
+
       </section>
+      {/* Modern Marquee Section */}
+      <MarqueeLinks />
 
       <main className="content-sections">
         <section className="reveal-section academic-section" id="overview">

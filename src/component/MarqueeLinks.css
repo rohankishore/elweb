@@ -1,0 +1,54 @@
+.marquee-outer {
+  width: 100vw;
+  background: #081c3b;
+  border-top: 1.5px solid #143252;
+  border-bottom: 1.5px solid #143252;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-inner {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  animation: marquee-scroll 18s linear infinite;
+  gap: 2.5rem;
+}
+
+.marquee-link {
+  color: #4ec9e1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  transition: background 0.18s, color 0.18s;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.marquee-link:hover, .marquee-link:focus {
+  background: #143252;
+  color: #fff;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
