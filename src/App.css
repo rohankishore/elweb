@@ -1,3 +1,111 @@
+/* --- Program Overview Section Enhancements --- */
+.program-overview-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.5rem 1.5rem;
+  background: rgba(18, 22, 32, 0.92);
+  border-radius: 2.2rem;
+  box-shadow: 0 8px 40px 0 rgba(20, 24, 32, 0.22);
+  position: relative;
+  overflow: hidden;
+  margin-top: 2.5rem;
+}
+
+.program-overview-heading {
+  font-family: var(--sans);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  background: linear-gradient(90deg, #7fdfff 10%, #b6aaff 60%, #fff7b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.01em;
+  line-height: 1.13;
+  text-shadow: 0 4px 32px rgba(0,0,0,0.18);
+}
+
+.program-overview-subheading {
+  font-family: var(--mono, monospace);
+  font-size: 1.02rem;
+  color: #7fdfff;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+.program-overview-text {
+  font-family: var(--sans);
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  line-height: 1.75;
+  color: #f4fbff;
+  margin: 0 0 2.1rem 0;
+  max-width: 75ch;
+  text-align: left;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+  font-weight: 500;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.18), 0 1px 0 rgba(255,255,255,0.04);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  box-sizing: border-box;
+}
+
+.program-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+  justify-content: flex-start;
+}
+
+.shiny-badge {
+  color: #eaeaea;
+  background: rgba(18, 22, 32, 0.92);
+  border: 1.5px solid rgba(60, 80, 120, 0.38);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px 0 rgba(20, 24, 32, 0.13);
+  display: inline-block;
+  padding: 1.1rem 1.5rem 1.05rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin: 0.3rem 1.1rem 0.3rem 0;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, transform 0.2s;
+  vertical-align: top;
+  backdrop-filter: blur(2.5px);
+}
+.shiny-badge:hover {
+  border-color: rgba(120, 180, 255, 0.32);
+  box-shadow: 0 4px 24px 0 rgba(20, 24, 32, 0.22);
+  background: rgba(24, 28, 40, 0.98);
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .program-overview-section {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    border-radius: 1.1rem;
+  }
+  .program-overview-heading {
+    font-size: 2rem;
+  }
+  .program-badges {
+    gap: 0.7rem;
+  }
+  .shiny-badge {
+    font-size: 1rem;
+    padding: 0.8rem 1.1rem 0.8rem 1.1rem;
+    margin: 0.2rem 0.5rem 0.2rem 0;
+  }
+}
 .program-overview-text {
   font-family: var(--sans);
   font-size: clamp(1.12rem, 2vw, 1.38rem);
