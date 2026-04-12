@@ -281,7 +281,7 @@ function App() {
           <div className="caption-wrap" ref={captionRef}>
             <p className="eyebrow">College of Engineering Trivandrum</p>
             <p className="subline">
-            content nahiii
+              Explore the future of engineering with us.
             </p>
           </div>
         </div>
