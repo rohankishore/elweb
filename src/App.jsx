@@ -321,8 +321,6 @@ function App() {
       </section>
       <section className="content-sections notices-feature-section" id="notices">
         <div className="section-head notices-head">
-          <span className="notices-pill">Latest Updates</span>
-          <span className="notices-index">02</span>
           <h2>Latest Notices</h2>
           <p className="notices-subtitle">Stay updated with important announcements</p>
         </div>
