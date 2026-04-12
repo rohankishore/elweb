@@ -297,7 +297,7 @@ function App() {
         </div>
 
       </section>
-      {/* Modern Marquee Section */}
+      {/* Modern Marquee Section - moved just after hero */}
       <MarqueeLinks />
 
       <main className="content-sections">
