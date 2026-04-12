@@ -1,0 +1,118 @@
+.notice-section {
+  margin: 3.5rem 0 0 0;
+  padding: 0 0.5rem;
+}
+.notice-section__label-row {
+  margin-bottom: 0.7rem;
+}
+.notice-section__label {
+  display: inline-block;
+  color: #7eb6e6;
+  background: rgba(18, 22, 32, 0.92);
+  border: 1.5px solid rgba(60, 80, 120, 0.38);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.38em 1.2em;
+  letter-spacing: 0.04em;
+}
+.notice-section__heading-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+}
+.notice-section__subheading {
+  color: #7eb6e6;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.notice-section__heading {
+  color: #eaf6ff;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin: 0.1em 0 0.2em 0;
+  letter-spacing: -0.01em;
+}
+.notice-section__desc {
+  color: #7eb6e6;
+  font-size: 1.18rem;
+  margin-bottom: 2.2rem;
+}
+.notice-card {
+  background: rgba(24, 38, 58, 0.92);
+  border: 2px solid rgba(60, 80, 120, 0.22);
+  border-radius: 22px;
+  box-shadow: 0 4px 32px 0 rgba(20, 24, 32, 0.13);
+  padding: 2.2rem 2.5rem 1.7rem 2.5rem;
+  margin-bottom: 2.2rem;
+  position: relative;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.notice-card__badges {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.notice-card__badge {
+  color: #b6d6f6;
+  background: rgba(18, 22, 32, 0.92);
+  border: 1.5px solid rgba(60, 80, 120, 0.38);
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.32em 1.1em;
+  letter-spacing: 0.04em;
+}
+.notice-card__badge--pinned {
+  color: #ffb6b6;
+  border-color: #ffb6b6;
+  background: rgba(60, 20, 20, 0.22);
+}
+.notice-card__title {
+  color: #eaf6ff;
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 0.2em;
+}
+.notice-card__date {
+  color: #7eb6e6;
+  font-size: 1.05rem;
+  margin-bottom: 0.7em;
+}
+.notice-card__desc {
+  color: #b6d6f6;
+  font-size: 1.13rem;
+  margin-bottom: 0.7em;
+}
+.notice-card__attachment {
+  margin-bottom: 0.7em;
+}
+.notice-card__attachment-link {
+  color: #7eb6e6;
+  text-decoration: underline;
+  font-size: 1.05rem;
+}
+.notice-card__arrow {
+  position: absolute;
+  right: 2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7eb6e6;
+  font-size: 2.1rem;
+  opacity: 0.5;
+}
+.notice-section__footer {
+  margin-top: 0.5rem;
+}
+.notice-section__view-all {
+  color: #7eb6e6;
+  font-size: 1.18rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.notice-section__view-all:hover {
+  color: #eaf6ff;
+  text-decoration: underline;
+}
