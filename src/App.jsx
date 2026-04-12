@@ -346,77 +346,19 @@ function App() {
           <span className="notice-arrow" aria-hidden="true">›</span>
         </div>
       </section>
+      {/*
       <main className="content-sections">
         <section className="reveal-section academic-section" id="domains">
-          <header className="section-head" data-animate>
-            <p className="section-eyebrow">Study Domains</p>
-            <h2>Major Academic and Technical Areas</h2>
-          </header>
-          <div className="section-body" data-animate>
-            <h3>Electronics and Devices</h3>
-            <ul>
-              <li>Analog and digital circuit design</li>
-              <li>Microelectronics and VLSI basics</li>
-              <li>Embedded system integration</li>
-            </ul>
-            <h3>Computing and Intelligence</h3>
-            <ul>
-              <li>Signals, systems, and control</li>
-              <li>Machine learning for engineering</li>
-              <li>Real-time architecture and automation</li>
-            </ul>
-            <h3>Energy and Infrastructure</h3>
-            <ul>
-              <li>Power electronics and drives</li>
-              <li>Smart grids and energy management</li>
-              <li>Sustainable electrical systems</li>
-            </ul>
-          </div>
+          ...existing code...
         </section>
-
         <section className="reveal-section academic-section" id="pathways">
-          <header className="section-head" data-animate>
-            <p className="section-eyebrow">Outcomes</p>
-            <h2>Career and Higher-Study Pathways</h2>
-          </header>
-          <div className="section-body" data-animate>
-            <h3>Professional Roles</h3>
-            <ul>
-              <li>Embedded Systems Engineer</li>
-              <li>Control and Automation Engineer</li>
-              <li>Power Systems and Grid Analyst</li>
-              <li>Electronics Product Development Engineer</li>
-            </ul>
-            <h3>Advanced Tracks</h3>
-            <ul>
-              <li>MS and MTech in ECE, EE, and CS domains</li>
-              <li>Research pathways in AI, robotics, and IC design</li>
-              <li>Interdisciplinary programs in data and energy systems</li>
-              <li>Innovation and startup-oriented technical ventures</li>
-            </ul>
-          </div>
+          ...existing code...
         </section>
-
         <section className="reveal-section academic-section faculty-section" id="faculty">
-          <header className="section-head" data-animate>
-            <p className="section-eyebrow">Faculty</p>
-            <h2>Meet Our Faculty Team</h2>
-          </header>
-          <div className="section-body" data-animate>
-            <ul>
-              {facultyProfiles.map((faculty) => (
-                <li key={faculty.name} style={{display: 'flex', alignItems: 'center', gap: '1.2rem', marginBottom: '1.1rem'}}>
-                  <img src={faculty.photo} alt={faculty.name} style={{width: '3.2rem', height: '3.2rem', borderRadius: '50%', objectFit: 'cover'}} />
-                  <div>
-                    <strong>{faculty.name}</strong><br />
-                    <span style={{color: '#7ec9c9'}}>{faculty.position}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          ...existing code...
         </section>
       </main>
+      */}
   </>
   )
 }
