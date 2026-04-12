@@ -284,26 +284,9 @@ function App() {
         </div>
 
         <div className="hero-wrap">
-          <ShinyText
-            text="Electrical and Computer Engineering"
-            color="#f4fbff"
-            shineColor="#fff"
-            spread={120}
-            speed={2}
-            direction="left"
-            style={{
-              fontFamily: 'TacticSans, Sora, sans-serif',
-              fontWeight: 700,
-              fontSize: 'clamp(2.05rem, 7vw, 5.7rem)',
-              lineHeight: 0.95,
-              letterSpacing: '-0.02em',
-              maxWidth: '15ch',
-              margin: 0,
-              display: 'block',
-              textAlign: 'center',
-              textWrap: 'balance'
-            }}
-          />
+          <h1 className="hero-shine-text">
+            Electrical and Computer Engineering
+          </h1>
           <div className="caption-wrap" ref={captionRef}>
             <p className="eyebrow">College of Engineering Trivandrum</p>
             <p className="subline">
