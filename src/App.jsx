@@ -4,6 +4,7 @@ import StaggeredMenu from './component/StaggeredMenu'
 import MarqueeLinks from './component/MarqueeLinks'
 import './App.css'
 import ShinyText from './component/ShinyText'
+import Grainient from './component/Grainient'
 
 function App() {
   const [isNavVisible, setIsNavVisible] = useState(false)
@@ -301,63 +302,67 @@ function App() {
 
       </section>
 
-      <MarqueeLinks />
-
+      <Grainient
+        color1="#1e1a28"
+        color2="#3f2f6a"
+        color3="#30235c"
+        timeSpeed={0.4}
+        className="grainient-bg"
+      >
+        <MarqueeLinks />
         <section className="content-sections" id="overview">
-        <div className="section-head">
-          <span className="section-eyebrow">Program Overview</span>
-          <h2>Electrical and Computer Engineering (EL/EO)</h2>
-        </div>
-        <div className="section-body">
-          <p>
-            Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
-          </p>
-          <div className="program-badges">
-            <span className="shiny-badge">4 Years</span>
-            <span className="shiny-badge">8 Semesters</span>
-            <span className="shiny-badge">B.Tech</span>
-            <span className="shiny-badge">Intake: 60</span>
+          <div className="section-head">
+            <span className="section-eyebrow">Program Overview</span>
+            <h2>Electrical and Computer Engineering (EL/EO)</h2>
           </div>
-        </div>
-      </section>
-
-      <main className="content-sections">
-        <section className="reveal-section academic-section" id="overview">
-          <header className="section-head" data-animate>
-            <p className="section-eyebrow">Program Overview</p>
-            <h2>Electrical and Computer Engineering at a Glance</h2>
-          </header>
-          <div className="section-body two-col">
-            <p className="lead" data-animate>
-            content illaaa... but goated course thanne 
+          <div className="section-body">
+            <p>
+              Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
             </p>
-            <dl className="definition-grid" data-animate>
-              <div>
-                <dt>Duration</dt>
-                <dd>4 Years</dd>
-              </div>
-              <div>
-                <dt>Structure</dt>
-                <dd>Core + Electives + Labs</dd>
-              </div>
-              <div>
-                <dt>Capstone</dt>
-                <dd>Industry or Research Project</dd>
-              </div>
-              <div>
-                <dt>Focus</dt>
-                <dd>Hardware-Software Systems</dd>
-              </div>
-            </dl>
+            <div className="program-badges">
+              <span className="shiny-badge">4 Years</span>
+              <span className="shiny-badge">8 Semesters</span>
+              <span className="shiny-badge">B.Tech</span>
+              <span className="shiny-badge">Intake: 60</span>
+            </div>
           </div>
         </section>
-
-        <section className="reveal-section academic-section" id="domains">
-          <header className="section-head" data-animate>
-            <p className="section-eyebrow">Study Domains</p>
-            <h2>Major Academic and Technical Areas</h2>
-          </header>
-          <div className="section-body" data-animate>
+        <main className="content-sections">
+          <section className="reveal-section academic-section" id="overview">
+            <header className="section-head" data-animate>
+              <p className="section-eyebrow">Program Overview</p>
+              <h2>Electrical and Computer Engineering at a Glance</h2>
+            </header>
+            <div className="section-body two-col">
+              <p className="lead" data-animate>
+                content illaaa... but goated course thanne
+              </p>
+              <dl className="definition-grid" data-animate>
+                <div>
+                  <dt>Duration</dt>
+                  <dd>4 Years</dd>
+                </div>
+                <div>
+                  <dt>Structure</dt>
+                  <dd>Core + Electives + Labs</dd>
+                </div>
+                <div>
+                  <dt>Capstone</dt>
+                  <dd>Industry or Research Project</dd>
+                </div>
+                <div>
+                  <dt>Focus</dt>
+                  <dd>Hardware-Software Systems</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+          <section className="reveal-section academic-section" id="domains">
+            <header className="section-head" data-animate>
+              <p className="section-eyebrow">Study Domains</p>
+              <h2>Major Academic and Technical Areas</h2>
+            </header>
+            <div className="section-body" data-animate>
             <h3>Electronics and Devices</h3>
             <ul>
               <li>Analog and digital circuit design</li>
@@ -421,8 +426,10 @@ function App() {
             </ul>
           </div>
         </section>
+
       </main>
-    </>
+    </Grainient>
+  </>
   )
 }
 

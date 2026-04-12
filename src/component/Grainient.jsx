@@ -99,6 +99,7 @@ void main(){
 }
 `;
 
+
 const Grainient = ({
   timeSpeed = 0.25,
   colorBalance = 0.0,
@@ -122,7 +123,8 @@ const Grainient = ({
   color1 = '#FF9FFC',
   color2 = '#5227FF',
   color3 = '#B19EEF',
-  className = ''
+  className = '',
+  children
 }) => {
   const containerRef = useRef(null);
 
@@ -235,7 +237,14 @@ const Grainient = ({
     color3
   ]);
 
-  return <div ref={containerRef} className={`grainient-container ${className}`.trim()} />;
+  return (
+    <div ref={containerRef} className={`grainient-container ${className}`.trim()} style={{position: 'relative'}}>
+      <div style={{position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none'}} />
+      <div style={{position: 'relative', zIndex: 2}}>
+        {children}
+      </div>
+    </div>
+  );
 };
 
 export default Grainient;
