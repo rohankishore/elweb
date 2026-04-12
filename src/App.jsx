@@ -310,12 +310,24 @@ function App() {
             <p className="lead" data-animate>
             content illaaa... but goated course thanne 
             </p>
-            <ul data-animate>
-              <li><strong>Duration:</strong> 4 Years</li>
-              <li><strong>Structure:</strong> Core + Electives + Labs</li>
-              <li><strong>Capstone:</strong> Industry or Research Project</li>
-              <li><strong>Focus:</strong> Hardware-Software Systems</li>
-            </ul>
+            <dl className="definition-grid" data-animate>
+              <div>
+                <dt>Duration</dt>
+                <dd>4 Years</dd>
+              </div>
+              <div>
+                <dt>Structure</dt>
+                <dd>Core + Electives + Labs</dd>
+              </div>
+              <div>
+                <dt>Capstone</dt>
+                <dd>Industry or Research Project</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Hardware-Software Systems</dd>
+              </div>
+            </dl>
           </div>
         </section>
 
