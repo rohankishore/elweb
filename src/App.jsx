@@ -301,6 +301,25 @@ function App() {
 
       </section>
       {/* Modern Marquee Section */}
+
+      {/* Program Overview Section */}
+      <section className="content-sections" id="overview">
+        <div className="section-head">
+          <span className="section-eyebrow">Program Overview</span>
+          <h2>Electrical and Computer Engineering (EL/EO)</h2>
+        </div>
+        <div className="section-body">
+          <p className="lead">
+            Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
+          </p>
+          <div className="program-badges">
+            <span className="shiny-badge">4 Years</span>
+            <span className="shiny-badge">8 Semesters</span>
+            <span className="shiny-badge">B.Tech</span>
+            <span className="shiny-badge">Intake: 60</span>
+          </div>
+        </div>
+      </section>
       <MarqueeLinks />
 
       <main className="content-sections">
