@@ -319,6 +319,30 @@ function App() {
           </div>
         </div>
       </section>
+      <section className="content-sections notices-feature-section" id="notices">
+        <div className="section-head notices-head">
+          <span className="notices-pill">Latest Updates</span>
+          <span className="notices-index">02</span>
+          <h2>Latest Notices</h2>
+          <p className="notices-subtitle">Stay updated with important announcements</p>
+        </div>
+        <div className="notices-feature-card">
+          <div className="notices-meta">
+            <span className="notice-tag notice-tag-pinned">Pinned</span>
+            <span className="notice-tag">Workshop</span>
+          </div>
+          <div className="notice-copy">
+            <h3>Chip Making Workshop</h3>
+            <p className="notice-date">April 12, 2026</p>
+            <p className="notice-description">
+              Hands-on workshop on semiconductor fabrication basics, clean-room workflow, and chip design
+              prototyping for EL/EO students. Limited seats available for the first batch.
+            </p>
+            <p className="notice-linkline">Registration form and session details available</p>
+          </div>
+          <span className="notice-arrow" aria-hidden="true">›</span>
+        </div>
+      </section>
       <main className="content-sections">
         <section className="reveal-section academic-section" id="domains">
           <header className="section-head" data-animate>
