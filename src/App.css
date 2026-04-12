@@ -1,13 +1,68 @@
 .program-overview-text {
   font-family: var(--sans);
-  font-size: clamp(1.08rem, 2vw, 1.32rem);
-  line-height: 1.7;
-  color: rgba(230, 245, 255, 0.97);
-  margin: 0 0 1.6rem 0;
-  max-width: 70ch;
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
+  line-height: 1.75;
+  color: #f4fbff;
+  margin: 0 0 2.1rem 0;
+  max-width: 75ch;
   text-align: left;
   letter-spacing: 0.01em;
   text-wrap: pretty;
+  font-weight: 500;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.18), 0 1px 0 rgba(255,255,255,0.04);
+}
+.program-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.shiny-badge {
+  display: inline-block;
+  padding: 0.52em 1.35em;
+  font-family: var(--sans);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #f8fdff;
+  background: linear-gradient(90deg, #1e3f67 0%, #099071 100%);
+  border-radius: 999px;
+  box-shadow: 0 2px 16px 0 rgba(9, 144, 113, 0.16), 0 1.5px 0.5px 0 rgba(255,255,255,0.10) inset;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.shiny-badge:hover {
+  box-shadow: 0 4px 24px 0 rgba(9, 144, 113, 0.22), 0 2px 1px 0 rgba(255,255,255,0.13) inset;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.shiny-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 60%, rgba(255,255,255,0.85) 85%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  filter: blur(2.5px);
+  animation: badge-shine-move 5.2s cubic-bezier(0.77,0,0.175,1) infinite;
+  animation-delay: 1.7s;
+}
+
+@keyframes badge-shine-move {
+  0% {
+    left: -60%;
+  }
+  10% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 .frame-stage {
   position: sticky;
