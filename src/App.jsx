@@ -3,6 +3,7 @@ import anime from 'animejs/lib/anime.es.js'
 import StaggeredMenu from './component/StaggeredMenu'
 import MarqueeLinks from './component/MarqueeLinks'
 import './App.css'
+import ShinyText from './component/ShinyText'
 
 function App() {
   const [isNavVisible, setIsNavVisible] = useState(false)
@@ -283,7 +284,25 @@ function App() {
         </div>
 
         <div className="hero-wrap">
-          <h1>Electrical and Computer Engineering</h1>
+          <ShinyText
+            text="Electrical and Computer Engineering"
+            className="hero-title h1"
+            color="#f4fbff"
+            shineColor="#fff"
+            spread={120}
+            speed={2}
+            direction="left"
+            style={{
+              fontFamily: 'TacticSans, Sora, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(2.05rem, 7vw, 5.7rem)',
+              lineHeight: 0.95,
+              letterSpacing: '-0.02em',
+              textWrap: 'balance',
+              maxWidth: '15ch',
+              margin: 0
+            }}
+          />
           <div className="caption-wrap" ref={captionRef}>
             <p className="eyebrow">College of Engineering Trivandrum</p>
             <p className="subline">
