@@ -13,8 +13,11 @@
   --sans: 'Manrope', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
   --hero-display: 'TacticSans', 'Sora', sans-serif;
-  --text-main: #f4fbff;
-  --bg-base: #04070d;
+  --text-main: #eaf7ff;
+  --bg-base: #0a0d13;
+  --bg-elevate: #10131a;
+  --badge-gradient: linear-gradient(90deg, #0e223a 0%, #0b3a2e 100%);
+  --badge-glow: 0 2px 18px 0 rgba(9, 144, 113, 0.22), 0 1.5px 0.5px 0 rgba(255,255,255,0.10) inset;
 }
 
 * {
