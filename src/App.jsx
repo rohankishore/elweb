@@ -300,10 +300,10 @@ function App() {
         </div>
 
       </section>
-      {/* Modern Marquee Section */}
 
-      {/* Program Overview Section */}
-      <section className="content-sections" id="overview">
+      <MarqueeLinks />
+
+        <section className="content-sections" id="overview">
         <div className="section-head">
           <span className="section-eyebrow">Program Overview</span>
           <h2>Electrical and Computer Engineering (EL/EO)</h2>
@@ -320,7 +320,6 @@ function App() {
           </div>
         </div>
       </section>
-      <MarqueeLinks />
 
       <main className="content-sections">
         <section className="reveal-section academic-section" id="overview">
