@@ -875,9 +875,9 @@ h2 {
   pointer-events: none;
   transition: opacity 0.2s;
 }
+
 .definition-grid div:hover::after {
   opacity: 1;
-}
 }
 
 .definition-grid dt {
