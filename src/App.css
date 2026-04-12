@@ -43,7 +43,9 @@
   line-height: 1.75;
   color: #f4fbff;
   margin: 0 0 2.1rem 0;
-  max-width: 75ch;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
   text-align: left;
   letter-spacing: 0.01em;
   text-wrap: pretty;
@@ -61,6 +63,9 @@
   margin-top: 1.6rem;
   margin-bottom: 0.5rem;
   justify-content: flex-start;
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .shiny-badge {
@@ -448,6 +453,113 @@ h2 {
 .section-body {
   display: grid;
   gap: 1.05rem;
+}
+
+.overview-section .section-head,
+.overview-section .section-body {
+  width: min(100%, 1120px);
+}
+
+.overview-section .section-body p {
+  margin: 0;
+  max-width: 78ch;
+}
+
+.overview-section .program-badges {
+  max-width: 78ch;
+}
+
+.overview-section .program-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, max-content));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.overview-section .shiny-badge {
+  min-width: 0;
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  padding: 1rem 1.2rem 1.05rem;
+  margin: 0;
+  border: 1px solid rgba(113, 151, 214, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(127, 223, 255, 0.18), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(134, 104, 255, 0.18), transparent 36%),
+    linear-gradient(180deg, rgba(15, 21, 32, 0.96) 0%, rgba(10, 15, 24, 0.94) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 32px rgba(4, 10, 20, 0.32);
+  backdrop-filter: blur(10px);
+}
+
+.overview-section .shiny-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(127, 223, 255, 0.32), transparent 20%),
+    radial-gradient(circle at 100% 100%, rgba(157, 130, 255, 0.24), transparent 22%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.overview-section .shiny-badge::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(18px - 1px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  mask: linear-gradient(#fff 0 0);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overview-section .shiny-badge:hover {
+  border-color: rgba(140, 191, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 42px rgba(6, 14, 28, 0.42);
+  transform: translateY(-3px);
+}
+
+.badge-indicator {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(156, 210, 242, 0.82);
+}
+
+.badge-value {
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: rgba(247, 251, 255, 0.98);
+  text-wrap: balance;
+}
+
+@media (max-width: 700px) {
+  .overview-section .program-badges {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .overview-section .shiny-badge {
+    padding: 0.9rem 1rem 0.95rem;
+    border-radius: 16px;
+  }
+
+  .badge-indicator {
+    font-size: 0.64rem;
+  }
 }
 
 .two-col {
