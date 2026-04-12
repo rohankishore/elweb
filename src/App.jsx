@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import anime from 'animejs/lib/anime.es.js'
 import StaggeredMenu from './component/StaggeredMenu'
 import MarqueeLinks from './component/MarqueeLinks'
 import './App.css'
 import ShinyText from './component/ShinyText'
+import NoticeSection from './component/NoticeSection';
+import NoticesPage from './component/NoticesPage';
 
 function App() {
   const [isNavVisible, setIsNavVisible] = useState(false)
