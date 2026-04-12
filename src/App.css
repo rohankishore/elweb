@@ -1,3 +1,14 @@
+.program-overview-text {
+  font-family: var(--sans);
+  font-size: clamp(1.08rem, 2vw, 1.32rem);
+  line-height: 1.7;
+  color: rgba(230, 245, 255, 0.97);
+  margin: 0 0 1.6rem 0;
+  max-width: 70ch;
+  text-align: left;
+  letter-spacing: 0.01em;
+  text-wrap: pretty;
+}
 .frame-stage {
   position: sticky;
   top: 0;
