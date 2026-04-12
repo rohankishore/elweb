@@ -320,6 +320,12 @@ function App() {
         </div>
       </section>
       <main className="content-sections">
+        <section className="reveal-section academic-section" id="domains">
+          <header className="section-head" data-animate>
+            <p className="section-eyebrow">Study Domains</p>
+            <h2>Major Academic and Technical Areas</h2>
+          </header>
+          <div className="section-body" data-animate>
             <h3>Electronics and Devices</h3>
             <ul>
               <li>Analog and digital circuit design</li>
@@ -383,9 +389,7 @@ function App() {
             </ul>
           </div>
         </section>
-
       </main>
-    </Grainient>
   </>
   )
 }
