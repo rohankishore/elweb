@@ -286,7 +286,6 @@ function App() {
         <div className="hero-wrap">
           <ShinyText
             text="Electrical and Computer Engineering"
-            className="hero-title h1"
             color="#f4fbff"
             shineColor="#fff"
             spread={120}
@@ -298,9 +297,11 @@ function App() {
               fontSize: 'clamp(2.05rem, 7vw, 5.7rem)',
               lineHeight: 0.95,
               letterSpacing: '-0.02em',
-              textWrap: 'balance',
               maxWidth: '15ch',
-              margin: 0
+              margin: 0,
+              display: 'block',
+              textAlign: 'center',
+              textWrap: 'balance'
             }}
           />
           <div className="caption-wrap" ref={captionRef}>
