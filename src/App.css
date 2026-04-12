@@ -688,8 +688,8 @@ h2 {
   .notices-feature-card {
     grid-template-columns: 1fr;
     min-height: 0;
-    padding: 0.7rem 0.7rem 0.5rem 0.7rem;
-    border-radius: 1.1rem;
+    padding: 0.35rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 0.9rem;
   }
   .notices-head {
     width: 100%;
@@ -697,38 +697,42 @@ h2 {
   .notices-meta {
     flex-direction: row;
     align-items: center;
-    padding: 0.3rem 0.7rem 0 0.7rem;
+    padding: 0.1rem 0.5rem 0 0.5rem;
     border-right: none;
     border-bottom: none;
     background: none;
-    font-size: 0.92rem;
+    font-size: 0.85rem;
   }
   .notices-meta::after {
     display: none;
   }
   .notice-copy {
-    padding: 0.2rem 0.7rem 0.5rem 0.7rem;
+    padding: 0.08rem 0.5rem 0.18rem 0.5rem;
   }
   .notice-copy h3 {
-    font-size: 1.08rem;
-    margin-bottom: 0.18rem;
+    font-size: 0.98rem;
+    margin-bottom: 0.08rem;
+    line-height: 1.1;
   }
   .notice-date {
-    font-size: 0.92rem;
-    margin-bottom: 0.12rem;
+    font-size: 0.82rem;
+    margin-bottom: 0.08rem;
+    line-height: 1.1;
   }
   .notice-description {
-    font-size: 0.98rem;
-    margin-bottom: 0.12rem;
+    font-size: 0.89rem;
+    margin-bottom: 0.08rem;
+    line-height: 1.15;
   }
   .notice-linkline {
-    font-size: 0.98rem;
+    font-size: 0.89rem;
     margin-bottom: 0;
+    line-height: 1.1;
   }
   .notice-arrow {
     justify-self: end;
     min-width: 0;
-    padding: 0 0.7rem 0.5rem 0.7rem;
+    padding: 0 0.5rem 0.18rem 0.5rem;
     border-left: none;
   }
   border: 1px solid rgba(96, 174, 233, 0.2);
