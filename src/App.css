@@ -1,15 +1,3 @@
-html, body {
-  overflow-x: hidden !important;
-  scrollbar-width: none;
-}
-
-body {
-  -ms-overflow-style: none;
-}
-
-body::-webkit-scrollbar, html::-webkit-scrollbar {
-  display: none !important;
-}
 .frame-stage {
   position: sticky;
   top: 0;
