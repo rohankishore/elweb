@@ -3,6 +3,7 @@ import './GooeyNav.css';
 
 const GooeyNav = ({
   items,
+  className = '',
   animationTime = 600,
   particleCount = 15,
   particleDistances = [90, 10],
@@ -94,7 +95,8 @@ const GooeyNav = ({
   };
 
   const handleClick = (e, index) => {
-    const liEl = e.currentTarget;
+    const liEl = e.currentTarget.closest('li');
+    if (!liEl) return;
     if (activeIndex === index) return;
 
     setActiveIndex(index);
@@ -147,7 +149,7 @@ const GooeyNav = ({
   }, [activeIndex]);
 
   return (
-    <div className="gooey-nav-container" ref={containerRef}>
+    <div className={`gooey-nav-container ${className}`.trim()} ref={containerRef}>
       <nav>
         <ul ref={navRef}>
           {items.map((item, index) => (

@@ -1,7 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import anime from 'animejs/lib/anime.es.js'
-import StaggeredMenu from './component/StaggeredMenu'
+import GooeyNav from './component/GooeyNav'
 import MarqueeLinks from './component/MarqueeLinks'
 import './App.css'
 import ShinyText from './component/ShinyText'
@@ -9,7 +9,6 @@ import NoticeSection from './component/NoticeSection';
 import NoticesPage from './component/NoticesPage';
 
 function App() {
-  const [isNavVisible, setIsNavVisible] = useState(false)
   const videoRef = useRef(null)
   const captionRef = useRef(null)
   const scrollHintRef = useRef(null)
@@ -17,11 +16,11 @@ function App() {
 
   const navItems = useMemo(
     () => [
-      { label: 'Hero', link: '#hero' },
-      { label: 'Overview', link: '#overview' },
-      { label: 'Domains', link: '#domains' },
-      { label: 'Outcomes', link: '#pathways' },
-      { label: 'Faculty', link: '#faculty' },
+      { label: 'Hero', href: '#hero' },
+      { label: 'Overview', href: '#overview' },
+      { label: 'Domains', href: '#domains' },
+      { label: 'Outcomes', href: '#pathways' },
+      { label: 'Faculty', href: '#faculty' },
     ],
     [],
   )
@@ -138,10 +137,6 @@ function App() {
       scrollHintRef.current?.style.setProperty('--hint-opacity', hintOpacity.toFixed(3))
     }
 
-    const updateNavVisibility = () => {
-      setIsNavVisible(true)
-    }
-
     const onScroll = () => {
       if (scrollRafId) return
       scrollRafId = requestAnimationFrame(() => {
@@ -149,7 +144,6 @@ function App() {
         updateDesiredFromScroll()
         updateCaptionReveal()
         updateScrollHint()
-        updateNavVisibility()
       })
     }
 
@@ -160,7 +154,6 @@ function App() {
       updateDesiredFromScroll()
       updateCaptionReveal()
       updateScrollHint()
-      updateNavVisibility()
     }
 
     const syncVideoToScroll = () => {
@@ -194,7 +187,6 @@ function App() {
     syncVideoToScroll()
     updateCaptionReveal()
     updateScrollHint()
-    updateNavVisibility()
     scrubRafId = requestAnimationFrame(pumpScrub)
 
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -251,23 +243,16 @@ function App() {
 
   return (
     <>
-      <div className={`site-nav${isNavVisible ? ' is-visible' : ''}`}>
-        <StaggeredMenu
-          className="site-staggered"
-          isFixed
-          position="right"
-          closedLabel="Menu"
-          openedLabel="Close"
-          showLogo
-          logoUrl="/el-logo.svg"
-          logoText=""
+      <div className="site-nav">
+        <GooeyNav
+          className="site-gooey-nav"
           items={navItems}
-          displaySocials={false}
-          displayItemNumbering={false}
-          colors={['#143252', '#0d2742']}
-          accentColor="#081c3b"
-          menuButtonColor="#ffffff"
-          openMenuButtonColor="#121212"
+          initialActiveIndex={0}
+          animationTime={520}
+          particleCount={14}
+          particleDistances={[72, 14]}
+          particleR={92}
+          timeVariance={180}
         />
       </div>
 
