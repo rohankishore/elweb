@@ -19,11 +19,9 @@ function App() {
 
   const navItems = useMemo(
     () => [
-      { label: 'Hero', href: '#hero' },
+      { label: 'Home', href: '#hero' },
       { label: 'Overview', href: '#overview' },
       { label: 'Notices', href: '#notices' },
-      { label: 'Outcomes', href: '#pathways' },
-      { label: 'Faculty', href: '#faculty' },
     ],
     [],
   )
