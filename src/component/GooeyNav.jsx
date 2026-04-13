@@ -5,10 +5,10 @@ const GooeyNav = ({
   items,
   className = '',
   animationTime = 600,
-  particleCount = 15,
+  particleCount = 28,
   particleDistances = [90, 10],
   particleR = 100,
-  timeVariance = 300,
+  timeVariance = 700,
   colors = [1, 2, 3, 1, 2, 3, 1, 4],
   initialActiveIndex = 0
 }) => {

@@ -345,6 +345,22 @@ function App() {
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>
         </div>
+
+
+        <div className="notices-feature-card">
+          <div className="notices-meta">
+            <span className="notice-tag notice-tag-pinned">Pinned</span>
+            <span className="notice-tag">Results</span>
+          </div>
+          <div className="notice-copy">
+            <h3>S1 Toppers of EL</h3>
+            <p className="notice-date">April 12, 2026</p>
+            <p className="notice-description">
+               Meet the toppers for the first semester of the 2025 EL batch. Celebrating academic excellence and dedication in the program.
+            </p>
+          </div>
+          <span className="notice-arrow" aria-hidden="true">›</span>
+        </div>
       </section>
       {/*
       <main className="content-sections">
