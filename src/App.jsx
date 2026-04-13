@@ -337,10 +337,9 @@ function App() {
             <span className="notice-tag">Time Table</span>
           </div>
           <div className="notice-copy">
-            <h3>S1 Toppers of EL</h3>
-            <p className="notice-date">April 12, 2026</p>
+            <h3>Semester Exam Time Table for S2 & S4</h3>
             <p className="notice-description">
-               Meet the toppers for the first semester of the 2025 EL batch. Celebrating academic excellence and dedication in the program.
+               KTU Semester exam timetables for EL S2 and S4 batches have been released.
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>
