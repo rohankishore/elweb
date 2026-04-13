@@ -115,7 +115,17 @@
 }
 
 .gooey-nav-container .effect.filter {
-  filter: blur(7px) contrast(100) blur(0);
+  filter: contrast(100);
+  @media (max-width: 600px) {
+    .gooey-nav-container nav ul {
+      gap: 1em;
+      padding: 0 0.3em;
+    }
+    .gooey-nav-container nav ul li a {
+      font-size: 1.15em;
+      padding: 0.9em 1.2em;
+    }
+  }
   mix-blend-mode: lighten;
 }
 
