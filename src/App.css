@@ -1,3 +1,151 @@
+/* Notices Page Styles */
+.notices-page {
+  padding: 3rem 0;
+  min-height: 60vh;
+}
+.notices-title {
+  color: #eaf6ff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.notices-subtitle {
+  color: #b6d6f6;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.notices-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.notice-card-full {
+  display: flex;
+  background: linear-gradient(90deg, #19202a 60%, #1a2331 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.15);
+  overflow: hidden;
+  align-items: stretch;
+  min-width: 0;
+}
+.notice-card-full__side {
+  background: rgba(30,40,60,0.7);
+  padding: 2.2rem 1.2rem 2.2rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 110px;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+.notice-card-full__pinned {
+  background: #e07a8c;
+  color: #fff;
+  border-radius: 1em;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 0.2em 1em;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+.notice-card-full__type {
+  background: #2a3b4d;
+  color: #7fc0ff;
+  border-radius: 1em;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 0.2em 1em;
+  letter-spacing: 1px;
+}
+.notice-card-full__idx {
+  color: #22334a;
+  font-size: 2.2rem;
+  font-weight: 700;
+  opacity: 0.18;
+  align-self: flex-end;
+  line-height: 1;
+}
+.notice-card-full__main {
+  flex: 1;
+  padding: 2.2rem 2.2rem 2.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+.notice-card-full__date {
+  color: #7fc0ff;
+  font-weight: 600;
+  font-size: 1.05em;
+  margin-bottom: 4px;
+}
+.notice-card-full__title {
+  font-weight: 800;
+  font-size: 2.1rem;
+  color: #f3f6fa;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+.notice-card-full__desc {
+  color: #b6d6f6;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.notice-card-full__link a {
+  color: #2bbcff;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-decoration: underline;
+}
+.notice-card-full__arrow {
+  display: flex;
+  align-items: center;
+  padding-right: 2.2rem;
+  color: #7fc0ff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  opacity: 0.7;
+}
+@media (max-width: 700px) {
+  .notices-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .notices-list {
+    gap: 1.1rem;
+  }
+  .notice-card-full {
+    flex-direction: column;
+    border-radius: 1.1rem;
+  }
+  .notice-card-full__side {
+    flex-direction: row;
+    align-items: center;
+    min-width: 0;
+    padding: 1rem 1.1rem 1rem 1.1rem;
+    gap: 0.7rem;
+    justify-content: flex-start;
+  }
+  .notice-card-full__main {
+    padding: 1.1rem 1.1rem 1.1rem 1.1rem;
+  }
+  .notice-card-full__title {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .notice-card-full__desc {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  .notice-card-full__arrow {
+    padding-right: 1.1rem;
+    font-size: 1.5rem;
+  }
+}
 /* --- Program Overview Section Enhancements. This was AI gen-- */
 .program-overview-section {
   width: 100%;
