@@ -1,47 +1,106 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const notices = [
   {
     pinned: true,
-    type: "WORKSHOP",
-    title: "Chip Making Workshop",
+    type: "Time Table",
+    audience: "KTU semester update",
+    title: "Semester Exam Time Table for S2 & S4",
     date: "April 12, 2026",
-    desc: "Hands-on workshop on semiconductor fabrication basics, clean-room workflow, and chip design prototyping for EL/EO students. Limited seats available for the first batch.",
-    link: "Registration form and session details available"
+    desc: "KTU semester exam timetables for EL S2 and S4 batches have been released.",
+    action: "Detailed time table available",
   },
   {
     pinned: true,
-    type: "RESULTS",
+    type: "Results",
+    audience: "First semester highlights",
     title: "S1 Toppers of EL",
     date: "April 12, 2026",
-    desc: "Meet the toppers for the first semester of the 2025 EL batch. Celebrating academic excellence and dedication in the program.",
-    link: null
-  }
+    desc: "Meet the toppers for the first semester of the 2025 EL batch and celebrate the consistency, focus, and academic excellence across the program.",
+    action: "Department announcement board updated",
+  },
 ];
+
+const pinnedCount = notices.filter((notice) => notice.pinned).length;
 
 export default function NoticesPage() {
   return (
-    <div className="notices-page">
-      <h1 className="notices-title">All Notices</h1>
-      <div className="notices-subtitle">Stay updated with important announcements</div>
-      <div className="notices-list">
-        {notices.map((notice, idx) => (
-          <div className="notice-card-full" key={idx}>
-            <div className="notice-card-full__side">
-              {notice.pinned && <span className="notice-card-full__pinned">PINNED</span>}
-              <span className="notice-card-full__type">{notice.type}</span>
-              <span className="notice-card-full__idx">{(idx+1).toString().padStart(2,'0')}</span>
-            </div>
-            <div className="notice-card-full__main">
-              <div className="notice-card-full__date">{notice.date}</div>
-              <div className="notice-card-full__title">{notice.title}</div>
-              <div className="notice-card-full__desc">{notice.desc}</div>
-              {notice.link && <div className="notice-card-full__link"><a href="#">{notice.link}</a></div>}
-            </div>
-            <div className="notice-card-full__arrow">&#8250;</div>
+    <main className="notices-page-shell">
+      <section className="notices-page-hero">
+        <div className="notices-page-hero__copy">
+          <span className="notices-page-hero__eyebrow">Department Bulletin</span>
+          <h1 className="notices-page-hero__title">Notices that are actually easy to scan.</h1>
+          <p className="notices-page-hero__subtitle">
+            Important updates, workshop announcements, and academic reminders for the EL/EO
+            community, arranged with better hierarchy and breathing room.
+          </p>
+          <div className="notices-page-hero__actions">
+            <a href="#notice-feed" className="notices-page-hero__cta">
+              Browse notices
+            </a>
+            <Link to="/" className="notices-page-hero__link">
+              Back to home
+            </Link>
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
+
+        <div className="notices-page-overview" aria-label="Notices overview">
+          <div className="notices-page-overview__card">
+            <span className="notices-page-overview__label">Total posts</span>
+            <strong className="notices-page-overview__value">{notices.length}</strong>
+          </div>
+          <div className="notices-page-overview__card">
+            <span className="notices-page-overview__label">Pinned now</span>
+            <strong className="notices-page-overview__value">{pinnedCount}</strong>
+          </div>
+          <div className="notices-page-overview__card">
+            <span className="notices-page-overview__label">Latest update</span>
+            <strong className="notices-page-overview__value">April 12</strong>
+          </div>
+        </div>
+      </section>
+
+      <section className="notices-page-content" id="notice-feed">
+        <div className="notices-page-content__header">
+          <div>
+            <span className="notices-page-content__eyebrow">Live feed</span>
+            <h2 className="notices-page-content__title">Recent notices</h2>
+          </div>
+          <p className="notices-page-content__text">
+            Pinned items stay up top, while every card keeps the important details visible at a
+            glance.
+          </p>
+        </div>
+
+        <div className="notices-page-list">
+          {notices.map((notice, idx) => (
+            <article className="notice-panel" key={notice.title}>
+              <div className="notice-panel__meta">
+                <span className="notice-panel__index">{String(idx + 1).padStart(2, "0")}</span>
+                <div className="notice-panel__chips">
+                  {notice.pinned && <span className="notice-panel__chip notice-panel__chip--pinned">Pinned</span>}
+                  <span className="notice-panel__chip">{notice.type}</span>
+                </div>
+                <span className="notice-panel__audience">{notice.audience}</span>
+              </div>
+
+              <div className="notice-panel__body">
+                <div className="notice-panel__date">{notice.date}</div>
+                <h3 className="notice-panel__title">{notice.title}</h3>
+                <p className="notice-panel__desc">{notice.desc}</p>
+              </div>
+
+              <div className="notice-panel__footer">
+                <span className="notice-panel__action">{notice.action}</span>
+                <span className="notice-panel__arrow" aria-hidden="true">
+                  →
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }
