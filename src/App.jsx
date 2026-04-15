@@ -243,109 +243,127 @@ function App() {
   }, [])
 
   return (
-    <>
-      <div className="site-nav">
-        <GooeyNav
-          className="site-gooey-nav"
-          items={navItems}
-          initialActiveIndex={0}
-          animationTime={520}
-          particleCount={14}
-          particleDistances={[72, 14]}
-          particleR={92}
-          timeVariance={180}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div className="site-nav">
+                <GooeyNav
+                  className="site-gooey-nav"
+                  items={navItems}
+                  initialActiveIndex={0}
+                  animationTime={520}
+                  particleCount={14}
+                  particleDistances={[72, 14]}
+                  particleR={92}
+                  timeVariance={180}
+                />
+              </div>
+
+              <section className="scroll-journey" id="hero" ref={journeyRef}>
+                <div className="frame-stage" aria-hidden="true">
+                  <video
+                    className="frame-video"
+                    ref={videoRef}
+                    src="/frames-scrub.mp4"
+                    preload="auto"
+                    muted
+                    playsInline
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  />
+                  <div className="frame-overlay" />
+                </div>
+
+                <div className="hero-wrap">
+                  <h1 className="hero-shine-text">
+                    Electrical and Computer Engineering
+                  </h1>
+                  <div className="caption-wrap" ref={captionRef}>
+                    <p className="eyebrow">College of Engineering Trivandrum</p>
+                    <p className="subline">
+                      Bridging electrical engineering and computing for tomorrow’s technology.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="scroll-indicator" ref={scrollHintRef}>
+                  <span className="scroll-indicator-mouse" aria-hidden="true" />
+                </div>
+              </section>
+
+              <MarqueeLinks />
+              <section className="content-sections overview-section" id="overview">
+                <div className="section-head">
+                  <span className="section-eyebrow">Program Overview</span>
+                  <h2>Electrical and Computer Engineering (EL/EO)</h2>
+                </div>
+                <div className="section-body">
+                  <p>
+                    Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
+                  </p>
+                  <div className="program-badges">
+                    <div className="shiny-badge">
+                      <span className="badge-indicator">Duration</span>
+                      <span className="badge-value">4 Years</span>
+                    </div>
+                    <div className="shiny-badge">
+                      <span className="badge-indicator">Structure</span>
+                      <span className="badge-value">8 Semesters</span>
+                    </div>
+                    <div className="shiny-badge">
+                      <span className="badge-indicator">Degree</span>
+                      <span className="badge-value">B.Tech</span>
+                    </div>
+                    <div className="shiny-badge">
+                      <span className="badge-indicator">Capacity</span>
+                      <span className="badge-value">Intake: 60</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section className="content-sections notices-feature-section" id="notices">
+                <div className="section-head notices-head">
+                  <h2>Latest Notices</h2>
+                  <p className="notices-subtitle">Stay updated with important announcements</p>
+                </div>
+
+                <div className="notices-feature-card">
+                  <div className="notices-meta">
+                    <span className="notice-tag notice-tag-pinned">Pinned</span>
+                    <span className="notice-tag">Time Table</span>
+                  </div>
+                  <div className="notice-copy">
+                    <h3>Semester Exam Time Table for S2 & S4</h3>
+                    <p className="notice-description">
+                      KTU Semester exam timetables for EL S2 and S4 batches have been released.
+                    </p>
+                  </div>
+                  <span className="notice-arrow" aria-hidden="true">›</span>
+                </div>
+                <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+                  <a href="/notices" style={{
+                    display: 'inline-block',
+                    background: '#2a3b4d',
+                    color: '#7fc0ff',
+                    borderRadius: '2em',
+                    fontWeight: 700,
+                    fontSize: '1.1em',
+                    padding: '0.7em 2.2em',
+                    textDecoration: 'none',
+                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)',
+                    transition: 'background 0.2s',
+                  }}>View all notices &rarr;</a>
+                </div>
+              </section>
+            </>
+          }
         />
-      </div>
-
-      <section className="scroll-journey" id="hero" ref={journeyRef}>
-        <div className="frame-stage" aria-hidden="true">
-          <video
-            className="frame-video"
-            ref={videoRef}
-            src="/frames-scrub.mp4"
-            preload="auto"
-            muted
-            playsInline
-            tabIndex={-1}
-            aria-hidden="true"
-          />
-          <div className="frame-overlay" />
-        </div>
-
-        <div className="hero-wrap">
-          <h1 className="hero-shine-text">
-            Electrical and Computer Engineering
-          </h1>
-          <div className="caption-wrap" ref={captionRef}>
-            <p className="eyebrow">College of Engineering Trivandrum</p>
-            <p className="subline">
-              Bridging electrical engineering and computing for tomorrow’s technology.
-            </p>
-          </div>
-        </div>
-
-        <div className="scroll-indicator" ref={scrollHintRef}>
-          <span className="scroll-indicator-mouse" aria-hidden="true" />
-        </div>
-
-      </section>
-
-
-
-      <MarqueeLinks />
-      <section className="content-sections overview-section" id="overview">
-        <div className="section-head">
-          <span className="section-eyebrow">Program Overview</span>
-          <h2>Electrical and Computer Engineering (EL/EO)</h2>
-        </div>
-        <div className="section-body">
-          <p>
-            Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
-          </p>
-          <div className="program-badges">
-            <div className="shiny-badge">
-              <span className="badge-indicator">Duration</span>
-              <span className="badge-value">4 Years</span>
-            </div>
-            <div className="shiny-badge">
-              <span className="badge-indicator">Structure</span>
-              <span className="badge-value">8 Semesters</span>
-            </div>
-            <div className="shiny-badge">
-              <span className="badge-indicator">Degree</span>
-              <span className="badge-value">B.Tech</span>
-            </div>
-            <div className="shiny-badge">
-              <span className="badge-indicator">Capacity</span>
-              <span className="badge-value">Intake: 60</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="content-sections notices-feature-section" id="notices">
-        <div className="section-head notices-head">
-          <h2>Latest Notices</h2>
-          <p className="notices-subtitle">Stay updated with important announcements</p>
-        </div>
-
-
-        <div className="notices-feature-card">
-          <div className="notices-meta">
-            <span className="notice-tag notice-tag-pinned">Pinned</span>
-            <span className="notice-tag">Time Table</span>
-          </div>
-          <div className="notice-copy">
-            <h3>Semester Exam Time Table for S2 & S4</h3>
-            <p className="notice-description">
-               KTU Semester exam timetables for EL S2 and S4 batches have been released.
-            </p>
-          </div>
-          <span className="notice-arrow" aria-hidden="true">›</span>
-        </div>
-
-      </section>
-      {}
-  </>
+        <Route path="/notices" element={<NoticesPage />} />
+      </Routes>
+    </Router>
   )
 }
 
