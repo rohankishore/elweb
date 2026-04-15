@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './GooeyNav.css';
 
 const GooeyNav = ({
@@ -17,6 +18,10 @@ const GooeyNav = ({
   const filterRef = useRef(null);
   const textRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
+
+  useEffect(() => {
+    setActiveIndex(initialActiveIndex);
+  }, [initialActiveIndex]);
 
   const noise = (n = 1) => n / 2 - Math.random() * n;
 
@@ -154,9 +159,13 @@ const GooeyNav = ({
         <ul ref={navRef}>
           {items.map((item, index) => (
             <li key={index} className={activeIndex === index ? 'active' : ''}>
-              <a href={item.href} onClick={e => handleClick(e, index)} onKeyDown={e => handleKeyDown(e, index)}>
+              <Link
+                to={item.to ?? item.href ?? '/'}
+                onClick={e => handleClick(e, index)}
+                onKeyDown={e => handleKeyDown(e, index)}
+              >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

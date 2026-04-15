@@ -10,6 +10,7 @@ import './App.css'
 import ShinyText from './component/ShinyText'
 import NoticeSection from './component/NoticeSection';
 import NoticesPage from './component/NoticesPage';
+import AboutPage from './component/AboutPage';
 
 function App() {
   const videoRef = useRef(null)
@@ -20,7 +21,7 @@ function App() {
   const navItems = useMemo(
     () => [
       { label: 'Home', to: '/' },
-      { label: 'Overview', to: '/#overview' },
+      { label: 'About', to: '/about' },
       { label: 'Notices', to: '/notices' },
     ],
     [],
@@ -245,10 +246,27 @@ function App() {
   // Layout with nav and highlight logic
   function Layout({ children }) {
     const location = useLocation();
+
+    useEffect(() => {
+      if (!location.hash) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const targetId = location.hash.replace('#', '');
+      const targetElement = document.getElementById(targetId);
+
+      if (!targetElement) return;
+
+      requestAnimationFrame(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }, [location.pathname, location.hash]);
+
     // Determine active index for GooeyNav
     let activeIdx = 0;
     if (location.pathname === '/notices') activeIdx = 2;
-    else if (location.hash === '#overview' || location.pathname === '/#overview') activeIdx = 1;
+    else if (location.pathname === '/about') activeIdx = 1;
     else activeIdx = 0;
     return (
       <>
@@ -375,6 +393,7 @@ function App() {
               </>
             }
           />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/notices" element={<NoticesPage />} />
         </Routes>
       </Layout>
