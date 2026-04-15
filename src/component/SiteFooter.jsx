@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const decodeChars = 'ELCTRAPMOUIN'
-const footerWords = ['ELECTRICAL', 'COMPUTER']
+const footerWords = ['EL', 'ELECTRICAL', 'COMPUTER']
 
 const footerLinks = [
   { label: 'Home', to: '/' },
@@ -47,6 +47,7 @@ export default function SiteFooter() {
     let stageTimeout = 0
     let cycleTimeout = 0
     let currentWord = 'EL'
+    let sequenceIndex = 0
 
     const animateToWord = (targetWord, onDone) => {
       let frame = 0
@@ -76,13 +77,11 @@ export default function SiteFooter() {
     }
 
     const runCycle = () => {
-      const targetWord = footerWords[Math.floor(Math.random() * footerWords.length)]
+      sequenceIndex = (sequenceIndex + 1) % footerWords.length
+      const targetWord = footerWords[sequenceIndex]
+
       animateToWord(targetWord, () => {
-        stageTimeout = window.setTimeout(() => {
-          animateToWord('EL', () => {
-            cycleTimeout = window.setTimeout(runCycle, 2600)
-          })
-        }, 1400)
+        cycleTimeout = window.setTimeout(runCycle, targetWord === 'EL' ? 1800 : 2200)
       })
     }
 
@@ -121,7 +120,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer" ref={footerRef}>
       <div
-        className="site-footer__word"
+        className={`site-footer__word${displayWord.length > 8 ? ' site-footer__word--long' : ''}`}
         aria-hidden="true"
         style={{ transform: `translate(-50%, ${wordShift}px)` }}
       >
