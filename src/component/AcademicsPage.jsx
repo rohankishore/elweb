@@ -26,18 +26,21 @@ export default function AcademicsPage() {
         <div className="academics-page-content__header">
           <h2 className="academics-page-content__title">Syllabus</h2>
           <p className="academics-page-content__text">
-            Download the current syllabus document directly from here.
+            Open the current syllabus folder directly from here.
           </p>
         </div>
 
-        <a
-          className="shiny-badge academics-syllabus-tile"
-          href="/academics-syllabus.pdf"
-          download="EL-EO-Syllabus.pdf"
-        >
-          <span className="badge-indicator">PDF Download</span>
-          <span className="badge-value">Download syllabus</span>
-        </a>
+        <div className="resource-badges">
+          <a
+            className="resource-badge"
+            href="https://drive.google.com/drive/folders/1X_GLuX7iMzN35Q03IfZfCNRgfCYZimMS"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="badge-indicator">Syllabus</span>
+            <span className="badge-value">Open syllabus folder</span>
+          </a>
+        </div>
       </section>
     </main>
   );

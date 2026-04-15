@@ -12,6 +12,7 @@ import NoticeSection from './component/NoticeSection';
 import NoticesPage from './component/NoticesPage';
 import AboutPage from './component/AboutPage';
 import AcademicsPage from './component/AcademicsPage';
+import GrievancesPage from './component/GrievancesPage';
 
 function App() {
   const videoRef = useRef(null)
@@ -24,6 +25,7 @@ function App() {
       { label: 'Home', to: '/' },
       { label: 'About', to: '/about' },
       { label: 'Academics', to: '/academics' },
+      { label: 'Grievances', to: '/grievances' },
       { label: 'Notices', to: '/notices' },
     ],
     [],
@@ -267,7 +269,8 @@ function App() {
 
     // Determine active index for GooeyNav
     let activeIdx = 0;
-    if (location.pathname === '/notices') activeIdx = 3;
+    if (location.pathname === '/notices') activeIdx = 4;
+    else if (location.pathname === '/grievances') activeIdx = 3;
     else if (location.pathname === '/academics') activeIdx = 2;
     else if (location.pathname === '/about') activeIdx = 1;
     else activeIdx = 0;
@@ -398,6 +401,7 @@ function App() {
           />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/academics" element={<AcademicsPage />} />
+          <Route path="/grievances" element={<GrievancesPage />} />
           <Route path="/notices" element={<NoticesPage />} />
         </Routes>
       </Layout>
