@@ -13,6 +13,7 @@ import NoticesPage from './component/NoticesPage';
 import AboutPage from './component/AboutPage';
 import AcademicsPage from './component/AcademicsPage';
 import GrievancesPage from './component/GrievancesPage';
+import SiteFooter from './component/SiteFooter';
 
 function App() {
   const videoRef = useRef(null)
@@ -289,6 +290,7 @@ function App() {
           />
         </div>
         {children}
+        <SiteFooter />
       </>
     );
   }
