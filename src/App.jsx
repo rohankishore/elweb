@@ -11,6 +11,7 @@ import ShinyText from './component/ShinyText'
 import NoticeSection from './component/NoticeSection';
 import NoticesPage from './component/NoticesPage';
 import AboutPage from './component/AboutPage';
+import AcademicsPage from './component/AcademicsPage';
 
 function App() {
   const videoRef = useRef(null)
@@ -22,6 +23,7 @@ function App() {
     () => [
       { label: 'Home', to: '/' },
       { label: 'About', to: '/about' },
+      { label: 'Academics', to: '/academics' },
       { label: 'Notices', to: '/notices' },
     ],
     [],
@@ -265,7 +267,8 @@ function App() {
 
     // Determine active index for GooeyNav
     let activeIdx = 0;
-    if (location.pathname === '/notices') activeIdx = 2;
+    if (location.pathname === '/notices') activeIdx = 3;
+    else if (location.pathname === '/academics') activeIdx = 2;
     else if (location.pathname === '/about') activeIdx = 1;
     else activeIdx = 0;
     return (
@@ -394,6 +397,7 @@ function App() {
             }
           />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/notices" element={<NoticesPage />} />
         </Routes>
       </Layout>
