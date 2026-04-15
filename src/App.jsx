@@ -344,17 +344,16 @@ function App() {
                   <span className="notice-arrow" aria-hidden="true">›</span>
                 </div>
                 <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-                  <a href="/notices" style={{
+                  <a href="/notices" className="shiny-badge" style={{
                     display: 'inline-block',
-                    background: '#2a3b4d',
-                    color: '#7fc0ff',
-                    borderRadius: '2em',
+                    borderRadius: '16px',
                     fontWeight: 700,
-                    fontSize: '1.1em',
-                    padding: '0.7em 2.2em',
+                    fontSize: '1.18rem',
+                    padding: '1.1rem 2.5rem',
                     textDecoration: 'none',
-                    boxShadow: '0 2px 12px 0 rgba(0,0,0,0.10)',
-                    transition: 'background 0.2s',
+                    margin: 0,
+                    boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)',
+                    verticalAlign: 'top',
                   }}>View all notices &rarr;</a>
                 </div>
               </section>
