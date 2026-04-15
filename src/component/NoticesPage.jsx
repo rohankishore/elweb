@@ -9,7 +9,6 @@ const notices = [
     title: "Semester Exam Time Table for S2 & S4",
     date: "April 12, 2026",
     desc: "KTU semester exam timetables for EL S2 and S4 batches have been released.",
-    action: "Detailed time table available",
   },
   {
     pinned: true,
@@ -18,7 +17,6 @@ const notices = [
     title: "S1 Toppers of EL",
     date: "April 12, 2026",
     desc: "Meet the toppers for the first semester of the 2025 EL batch and celebrate the consistency, focus, and academic excellence across the program.",
-    action: "Department announcement board updated",
   },
 ];
 
@@ -30,10 +28,10 @@ export default function NoticesPage() {
       <section className="notices-page-hero">
         <div className="notices-page-hero__copy">
           <span className="notices-page-hero__eyebrow">Department Bulletin</span>
-          <h1 className="notices-page-hero__title">Notices that are actually easy to scan.</h1>
+          <h1 className="notices-page-hero__title">Latest Notices</h1>
           <p className="notices-page-hero__subtitle">
-            Important updates, workshop announcements, and academic reminders for the EL/EO
-            community, arranged with better hierarchy and breathing room.
+            Important announcements, academic updates, and department highlights for the EL/EO
+            community, all in one place.
           </p>
           <div className="notices-page-hero__actions">
             <a href="#notice-feed" className="notices-page-hero__cta">
@@ -64,13 +62,8 @@ export default function NoticesPage() {
       <section className="notices-page-content" id="notice-feed">
         <div className="notices-page-content__header">
           <div>
-            <span className="notices-page-content__eyebrow">Live feed</span>
             <h2 className="notices-page-content__title">Recent notices</h2>
           </div>
-          <p className="notices-page-content__text">
-            Pinned items stay up top, while every card keeps the important details visible at a
-            glance.
-          </p>
         </div>
 
         <div className="notices-page-list">
