@@ -28,18 +28,17 @@ export default function AcademicsPage() {
           <p className="academics-page-content__text">
             Open the current syllabus folder directly from here.
           </p>
-        </div>
-
-        <div className="resource-badges">
-          <a
-            className="resource-badge"
-            href="https://drive.google.com/drive/folders/1X_GLuX7iMzN35Q03IfZfCNRgfCYZimMS"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="badge-indicator">Syllabus</span>
-            <span className="badge-value">Open syllabus folder</span>
-          </a>
+          <div className="resource-badges">
+            <a
+              className="resource-badge"
+              href="https://drive.google.com/drive/folders/1X_GLuX7iMzN35Q03IfZfCNRgfCYZimMS"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="badge-indicator">Syllabus</span>
+              <span className="badge-value">Open syllabus folder</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>

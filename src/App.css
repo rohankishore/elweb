@@ -2,7 +2,7 @@
 .academics-page-shell {
   position: relative;
   min-height: 100vh;
-  padding: clamp(5.5rem, 10vw, 8rem) 1rem 4rem;
+  padding: clamp(3.8rem, 7vw, 5.5rem) 1rem 4rem;
   background:
     radial-gradient(circle at top left, rgba(77, 154, 210, 0.22), transparent 28%),
     radial-gradient(circle at 85% 18%, rgba(46, 121, 180, 0.16), transparent 24%),
@@ -34,14 +34,6 @@
 }
 
 .academics-page-hero__copy {
-  border: 1px solid rgba(105, 156, 212, 0.22);
-  border-radius: 28px;
-  background:
-    linear-gradient(145deg, rgba(9, 21, 36, 0.92) 0%, rgba(9, 17, 29, 0.96) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 24px 70px rgba(2, 8, 18, 0.32);
-  backdrop-filter: blur(12px);
   padding: clamp(1.6rem, 4vw, 2.8rem);
 }
 
@@ -113,10 +105,8 @@
 
 .academics-page-content__header {
   padding: clamp(1.5rem, 3vw, 2rem);
-  border-radius: 28px;
-  border: 1px solid rgba(105, 156, 212, 0.18);
-  background: rgba(7, 17, 29, 0.82);
-  box-shadow: 0 20px 50px rgba(3, 8, 17, 0.28);
+  display: grid;
+  gap: 1.1rem;
 }
 
 .academics-page-content__title {
@@ -135,21 +125,227 @@
   font-size: 1.05rem;
 }
 
-.academics-syllabus-tile {
+.resource-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, max-content));
   width: fit-content;
-  min-width: min(100%, 320px);
+  max-width: 100%;
+  gap: 1rem;
+}
+
+.resource-badge {
+  min-width: 0;
   display: grid;
   gap: 0.45rem;
   align-content: start;
-  text-decoration: none;
+  justify-items: center;
+  text-align: center;
+  padding: 1rem 1.2rem 1.05rem;
   margin: 0;
+  text-decoration: none;
+  border: 1px solid rgba(113, 151, 214, 0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(109, 174, 214, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(66, 84, 134, 0.2), transparent 34%),
+    linear-gradient(145deg, rgba(18, 25, 38, 0.98) 0%, rgba(11, 17, 28, 0.98) 54%, rgba(20, 24, 44, 0.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 32px rgba(4, 10, 20, 0.32);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.resource-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(121, 188, 227, 0.16), transparent 20%),
+    radial-gradient(circle at 100% 100%, rgba(85, 103, 162, 0.18), transparent 24%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.resource-badge::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(18px - 1px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  mask: linear-gradient(#fff 0 0);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.resource-badge:hover {
+  border-color: rgba(140, 191, 255, 0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 42px rgba(6, 14, 28, 0.42);
+  transform: translateY(-3px);
+}
+
+/* Grievances Page Styles */
+.grievances-page-shell {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(4.25rem, 8vw, 6rem) 1rem 4rem;
+  background:
+    radial-gradient(circle at top left, rgba(77, 154, 210, 0.22), transparent 28%),
+    radial-gradient(circle at 85% 18%, rgba(46, 121, 180, 0.16), transparent 24%),
+    linear-gradient(180deg, #06101d 0%, #081423 46%, #050c16 100%);
+}
+
+.grievances-page-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, rgba(137, 192, 225, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(137, 192, 225, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.3;
+}
+
+.grievances-page-hero,
+.grievances-page-content {
+  position: relative;
+  z-index: 1;
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.grievances-page-hero {
+  margin-bottom: 2rem;
+}
+
+.grievances-page-hero__copy,
+.grievances-page-content__intro,
+.grievances-page-rules {
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.grievances-page-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(108, 182, 238, 0.24);
+  background: rgba(17, 49, 79, 0.36);
+  color: #86d5ff;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.grievances-page-hero__title {
+  margin: 0;
+  max-width: 12ch;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 7vw, 5.1rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: #f4fbff;
+}
+
+.grievances-page-hero__subtitle {
+  margin: 1.25rem 0 0;
+  max-width: 40ch;
+  font-size: clamp(1rem, 2.1vw, 1.18rem);
+  line-height: 1.75;
+  color: rgba(201, 228, 245, 0.92);
+}
+
+.grievances-page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.7rem;
+}
+
+.grievances-page-hero__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(147, 198, 233, 0.24);
+  background: rgba(11, 26, 42, 0.68);
+  color: #ebf7ff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.grievances-page-hero__link:hover {
+  transform: translateY(-2px);
+}
+
+.grievances-page-content {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grievances-page-content__intro {
+  display: grid;
+  gap: 1rem;
+}
+
+.grievances-page-content__intro p,
+.grievances-page-rules__card p {
+  margin: 0;
+  max-width: 70ch;
+  color: rgba(183, 216, 237, 0.9);
+  line-height: 1.85;
+  font-size: 1.03rem;
+}
+
+.grievances-page-rules__title {
+  margin: 0 0 1.2rem;
+  font-family: var(--display);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 0.98;
+  color: #f2f9ff;
+}
+
+.grievances-page-rules__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.grievances-page-rules__card {
+  padding: 1.15rem 1.2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(127, 185, 224, 0.12);
+  background:
+    radial-gradient(circle at top right, rgba(99, 175, 230, 0.14), transparent 30%),
+    rgba(8, 19, 32, 0.92);
+}
+
+.grievances-page-rules__card h3 {
+  margin: 0 0 0.7rem;
+  font-family: var(--display);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.1;
+  color: #f4fbff;
 }
 
 /* About Page Styles */
 .about-page-shell {
   position: relative;
   min-height: 100vh;
-  padding: clamp(5.5rem, 10vw, 8rem) 1rem 4rem;
+  padding: clamp(4.25rem, 8vw, 6rem) 1rem 4rem;
   background:
     radial-gradient(circle at top left, rgba(77, 154, 210, 0.22), transparent 28%),
     radial-gradient(circle at 85% 18%, rgba(46, 121, 180, 0.16), transparent 24%),
@@ -333,7 +529,7 @@
 .notices-page-shell {
   position: relative;
   min-height: 100vh;
-  padding: clamp(5.5rem, 10vw, 8rem) 1rem 4rem;
+  padding: clamp(4.25rem, 8vw, 6rem) 1rem 4rem;
   background:
     radial-gradient(circle at top left, rgba(77, 154, 210, 0.22), transparent 28%),
     radial-gradient(circle at 85% 18%, rgba(46, 121, 180, 0.16), transparent 24%),
@@ -370,14 +566,11 @@
 
 .notices-page-hero__copy,
 .notices-page-overview {
-  border: 1px solid rgba(105, 156, 212, 0.22);
-  border-radius: 28px;
-  background:
-    linear-gradient(145deg, rgba(9, 21, 36, 0.92) 0%, rgba(9, 17, 29, 0.96) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 24px 70px rgba(2, 8, 18, 0.32);
-  backdrop-filter: blur(12px);
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
 }
 
 .notices-page-hero__copy {
@@ -457,7 +650,7 @@
 }
 
 .notices-page-overview {
-  padding: 1rem;
+  padding: 0;
   display: grid;
   gap: 0.9rem;
   align-content: stretch;
@@ -689,13 +882,17 @@
 
 @media (max-width: 640px) {
   .academics-page-shell,
+  .grievances-page-shell,
   .about-page-shell,
   .notices-page-shell {
-    padding: 5.25rem 0.75rem 6rem;
+    padding: 3.85rem 0.75rem 6rem;
   }
 
   .academics-page-hero__copy,
   .academics-page-content__header,
+  .grievances-page-hero__copy,
+  .grievances-page-content__intro,
+  .grievances-page-rules,
   .about-page-hero__copy,
   .about-page-content__intro,
   .notices-page-hero__copy,
@@ -705,13 +902,38 @@
 
   .about-page-status,
   .notices-page-overview {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
   }
 
   .academics-page-hero__title,
+  .grievances-page-hero__title,
   .about-page-hero__title,
   .notices-page-hero__title {
     max-width: 100%;
+  }
+
+  .resource-badges {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .resource-badge {
+    width: 100%;
+  }
+
+  .notices-page-overview__card {
+    padding: 0.85rem 0.75rem 0.9rem;
+  }
+
+  .notices-page-overview__label {
+    margin-bottom: 0.32rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .notices-page-overview__value {
+    font-size: clamp(1.1rem, 5vw, 1.45rem);
   }
 
   .notice-panel {
