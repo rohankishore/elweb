@@ -245,38 +245,24 @@ function App() {
   // Layout with nav and highlight logic
   function Layout({ children }) {
     const location = useLocation();
+    // Determine active index for GooeyNav
+    let activeIdx = 0;
+    if (location.pathname === '/notices') activeIdx = 2;
+    else if (location.hash === '#overview' || location.pathname === '/#overview') activeIdx = 1;
+    else activeIdx = 0;
     return (
       <>
         <div className="site-nav">
-          <nav className="site-gooey-nav">
-            {navItems.map((item, idx) => {
-              // For overview, highlight on home page with #overview hash
-              const isActive =
-                (item.to === '/'
-                  ? location.pathname === '/'
-                  : item.to === '/notices'
-                  ? location.pathname === '/notices'
-                  : location.hash === '#overview');
-              return (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  className={isActive ? 'nav-link active' : 'nav-link'}
-                  style={{
-                    color: isActive ? '#7fdfff' : '#eaeaea',
-                    fontWeight: isActive ? 800 : 600,
-                    fontSize: '1.18rem',
-                    marginRight: 32,
-                    textDecoration: 'none',
-                    letterSpacing: '0.01em',
-                    transition: 'color 0.2s',
-                  }}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
+          <GooeyNav
+            className="site-gooey-nav"
+            items={navItems}
+            initialActiveIndex={activeIdx}
+            animationTime={520}
+            particleCount={14}
+            particleDistances={[72, 14]}
+            particleR={92}
+            timeVariance={180}
+          />
         </div>
         {children}
       </>
