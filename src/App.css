@@ -345,25 +345,29 @@
 .site-footer {
   position: relative;
   margin-top: clamp(4rem, 8vw, 8rem);
-  padding: 8rem 1rem 5rem;
+  min-height: 44rem;
+  padding: 9rem 0 0;
   overflow: clip;
   background:
-    radial-gradient(circle at 15% 0%, rgba(110, 192, 242, 0.08), transparent 24%),
-    radial-gradient(circle at 86% 8%, rgba(88, 128, 210, 0.14), transparent 22%);
+    radial-gradient(circle at 18% 8%, rgba(110, 192, 242, 0.08), transparent 20%),
+    radial-gradient(circle at 86% 6%, rgba(88, 128, 210, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(7, 12, 20, 0) 0%, rgba(5, 11, 21, 0.86) 34%, rgba(4, 9, 18, 1) 100%);
 }
 
 .site-footer__word {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 7rem;
   z-index: 0;
   font-family: var(--display);
-  font-size: clamp(6rem, 25vw, 18rem);
+  width: 100vw;
+  text-align: center;
+  font-size: clamp(9rem, 30vw, 23rem);
   font-weight: 700;
-  line-height: 0.82;
-  letter-spacing: -0.06em;
+  line-height: 0.8;
+  letter-spacing: -0.08em;
   text-transform: uppercase;
-  color: rgba(134, 205, 246, 0.12);
+  color: rgba(134, 205, 246, 0.14);
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
@@ -373,19 +377,23 @@
 .site-footer__panel {
   position: relative;
   z-index: 1;
-  width: min(100%, 1220px);
-  margin: 10rem auto 0;
-  padding: clamp(1.8rem, 3vw, 2.8rem);
+  width: min(calc(100vw - 2rem), 100%);
+  margin: 8.75rem auto 0;
+  padding: clamp(2rem, 3vw, 3.1rem);
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) repeat(3, minmax(180px, 1fr));
-  gap: 2rem;
-  border: 1px solid rgba(122, 176, 221, 0.22);
-  clip-path: polygon(0 42px, 42px 0, 100% 0, 100% 100%, 0 100%);
+  grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(170px, 1fr));
+  gap: 2.25rem;
+  border-top: 1px solid rgba(122, 176, 221, 0.22);
+  border-left: 1px solid rgba(122, 176, 221, 0.22);
+  border-right: 1px solid rgba(122, 176, 221, 0.22);
+  border-bottom: none;
+  clip-path: polygon(0 52px, 52px 0, 100% 0, 100% 100%, 0 100%);
   background:
-    linear-gradient(145deg, rgba(8, 18, 31, 0.96) 0%, rgba(9, 15, 28, 0.98) 100%);
+    linear-gradient(145deg, rgba(8, 18, 31, 0.98) 0%, rgba(9, 15, 28, 0.99) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 24px 70px rgba(2, 8, 18, 0.32);
+    0 -1px 0 rgba(255, 255, 255, 0.02) inset,
+    0 18px 60px rgba(2, 8, 18, 0.18);
 }
 
 .site-footer__brand,
@@ -1077,19 +1085,22 @@
   }
 
   .site-footer {
-    padding: 6rem 0.75rem 6rem;
+    min-height: 34rem;
+    padding: 5.5rem 0 0;
   }
 
   .site-footer__word {
-    font-size: clamp(4.8rem, 30vw, 8rem);
+    top: 4.8rem;
+    font-size: clamp(6rem, 34vw, 10rem);
   }
 
   .site-footer__panel {
-    margin-top: 5.4rem;
+    width: calc(100vw - 1rem);
+    margin-top: 5.9rem;
     padding: 1.35rem;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    clip-path: polygon(0 26px, 26px 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 24px, 24px 0, 100% 0, 100% 100%, 0 100%);
   }
 
   .site-footer__title {
