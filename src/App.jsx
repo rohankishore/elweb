@@ -2,7 +2,7 @@
 so the chances of breaking some shi is really high*/
 
 import { useEffect, useMemo, useRef } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
 import anime from 'animejs/lib/anime.es.js'
 import GooeyNav from './component/GooeyNav'
 import MarqueeLinks from './component/MarqueeLinks'
@@ -19,9 +19,9 @@ function App() {
 
   const navItems = useMemo(
     () => [
-      { label: 'Home', href: '#hero' },
-      { label: 'Overview', href: '#overview' },
-      { label: 'Notices', href: '#notices' },
+      { label: 'Home', to: '/' },
+      { label: 'Overview', to: '/#overview' },
+      { label: 'Notices', to: '/notices' },
     ],
     [],
   )
@@ -242,126 +242,156 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  // Layout with nav and highlight logic
+  function Layout({ children }) {
+    const location = useLocation();
+    return (
+      <>
+        <div className="site-nav">
+          <nav className="site-gooey-nav">
+            {navItems.map((item, idx) => {
+              // For overview, highlight on home page with #overview hash
+              const isActive =
+                (item.to === '/'
+                  ? location.pathname === '/'
+                  : item.to === '/notices'
+                  ? location.pathname === '/notices'
+                  : location.hash === '#overview');
+              return (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  className={isActive ? 'nav-link active' : 'nav-link'}
+                  style={{
+                    color: isActive ? '#7fdfff' : '#eaeaea',
+                    fontWeight: isActive ? 800 : 600,
+                    fontSize: '1.18rem',
+                    marginRight: 32,
+                    textDecoration: 'none',
+                    letterSpacing: '0.01em',
+                    transition: 'color 0.2s',
+                  }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+        {children}
+      </>
+    );
+  }
+
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <div className="site-nav">
-                <GooeyNav
-                  className="site-gooey-nav"
-                  items={navItems}
-                  initialActiveIndex={0}
-                  animationTime={520}
-                  particleCount={14}
-                  particleDistances={[72, 14]}
-                  particleR={92}
-                  timeVariance={180}
-                />
-              </div>
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <section className="scroll-journey" id="hero" ref={journeyRef}>
+                  <div className="frame-stage" aria-hidden="true">
+                    <video
+                      className="frame-video"
+                      ref={videoRef}
+                      src="/frames-scrub.mp4"
+                      preload="auto"
+                      muted
+                      playsInline
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    />
+                    <div className="frame-overlay" />
+                  </div>
 
-              <section className="scroll-journey" id="hero" ref={journeyRef}>
-                <div className="frame-stage" aria-hidden="true">
-                  <video
-                    className="frame-video"
-                    ref={videoRef}
-                    src="/frames-scrub.mp4"
-                    preload="auto"
-                    muted
-                    playsInline
-                    tabIndex={-1}
-                    aria-hidden="true"
-                  />
-                  <div className="frame-overlay" />
-                </div>
+                  <div className="hero-wrap">
+                    <h1 className="hero-shine-text">
+                      Electrical and Computer Engineering
+                    </h1>
+                    <div className="caption-wrap" ref={captionRef}>
+                      <p className="eyebrow">College of Engineering Trivandrum</p>
+                      <p className="subline">
+                        Bridging electrical engineering and computing for tomorrow’s technology.
+                      </p>
+                    </div>
+                  </div>
 
-                <div className="hero-wrap">
-                  <h1 className="hero-shine-text">
-                    Electrical and Computer Engineering
-                  </h1>
-                  <div className="caption-wrap" ref={captionRef}>
-                    <p className="eyebrow">College of Engineering Trivandrum</p>
-                    <p className="subline">
-                      Bridging electrical engineering and computing for tomorrow’s technology.
+                  <div className="scroll-indicator" ref={scrollHintRef}>
+                    <span className="scroll-indicator-mouse" aria-hidden="true" />
+                  </div>
+                </section>
+
+                <MarqueeLinks />
+                <section className="content-sections overview-section" id="overview">
+                  <div className="section-head">
+                    <span className="section-eyebrow">Program Overview</span>
+                    <h2>Electrical and Computer Engineering (EL/EO)</h2>
+                  </div>
+                  <div className="section-body">
+                    <p>
+                      Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
                     </p>
+                    <div className="program-badges">
+                      <div className="shiny-badge">
+                        <span className="badge-indicator">Duration</span>
+                        <span className="badge-value">4 Years</span>
+                      </div>
+                      <div className="shiny-badge">
+                        <span className="badge-indicator">Structure</span>
+                        <span className="badge-value">8 Semesters</span>
+                      </div>
+                      <div className="shiny-badge">
+                        <span className="badge-indicator">Degree</span>
+                        <span className="badge-value">B.Tech</span>
+                      </div>
+                      <div className="shiny-badge">
+                        <span className="badge-indicator">Capacity</span>
+                        <span className="badge-value">Intake: 60</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </section>
+                <section className="content-sections notices-feature-section" id="notices">
+                  <div className="section-head notices-head">
+                    <h2>Latest Notices</h2>
+                    <p className="notices-subtitle">Stay updated with important announcements</p>
+                  </div>
 
-                <div className="scroll-indicator" ref={scrollHintRef}>
-                  <span className="scroll-indicator-mouse" aria-hidden="true" />
-                </div>
-              </section>
-
-              <MarqueeLinks />
-              <section className="content-sections overview-section" id="overview">
-                <div className="section-head">
-                  <span className="section-eyebrow">Program Overview</span>
-                  <h2>Electrical and Computer Engineering (EL/EO)</h2>
-                </div>
-                <div className="section-body">
-                  <p>
-                    Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
-                  </p>
-                  <div className="program-badges">
-                    <div className="shiny-badge">
-                      <span className="badge-indicator">Duration</span>
-                      <span className="badge-value">4 Years</span>
+                  <div className="notices-feature-card">
+                    <div className="notices-meta">
+                      <span className="notice-tag notice-tag-pinned">Pinned</span>
+                      <span className="notice-tag">Time Table</span>
                     </div>
-                    <div className="shiny-badge">
-                      <span className="badge-indicator">Structure</span>
-                      <span className="badge-value">8 Semesters</span>
+                    <div className="notice-copy">
+                      <h3>Semester Exam Time Table for S2 & S4</h3>
+                      <p className="notice-description">
+                        KTU Semester exam timetables for EL S2 and S4 batches have been released.
+                      </p>
                     </div>
-                    <div className="shiny-badge">
-                      <span className="badge-indicator">Degree</span>
-                      <span className="badge-value">B.Tech</span>
-                    </div>
-                    <div className="shiny-badge">
-                      <span className="badge-indicator">Capacity</span>
-                      <span className="badge-value">Intake: 60</span>
-                    </div>
+                    <span className="notice-arrow" aria-hidden="true">›</span>
                   </div>
-                </div>
-              </section>
-              <section className="content-sections notices-feature-section" id="notices">
-                <div className="section-head notices-head">
-                  <h2>Latest Notices</h2>
-                  <p className="notices-subtitle">Stay updated with important announcements</p>
-                </div>
-
-                <div className="notices-feature-card">
-                  <div className="notices-meta">
-                    <span className="notice-tag notice-tag-pinned">Pinned</span>
-                    <span className="notice-tag">Time Table</span>
+                  <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+                    <Link to="/notices" className="shiny-badge" style={{
+                      display: 'inline-block',
+                      borderRadius: '16px',
+                      fontWeight: 700,
+                      fontSize: '1.18rem',
+                      padding: '1.1rem 2.5rem',
+                      textDecoration: 'none',
+                      margin: 0,
+                      boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)',
+                      verticalAlign: 'top',
+                    }}>View all notices &rarr;</Link>
                   </div>
-                  <div className="notice-copy">
-                    <h3>Semester Exam Time Table for S2 & S4</h3>
-                    <p className="notice-description">
-                      KTU Semester exam timetables for EL S2 and S4 batches have been released.
-                    </p>
-                  </div>
-                  <span className="notice-arrow" aria-hidden="true">›</span>
-                </div>
-                <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-                  <a href="/notices" className="shiny-badge" style={{
-                    display: 'inline-block',
-                    borderRadius: '16px',
-                    fontWeight: 700,
-                    fontSize: '1.18rem',
-                    padding: '1.1rem 2.5rem',
-                    textDecoration: 'none',
-                    margin: 0,
-                    boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)',
-                    verticalAlign: 'top',
-                  }}>View all notices &rarr;</a>
-                </div>
-              </section>
-            </>
-          }
-        />
-        <Route path="/notices" element={<NoticesPage />} />
-      </Routes>
+                </section>
+              </>
+            }
+          />
+          <Route path="/notices" element={<NoticesPage />} />
+        </Routes>
+      </Layout>
     </Router>
   )
 }
