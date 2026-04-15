@@ -12,14 +12,6 @@ export default function AboutPage() {
             This page is ready for your about-section content. Send the text whenever you are
             ready, and we can turn it into a polished page.
           </p>
-          <div className="about-page-hero__actions">
-            <Link to="/" className="about-page-hero__cta">
-              Back to home
-            </Link>
-            <Link to="/notices" className="about-page-hero__link">
-              View notices
-            </Link>
-          </div>
         </div>
 
         <div className="about-page-status" aria-label="About page status">

@@ -24,14 +24,6 @@ export default function GrievancesPage() {
           <span className="grievances-page-hero__eyebrow">Student Support</span>
           <h1 className="grievances-page-hero__title">We Hear You</h1>
           <p className="grievances-page-hero__subtitle">Got a problem? Let&apos;s fix it together.</p>
-          <div className="grievances-page-hero__actions">
-            <Link to="/" className="grievances-page-hero__link">
-              Back to home
-            </Link>
-            <Link to="/about" className="grievances-page-hero__link">
-              About the department
-            </Link>
-          </div>
         </div>
       </section>
 

@@ -11,14 +11,6 @@ export default function AcademicsPage() {
           <p className="academics-page-hero__subtitle">
             Quick access to core academic materials for the EL/EO program.
           </p>
-          <div className="academics-page-hero__actions">
-            <Link to="/" className="academics-page-hero__link">
-              Back to home
-            </Link>
-            <Link to="/about" className="academics-page-hero__link">
-              About the department
-            </Link>
-          </div>
         </div>
       </section>
 

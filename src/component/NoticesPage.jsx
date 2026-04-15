@@ -33,14 +33,6 @@ export default function NoticesPage() {
             Important announcements, academic updates, and department highlights for the EL/EO
             community, all in one place.
           </p>
-          <div className="notices-page-hero__actions">
-            <a href="#notice-feed" className="notices-page-hero__cta">
-              Browse notices
-            </a>
-            <Link to="/" className="notices-page-hero__link">
-              Back to home
-            </Link>
-          </div>
         </div>
 
         <div className="notices-page-overview" aria-label="Notices overview">
