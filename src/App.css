@@ -1942,19 +1942,30 @@ h2 {
   .site-gooey-nav {
     width: 100%;
     padding: 0.35rem;
-    overflow-x: auto;
+    overflow: hidden;
   }
 
   .site-gooey-nav nav {
-    width: max-content;
-    min-width: 100%;
+    width: 100%;
+  }
+
+  .site-gooey-nav nav ul {
+    width: 100%;
+    gap: 0.18rem;
+  }
+
+  .site-gooey-nav nav ul li {
+    flex: 1 1 0;
+    min-width: 0;
   }
 
   .site-gooey-nav nav ul li a,
   .site-gooey-nav .effect.text {
-    padding: 0.68rem 0.84rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.12em;
+    width: 100%;
+    padding: 0.68rem 0.3rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+    text-align: center;
   }
 
   .two-col,
