@@ -132,7 +132,8 @@
   right: 0;
   width: clamp(260px, 38vw, 420px);
   height: 100%;
-  background: white;
+  background: rgba(14, 15, 18, 0.92);
+  border-left: 1px solid var(--border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
@@ -233,7 +234,7 @@
 .sm-socials-link {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #111;
+  color: var(--text-main);
   text-decoration: none;
   position: relative;
   padding: 2px 0;
@@ -244,14 +245,14 @@
 }
 
 .sm-socials-link:hover {
-  color: var(--sm-accent, #ff0000);
+  color: rgb(var(--accent-rgb) / 0.92);
 }
 
 .sm-panel-title {
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-faint);
   text-transform: uppercase;
 }
 
@@ -266,7 +267,7 @@
 
 .sm-panel-item {
   position: relative;
-  color: #000;
+  color: var(--text-main);
   font-weight: 600;
   font-size: 3.5rem;
   cursor: pointer;
@@ -306,7 +307,7 @@
 }
 
 .sm-panel-item:hover {
-  color: var(--sm-accent, #5227ff);
+  color: rgb(var(--accent-rgb) / 0.92);
 }
 
 .sm-panel-list[data-numbering] {
@@ -321,7 +322,7 @@
   right: 2.8em;
   font-size: 18px;
   font-weight: 400;
-  color: var(--sm-accent, #5227ff);
+  color: rgb(var(--accent-rgb) / 0.72);
   letter-spacing: 0;
   pointer-events: none;
   user-select: none;
