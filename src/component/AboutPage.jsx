@@ -6,32 +6,25 @@ export default function AboutPage() {
     <main className="about-page-shell">
       <section className="about-page-hero">
         <div className="about-page-hero__copy">
-          <span className="about-page-hero__eyebrow">About the Department</span>
-          <h1 className="about-page-hero__title">About EL/EO</h1>
+          <span className="about-page-hero__eyebrow">About the Association</span>
+          <h1 className="about-page-hero__title">EL Association</h1>
           <p className="about-page-hero__subtitle">
-            This page is ready for your about-section content. Send the text whenever you are
-            ready, and we can turn it into a polished page.
+            The <strong>EL Association</strong> is the official student body of the Electrical and Computer Engineering branch, functioning as an all-in-one support space for students to meet their academic, extra-curricular, and student welfare needs.
           </p>
-        </div>
-
-        <div className="about-page-status" aria-label="About page status">
-          <div className="about-page-status__card">
-            <span className="about-page-status__label">Status</span>
-            <strong className="about-page-status__value">Ready for content</strong>
-          </div>
-          <div className="about-page-status__card">
-            <span className="about-page-status__label">Next step</span>
-            <strong className="about-page-status__value">Add your final copy</strong>
-          </div>
         </div>
       </section>
 
       <section className="about-page-content">
         <div className="about-page-content__intro">
-          <h2 className="about-page-content__title">Scaffold is in place</h2>
+          <h2 className="about-page-content__title">Our Mission</h2>
           <p className="about-page-content__text">
-            Once you send the content, I can structure it into sections, highlights, timelines, or
-            stats depending on how polished you want the page to feel.
+            The Association ensures that all important updates – including timetables, announcements, notices, study materials, and question papers – are efficiently communicated to students through the website. By providing a centralized and accessible platform, we aim to ensure that students never miss out on any essential information.
+          </p>
+        </div>
+        <div className="about-page-content__intro">
+          <h2 className="about-page-content__title">Our Commitment</h2>
+          <p className="about-page-content__text">
+            As a newly established branch, we are committed to ensuring every student feels included and represented. As the inaugural committee, we aim to lay a strong foundation that fosters participation, belonging, and growth for the batches to come.
           </p>
         </div>
       </section>
