@@ -13,29 +13,30 @@
   --sans: 'Manrope', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
   --hero-display: 'TacticSans', 'Sora', sans-serif;
-  --bg-base: #0a0a0a;
-  --bg-elevate: #101114;
-  --bg-surface: #14161a;
-  --bg-surface-2: #191c21;
+  /* Deep, neutral darks */
+  --bg-base: #090909;
+  --bg-elevate: #111214;
+  --bg-surface: #16171a;
+  --bg-surface-2: #1b1c20;
 
-  --text-main: rgba(244, 246, 250, 0.96);
-  --text-muted: rgba(244, 246, 250, 0.74);
-  --text-faint: rgba(244, 246, 250, 0.58);
+  --text-main: rgba(235, 237, 240, 0.97);
+  --text-muted: rgba(200, 202, 210, 0.68);
+  --text-faint: rgba(180, 182, 190, 0.48);
 
-  --border: rgba(255, 255, 255, 0.10);
-  --border-soft: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(255, 255, 255, 0.05);
 
-  /* Primary accent: desaturated cyan (less "neon") */
-  --accent-rgb: 128 203 214;
+  /* Muted accent: deep teal (less blue, less neon) */
+  --accent-rgb: 80 180 170;
   --accent: rgb(var(--accent-rgb));
-  --accent-soft: rgb(var(--accent-rgb) / 0.16);
-  --accent-faint: rgb(var(--accent-rgb) / 0.09);
+  --accent-soft: rgb(var(--accent-rgb) / 0.13);
+  --accent-faint: rgb(var(--accent-rgb) / 0.07);
 
-  /* Secondary accent: muted periwinkle for subtle gradients */
-  --accent-2: #a9b4ff;
+  /* Secondary accent: muted purple for subtle gradients */
+  --accent-2: #8e7cff;
 
-  --badge-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-  --badge-glow: 0 18px 52px rgba(0, 0, 0, 0.38), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+  --badge-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --badge-glow: 0 18px 52px rgba(0, 0, 0, 0.32), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
 }
 
 * {
