@@ -18,20 +18,19 @@ export default function AboutPage() {
 
       <section className="about-page-content">
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
-          <div style={{ marginBottom: '0.8rem' }}>
-            <TrueFocus
-              sentence="Our Mission"
-              separator=" "
-              blurAmount={5}
-              borderColor="var(--accent)"
-              glowColor="rgba(108,99,255,0.4)"
-              animationDuration={0.5}
-              pauseBetweenAnimations={1}
-              manualMode={false}
-              // Font and size match about-page-content__title
-              // Use a wrapper div to apply the same class styles
-              // The TrueFocus component itself will render the heading text
-            />
+          <div style={{ marginBottom: '0.8rem', display: 'flex', justifyContent: 'flex-start' }}>
+            <div style={{ width: 'fit-content' }}>
+              <TrueFocus
+                sentence="Our Mission"
+                separator=" "
+                blurAmount={5}
+                borderColor="var(--accent)"
+                glowColor="rgba(108,99,255,0.4)"
+                animationDuration={0.5}
+                pauseBetweenAnimations={1}
+                manualMode={false}
+              />
+            </div>
           </div>
           <p className="about-page-content__text">
             The Association ensures that all important updates – including timetables, announcements, notices, study materials, and question papers – are efficiently communicated to students through the website. By providing a centralized and accessible platform, we aim to ensure that students never miss out on any essential information.
