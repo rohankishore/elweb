@@ -2,11 +2,19 @@
   position: relative;
   display: flex;
   gap: 1em;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
   flex-wrap: wrap;
   outline: none;
   user-select: none;
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .focus-container {
+    justify-content: flex-start;
+    text-align: left;
+  }
 }
 
 .focus-word {
