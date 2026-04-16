@@ -1140,9 +1140,9 @@ html, body, #root {
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem 2.5rem 1.5rem;
-  background: rgba(10, 10, 10, 0.98);
+  background: linear-gradient(180deg, #111112 0%, #181818 100%);
   border-radius: 2.2rem;
-  box-shadow: 0 8px 40px 0 rgba(10, 10, 10, 0.32);
+  box-shadow: 0 8px 40px 0 rgba(10, 10, 10, 0.18);
   position: relative;
   overflow: hidden;
   margin-top: 2.5rem;
