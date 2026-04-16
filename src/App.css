@@ -614,17 +614,10 @@ body::before {
   margin-top: 1.7rem;
 }
 
-.about-page-hero__cta,
-.about-page-hero__link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+.about-page-hero__copy,
+.about-page-status {
+  /* Carded design removed */
+}
 }
 
 .about-page-hero__cta {
@@ -1070,13 +1063,14 @@ body::before {
   .grievances-page-content__intro,
   .grievances-page-rules,
   .about-page-hero__copy,
-  .about-page-content__intro,
-  .notices-page-hero__copy,
-  .notices-page-content {
-    border-radius: 24px;
+  .about-page-content__intro {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    /* Carded design removed: no border, background, or shadow */
+    border-radius: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
   }
-
-  .about-page-status,
   .notices-page-overview {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.6rem;
