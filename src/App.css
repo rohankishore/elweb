@@ -1,6 +1,10 @@
 /* Force deep dark background for the entire home page */
 html, body, #root {
-  background: #0a0a0a !important;
+  /* Subtle deep dark gradient with glowing accents */
+  background:
+    radial-gradient(ellipse at 60% 0%, rgba(80,180,170,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(142,124,255,0.10) 0%, transparent 60%),
+    linear-gradient(120deg, #0a0a0a 0%, #13151a 100%);
 }
 
 .scroll-journey,
