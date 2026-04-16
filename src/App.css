@@ -1,3 +1,10 @@
+/* Force left alignment for resource badges button */
+.resource-badges,
+.resource-badge {
+  justify-items: start !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+}
 /* Use Tactic Sans for all headings */
 h1, h2, h3, h4, h5, h6, .about-page-hero__title, .about-page-content__title, .focus-container, .focus-word {
   font-family: 'TacticSans', 'Sora', sans-serif !important;
