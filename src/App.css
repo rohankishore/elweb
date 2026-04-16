@@ -1,9 +1,9 @@
 /* Force deep dark background for the entire home page */
 html, body, #root {
-  /* Even darker black gradient, minimal glow */
+  /* Footer-inspired dark gradient with accent faint */
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(40,40,40,0.03) 0%, transparent 70%),
-    linear-gradient(120deg, #0a0a0a 0%, #111112 100%);
+    radial-gradient(circle at 18% 8%, var(--accent-faint), transparent 22%),
+    linear-gradient(180deg, var(--bg-base) 0%, #0b0c10 26%, #07070a 100%);
 }
 }
 }
