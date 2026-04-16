@@ -1122,9 +1122,9 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem 2.5rem 1.5rem;
-  background: rgba(18, 22, 32, 0.92);
+  background: rgba(10, 10, 10, 0.98);
   border-radius: 2.2rem;
-  box-shadow: 0 8px 40px 0 rgba(20, 24, 32, 0.22);
+  box-shadow: 0 8px 40px 0 rgba(10, 10, 10, 0.32);
   position: relative;
   overflow: hidden;
   margin-top: 2.5rem;
@@ -1184,10 +1184,10 @@
 
 .shiny-badge {
   color: #eaeaea;
-  background: rgba(18, 22, 32, 0.92);
-  border: 1.5px solid rgba(60, 80, 120, 0.38);
+  background: linear-gradient(135deg, rgba(20,20,22,0.98) 0%, rgba(10,10,10,0.98) 100%);
+  border: 1.5px solid rgba(40, 40, 40, 0.38);
   border-radius: 16px;
-  box-shadow: 0 2px 16px 0 rgba(20, 24, 32, 0.13);
+  box-shadow: 0 2px 16px 0 rgba(10, 10, 10, 0.22);
   display: inline-block;
   padding: 1.1rem 1.5rem 1.05rem 1.5rem;
   font-family: var(--sans);
@@ -1282,7 +1282,7 @@
   pointer-events: none;
   border: 2px solid transparent;
   background:
-    linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(120,120,255,0.18) 40%, rgba(120,120,255,0.08) 100%) border-box;
+    linear-gradient(120deg, rgba(255,255,255,0.08) 0%, rgba(80,80,80,0.13) 40%, rgba(80,80,80,0.06) 100%) border-box;
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
