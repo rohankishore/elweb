@@ -212,7 +212,7 @@ function App() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
     }
-  }, [])
+  }, [location.pathname])
 
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll('.reveal-section'))
