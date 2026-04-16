@@ -103,7 +103,7 @@ export default function SiteFooter() {
       const rect = footer.getBoundingClientRect()
       const viewportHeight = window.innerHeight || 1
       const progress = 1 - Math.min(Math.max(rect.top / viewportHeight, 0), 1)
-      const nextShift = 70 - progress * 130
+      const nextShift = 36 - progress * 72
       setWordShift(nextShift)
     }
 
@@ -122,7 +122,10 @@ export default function SiteFooter() {
       <div
         className={`site-footer__word${displayWord.length > 8 ? ' site-footer__word--long' : ''}`}
         aria-hidden="true"
-        style={{ transform: `translate(-50%, ${wordShift}px)` }}
+        style={{
+          '--footer-word-length': displayWord.length,
+          transform: `translate(-50%, ${wordShift}px)`,
+        }}
       >
         {displayWord}
       </div>
