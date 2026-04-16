@@ -1,10 +1,11 @@
 /* Force deep dark background for the entire home page */
 html, body, #root {
-  /* Subtle deep dark gradient with glowing accents */
+  /* Even darker black gradient, minimal glow */
   background:
-    radial-gradient(ellipse at 60% 0%, rgba(80,180,170,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(142,124,255,0.10) 0%, transparent 60%),
-    linear-gradient(120deg, #0a0a0a 0%, #13151a 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(40,40,40,0.03) 0%, transparent 70%),
+    linear-gradient(120deg, #0a0a0a 0%, #111112 100%);
+}
+}
 }
 
 .scroll-journey,
