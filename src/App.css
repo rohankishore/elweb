@@ -1,3 +1,16 @@
+/* Force deep dark background for the entire home page */
+html, body, #root {
+  background: #0a0a0a !important;
+}
+
+.scroll-journey,
+.program-overview-section,
+.content-sections,
+.overview-section,
+.notices-feature-section {
+  background: transparent !important;
+  box-shadow: none !important;
+}
 /* Academics Page Styles */
 .academics-page-shell {
   position: relative;
