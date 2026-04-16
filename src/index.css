@@ -13,11 +13,29 @@
   --sans: 'Manrope', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
   --hero-display: 'TacticSans', 'Sora', sans-serif;
-  --text-main: #eaf7ff;
-  --bg-base: #0a0d13;
-  --bg-elevate: #10131a;
-  --badge-gradient: linear-gradient(90deg, #0e223a 0%, #0b3a2e 100%);
-  --badge-glow: 0 2px 18px 0 rgba(9, 144, 113, 0.22), 0 1.5px 0.5px 0 rgba(255,255,255,0.10) inset;
+  --bg-base: #0a0a0a;
+  --bg-elevate: #101114;
+  --bg-surface: #14161a;
+  --bg-surface-2: #191c21;
+
+  --text-main: rgba(244, 246, 250, 0.96);
+  --text-muted: rgba(244, 246, 250, 0.74);
+  --text-faint: rgba(244, 246, 250, 0.58);
+
+  --border: rgba(255, 255, 255, 0.10);
+  --border-soft: rgba(255, 255, 255, 0.07);
+
+  /* Primary accent: desaturated cyan (less "neon") */
+  --accent-rgb: 128 203 214;
+  --accent: rgb(var(--accent-rgb));
+  --accent-soft: rgb(var(--accent-rgb) / 0.16);
+  --accent-faint: rgb(var(--accent-rgb) / 0.09);
+
+  /* Secondary accent: muted periwinkle for subtle gradients */
+  --accent-2: #a9b4ff;
+
+  --badge-gradient: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --badge-glow: 0 18px 52px rgba(0, 0, 0, 0.38), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
 }
 
 * {
