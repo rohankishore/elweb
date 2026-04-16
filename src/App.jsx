@@ -2,6 +2,7 @@
 so the chances of breaking some shi is really high*/
 
 import { useEffect, useMemo, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
 import anime from 'animejs/lib/anime.es.js'
 import GooeyNav from './component/GooeyNav'
@@ -20,46 +21,9 @@ function App() {
   const captionRef = useRef(null)
   const scrollHintRef = useRef(null)
   const journeyRef = useRef(null)
-
-  const navItems = useMemo(
-    () => [
-      { label: 'Home', to: '/' },
-      { label: 'About', to: '/about' },
-      { label: 'Academics', to: '/academics' },
-      { label: 'Notices', to: '/notices' },
-      { label: 'Grievances', to: '/grievances' },
-    ],
-    [],
-  )
-
-  const facultyProfiles = useMemo(
-    () => [
-      {
-        name: 'Faculty 1',
-        position: 'Professor, Embedded Systems',
-        photo: 'https://i.pravatar.cc/420?img=12',
-      },
-      {
-        name: 'Faculty 2',
-        position: 'Associate Professor, Power Electronics',
-        photo: 'https://i.pravatar.cc/420?img=32',
-      },
-      {
-        name: 'Faculty 3',
-        position: 'Assistant Professor, Signal Processing',
-        photo: 'https://i.pravatar.cc/420?img=36',
-      },
-      {
-        name: 'Faculty 4',
-        position: 'Professor, Communication Systems',
-        photo: 'https://i.pravatar.cc/420?img=47',
-      },
-
-    ],
-    [],
-  )
-
+  const location = useLocation ? useLocation() : { pathname: window.location.pathname };
   useEffect(() => {
+    if (location.pathname !== '/') return;
     const video = videoRef.current
     if (!video) return
 
@@ -84,7 +48,7 @@ function App() {
         journeyStart + 1,
       )
       return Math.min(
-        Math.max((window.scrollY - journeyStart) / (journeyEnd - journeyStart), 0),
+        Math.max((window.scrollY - journeyStart) / (journeyEnd - window.innerHeight), 0),
         1,
       )
     }
@@ -120,7 +84,6 @@ function App() {
       }
       video.currentTime = time
     }
-    
 
     const pumpScrub = () => {
       if (duration > 0) {
@@ -173,6 +136,45 @@ function App() {
       hasInitializedVideo = true
       duration = Number.isFinite(video.duration) ? video.duration : 0
       syncVideoToScroll()
+    }
+
+    const onVideoSeeked = () => {
+      isSeeking = false
+      if (pendingTime === null) return
+
+      const nextTime = pendingTime
+      pendingTime = null
+      seekToTime(nextTime)
+    }
+
+    video.preload = 'auto'
+    video.muted = true
+    video.playsInline = true
+    video.pause()
+    video.addEventListener('loadedmetadata', onVideoReady)
+    video.addEventListener('seeked', onVideoSeeked)
+
+    syncVideoToScroll()
+    updateCaptionReveal()
+    updateScrollHint()
+    scrubRafId = requestAnimationFrame(pumpScrub)
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onResize)
+
+    return () => {
+      if (scrollRafId) {
+        cancelAnimationFrame(scrollRafId)
+      }
+      if (scrubRafId) {
+        cancelAnimationFrame(scrubRafId)
+      }
+      video.removeEventListener('loadedmetadata', onVideoReady)
+      video.removeEventListener('seeked', onVideoSeeked)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
+  }, [location.pathname])
     }
 
     const onVideoSeeked = () => {
