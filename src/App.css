@@ -209,9 +209,9 @@ body::before {
     radial-gradient(circle at 100% 100%, rgba(85, 103, 162, 0.18), transparent 24%);
   opacity: 1;
   pointer-events: none;
-  transition: transform 420ms ease, opacity 260ms ease;
-  transform: translate3d(0, 0, 0) scale(1);
-  transform-origin: center;
+  background-size: 140% 140%, 140% 140%;
+  background-position: 0% 0%, 100% 100%;
+  transition: background-position 420ms ease, opacity 260ms ease;
 }
 
 .resource-badge::after {
@@ -235,7 +235,7 @@ body::before {
 
 .resource-badge:hover::before,
 .shiny-badge:hover::before {
-  animation: liquid-float 2.4s ease-in-out infinite alternate;
+  animation: liquid-float 2s ease-in-out infinite alternate;
 }
 
 /* Grievances Page Styles */
@@ -1269,9 +1269,9 @@ body::before {
     radial-gradient(circle at 100% 100%, rgba(85, 103, 162, 0.18), transparent 26%);
   opacity: 1;
   pointer-events: none;
-  transition: transform 420ms ease, opacity 260ms ease;
-  transform: translate3d(0, 0, 0) scale(1);
-  transform-origin: center;
+  background-size: 140% 140%, 140% 140%;
+  background-position: 0% 0%, 100% 100%;
+  transition: background-position 420ms ease, opacity 260ms ease;
 }
 
 @media (max-width: 700px) {
@@ -1372,13 +1372,13 @@ body::before {
 
 @keyframes liquid-float {
   0% {
-    transform: translate3d(-3%, -2%, 0) scale(1.02);
+    background-position: 0% 0%, 100% 100%;
   }
   50% {
-    transform: translate3d(3%, -4%, 0) scale(1.08);
+    background-position: 22% 14%, 78% 86%;
   }
   100% {
-    transform: translate3d(-2%, 3%, 0) scale(1.04);
+    background-position: 14% 24%, 86% 76%;
   }
 }
 
@@ -1386,7 +1386,7 @@ body::before {
   .resource-badge:hover::before,
   .shiny-badge:hover::before {
     animation: none;
-    transform: none;
+    background-position: 0% 0%, 100% 100%;
   }
 }
 .frame-stage {
