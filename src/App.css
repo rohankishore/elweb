@@ -234,9 +234,18 @@ body::before {
   transform: translateY(-3px);
 }
 
+.resource-badge::before,
+.shiny-badge::before {
+  animation: liquid-float 2s ease-in-out infinite alternate;
+}
+
 .resource-badge:hover::before,
 .shiny-badge:hover::before {
-  animation: liquid-float 2s ease-in-out infinite alternate;
+  animation: none;
+  opacity: 0.45;
+  mix-blend-mode: normal;
+  background-size: 140% 140%, 140% 140%;
+  background-position: 0% 0%, 100% 100%;
 }
 
 /* Grievances Page Styles */
@@ -1385,8 +1394,8 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .resource-badge:hover::before,
-  .shiny-badge:hover::before {
+  .resource-badge::before,
+  .shiny-badge::before {
     animation: none;
     background-position: 0% 0%, 100% 100%;
   }
