@@ -32,11 +32,13 @@ body::before {
   opacity: 0.3;
 }
 
+/* Remove background and box-shadow from main sections to allow global background to show through */
 .scroll-journey,
 .program-overview-section,
 .content-sections,
 .overview-section,
 .notices-feature-section {
+  background: none !important;
   box-shadow: none !important;
 }
 /* Academics Page Styles */
