@@ -382,6 +382,17 @@ body::before {
   color: var(--text-main);
 }
 
+/* Keep the grievance CTA aligned under cards on desktop. */
+.grievances-page-content .resource-badges {
+  width: 100%;
+  justify-content: center;
+}
+
+.grievances-page-content .resource-badge {
+  justify-items: start;
+  text-align: left;
+}
+
 /* Footer */
 .site-footer {
   position: relative;
