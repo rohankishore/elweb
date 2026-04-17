@@ -1181,14 +1181,15 @@ body::before {
 }
 .program-overview-section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 3rem 1.5rem 2.5rem 1.5rem;
-  border-radius: 2.2rem;
-  box-shadow: 0 8px 40px 0 rgba(10, 10, 10, 0.18);
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
   position: relative;
-  overflow: hidden;
-  margin-top: 2.5rem;
+  overflow: visible;
+  margin-top: 0;
 }
 
 .program-overview-heading {
