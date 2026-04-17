@@ -1,8 +1,8 @@
 .marquee-outer {
   width: 100vw;
-  background: #081c3b;
-  border-top: 1.5px solid #143252;
-  border-bottom: 1.5px solid #143252;
+  background: none;
+  border-top: 1.5px solid var(--border-soft, #23263a);
+  border-bottom: 1.5px solid var(--border-soft, #23263a);
   overflow: hidden;
   position: relative;
   z-index: 10;
@@ -26,7 +26,7 @@
 }
 
 .marquee-link {
-  color: #4ec9e1;
+  color: var(--accent, #4ec9e1);
   font-weight: 600;
   font-size: 1.1rem;
   letter-spacing: 0.01em;
@@ -40,7 +40,7 @@
 }
 
 .marquee-link:hover, .marquee-link:focus {
-  background: #143252;
+  background: rgba(var(--accent-rgb, 78,201,225), 0.13);
   color: #fff;
 }
 
