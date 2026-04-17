@@ -1902,24 +1902,51 @@ h2 {
   gap: 0;
   align-items: stretch;
   padding: 0;
-  border-radius: 1.6rem;
-  border: 1px solid rgba(63, 116, 177, 0.42);
+  border-radius: 1.35rem;
+  border: 1px solid var(--border-soft);
   background:
-    radial-gradient(circle at top right, rgba(48, 90, 145, 0.18), transparent 24%),
-    linear-gradient(135deg, rgba(10, 19, 32, 0.98) 0%, rgba(13, 24, 40, 0.98) 52%, rgba(10, 17, 29, 0.98) 100%);
+    radial-gradient(circle at top left, var(--accent-faint), transparent 30%),
+    radial-gradient(circle at bottom right, rgb(169 180 255 / 0.08), transparent 36%),
+    linear-gradient(145deg, rgba(20, 22, 26, 0.98) 0%, rgba(14, 15, 18, 0.98) 54%, rgba(22, 24, 28, 0.98) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 22px 60px rgba(2, 8, 18, 0.38);
+    0 18px 46px rgba(6, 14, 28, 0.42);
   overflow: hidden;
   position: relative;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .notices-feature-card::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(68, 124, 185, 0.08), transparent 26%);
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(87, 214, 255, 0.5), transparent 36%),
+    radial-gradient(circle at 100% 100%, rgba(130, 101, 255, 0.48), transparent 40%);
+  opacity: 0.94;
+  mix-blend-mode: screen;
+  background-size: 190% 190%, 190% 190%;
+  background-position: 0% 0%, 100% 100%;
+  animation: liquid-float 2s ease-in-out infinite alternate;
   pointer-events: none;
+  transition: background-position 320ms ease, opacity 220ms ease;
+}
+
+.notices-feature-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 22px 54px rgba(6, 14, 28, 0.45);
+  transform: translateY(-3px);
+}
+
+.notices-feature-card:hover::before {
+  animation: none;
+  opacity: 0.45;
+  mix-blend-mode: normal;
+  background-size: 140% 140%, 140% 140%;
+  background-position: 0% 0%, 100% 100%;
 }
 
 .notices-meta {
@@ -1931,8 +1958,8 @@ h2 {
   gap: 0.7rem;
   margin: 0;
   padding: 1.6rem 1.4rem;
-  border-right: 1px solid rgba(78, 124, 177, 0.2);
-  background: linear-gradient(180deg, rgba(21, 39, 63, 0.9) 0%, rgba(13, 26, 43, 0.86) 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(20, 22, 26, 0.7) 0%, rgba(14, 15, 18, 0.66) 100%);
 }
 
 .notice-tag {
@@ -1940,9 +1967,9 @@ h2 {
   align-items: center;
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid rgba(96, 174, 233, 0.2);
-  background: rgba(32, 74, 116, 0.46);
-  color: #7ac6ff;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(156, 210, 242, 0.92);
   font-family: var(--sans);
   font-size: 0.92rem;
   font-weight: 700;
@@ -1950,9 +1977,9 @@ h2 {
 }
 
 .notice-tag-pinned {
-  border-color: rgba(212, 101, 115, 0.24);
-  background: rgba(83, 45, 66, 0.6);
-  color: #ff7d8f;
+  border-color: rgba(231, 129, 146, 0.36);
+  background: rgba(83, 45, 66, 0.42);
+  color: #ff9eae;
 }
 
 .notices-meta::after {
