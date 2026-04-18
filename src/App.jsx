@@ -63,7 +63,8 @@ function App() {
     const video = videoRef.current
     if (!video) return
 
-    const scrubFps = 24
+    // Lowered scrubFps for better performance (less frequent seeking)
+    const scrubFps = 12
     const frameStep = 1 / scrubFps
     let duration = 0
     let desiredTime = 0
@@ -188,6 +189,8 @@ function App() {
     video.muted = true
     video.playsInline = true
     video.pause()
+    // Hardware acceleration hint: ensure your video is H.264 .mp4 for best performance
+    // Example: ffmpeg -i input.mov -vcodec libx264 -acodec aac output.mp4
     video.addEventListener('loadedmetadata', onVideoReady)
     video.addEventListener('seeked', onVideoSeeked)
 
