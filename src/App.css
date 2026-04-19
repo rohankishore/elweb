@@ -415,10 +415,15 @@ body::before {
 
 /* ─── Footer (sf = SiteFooter) ──────────────────────────────── */
 .sf {
-  display: block;
+  position: relative;
+  z-index: 9999; /* sit above the fixed navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  min-height: 100vh;
   background: #000;
-  line-height: 0; /* remove gap below inline image */
+  line-height: 0;
 }
 
 .sf__img {
