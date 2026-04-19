@@ -413,148 +413,179 @@ body::before {
   text-align: left;
 }
 
-/* Footer */
-.site-footer {
+/* ─── Footer (sf = SiteFooter) ──────────────────────────────── */
+.sf {
   position: relative;
-  margin-top: 0;
-  min-height: 0;
-  padding: 8rem 0 0;
-  overflow: clip;
-  background:
-    radial-gradient(ellipse at 18% 8%, rgba(96, 205, 255, 0.08), transparent 28%),
-    radial-gradient(ellipse at 86% 6%, rgba(167, 139, 250, 0.1), transparent 30%),
-    linear-gradient(180deg, var(--bg-base) 0%, #060610 26%, #040408 100%);
+  overflow: hidden;
+  background: #000;
+  /* thin top separator that bleeds from the page bg */
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.site-footer__word {
+/* ── World-map dot layer ── */
+.sf__map-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  /* min height so the map doesn't collapse on narrow viewports */
+  min-height: 260px;
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.sf__map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transition: transform 60ms linear;
+}
+
+/* Radial vignette — keeps outer edges dark & draws the eye to the centre */
+.sf__map-vignette {
   position: absolute;
-  left: 50%;
-  top: 4.35rem;
-  z-index: 0;
-  font-family: var(--display);
-  width: calc(100vw - 1rem);
-  max-width: 100%;
-  text-align: center;
-  font-size: min(clamp(8rem, 27vw, 21rem), calc((100vw - 2rem) / var(--footer-word-length, 2) * 1.72));
-  font-weight: 700;
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  text-transform: uppercase;
-  color: rgb(var(--accent-rgb) / 0.12);
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
-  transition: transform 180ms linear, opacity 220ms ease;
-}
-
-.site-footer__word--long {
-  font-size: min(clamp(5.1rem, 15vw, 9.4rem), calc((100vw - 2rem) / var(--footer-word-length, 10) * 1.52));
-}
-
-.site-footer__panel {
-  position: relative;
-  z-index: 1;
-  width: min(calc(100vw - 2rem), 100%);
-  margin: 10.6rem auto 0;
-  padding: clamp(2rem, 3vw, 3.1rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(170px, 1fr));
-  gap: 2.25rem;
-  border-top: 1px solid rgba(96, 205, 255, 0.1);
-  border-left: 1px solid rgba(96, 205, 255, 0.08);
-  border-right: 1px solid rgba(96, 205, 255, 0.08);
-  border-bottom: none;
-  clip-path: polygon(0 52px, 52px 0, 100% 0, 100% 100%, 0 100%);
+  inset: 0;
   background:
-    linear-gradient(145deg, rgba(10, 10, 20, 0.96) 0%, rgba(7, 7, 16, 0.98) 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 -1px 0 rgba(96, 205, 255, 0.04) inset,
-    0 10px 32px rgba(2, 8, 18, 0.12);
-  backdrop-filter: blur(16px);
+    radial-gradient(
+      ellipse 70% 80% at 50% 50%,
+      transparent 30%,
+      rgba(0, 0, 0, 0.55) 62%,
+      #000 100%
+    );
+  pointer-events: none;
 }
 
-.site-footer__brand,
-.site-footer__group {
-  display: grid;
-  align-content: start;
+/* ── Centred copyright overlay ── */
+.sf__overlay {
+  position: absolute;
+  /* vertically centred inside the map area */
+  top: 0;
+  left: 0;
+  right: 0;
+  /* roughly half the map height */
+  bottom: calc(100% - var(--sf-map-h, 400px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.site-footer__brand {
-  gap: 1rem;
-}
-
-.site-footer__eyebrow,
-.site-footer__group h3 {
+.sf__copy-year,
+.sf__copy-org {
   margin: 0;
   font-family: var(--mono);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgb(var(--accent-rgb) / 0.9);
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.4;
 }
 
-.site-footer__title {
-  margin: 0;
-  max-width: 14ch;
-  font-family: var(--display);
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
-  line-height: 0.98;
-  letter-spacing: -0.04em;
-  color: var(--text-main);
+.sf__copy-year {
+  font-size: clamp(0.7rem, 1.3vw, 0.9rem);
 }
 
-.site-footer__copy {
-  margin: 0;
-  max-width: 38ch;
-  font-size: 1.02rem;
-  line-height: 1.8;
-  color: var(--text-muted);
+.sf__copy-org {
+  font-size: clamp(0.65rem, 1.1vw, 0.78rem);
+  color: rgba(255, 255, 255, 0.45);
 }
 
-.site-footer__group {
-  gap: 1.1rem;
+/* ── Navigation row ── */
+.sf__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 2rem;
+  padding: 1.6rem 2rem 0;
+  z-index: 3;
+  position: relative;
 }
 
-.site-footer__links,
-.site-footer__stats {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.site-footer__links a {
-  width: fit-content;
-  color: rgb(244 246 250 / 0.9);
+.sf__nav a {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 160ms ease, transform 160ms ease;
+  color: rgba(255, 255, 255, 0.38);
+  transition: color 160ms ease;
 }
 
-.site-footer__links a:hover {
-  color: var(--accent);
-  transform: translateX(3px);
+.sf__nav a:hover {
+  color: rgba(255, 255, 255, 0.88);
 }
 
-.site-footer__stat {
-  display: grid;
-  gap: 0.24rem;
+/* ── Giant brand headline ── */
+.sf__brand {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 0.6rem 0 0;
+  overflow: hidden;
+  line-height: 0.82;
 }
 
-.site-footer__stat span,
-.site-footer__meta {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--text-faint);
+.sf__brand-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'TacticSans', 'Sora', sans-serif;
+  font-size: clamp(3.8rem, 12.5vw, 11rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  white-space: nowrap;
+  /* clip chars that overflow on very small viewports */
+  overflow: hidden;
 }
 
-.site-footer__stat strong {
-  color: var(--text-main);
-  font-family: var(--display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+/* ── Bottom bar ── */
+.sf__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.1rem 2.5rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 3;
+  position: relative;
+}
+
+.sf__tagline,
+.sf__bottom-right {
+  font-family: var(--mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.sf__bottom-right {
+  text-align: right;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .sf__brand-text {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+    white-space: normal;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .sf__bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sf__bottom-right {
+    text-align: center;
+  }
 }
 
 /* About Page Styles */
