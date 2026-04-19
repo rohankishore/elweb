@@ -47,9 +47,9 @@ body::before {
   min-height: 100vh;
   padding: clamp(3.8rem, 7vw, 5.5rem) 1rem 4rem;
   background:
-    radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
-    radial-gradient(circle at 85% 18%, rgb(var(--accent-rgb) / 0.10), transparent 26%),
-    linear-gradient(180deg, var(--bg-base) 0%, #0b0c10 46%, #07070a 100%);
+    var(--orb-1),
+    var(--orb-2),
+    linear-gradient(180deg, var(--bg-base) 0%, #060610 46%, #040408 100%);
 }
 
 .academics-page-shell::before {
@@ -58,10 +58,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.3;
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
 }
 
 .academics-page-hero,
@@ -256,9 +256,9 @@ body::before {
   min-height: 100vh;
   padding: clamp(4.25rem, 8vw, 6rem) 1rem 4rem;
   background:
-    radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
-    radial-gradient(circle at 85% 18%, rgb(var(--accent-rgb) / 0.10), transparent 26%),
-    linear-gradient(180deg, var(--bg-base) 0%, #0b0c10 46%, #07070a 100%);
+    var(--orb-2),
+    var(--orb-3),
+    linear-gradient(180deg, var(--bg-base) 0%, #060610 46%, #040408 100%);
 }
 
 .grievances-page-shell::before {
@@ -267,10 +267,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.3;
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
 }
 
 .grievances-page-hero,
@@ -421,9 +421,9 @@ body::before {
   padding: 8rem 0 0;
   overflow: clip;
   background:
-    radial-gradient(circle at 18% 8%, var(--accent-faint), transparent 22%),
-    radial-gradient(circle at 86% 6%, rgb(169 180 255 / 0.10), transparent 28%),
-    linear-gradient(180deg, var(--bg-base) 0%, #0b0c10 26%, #07070a 100%);
+    radial-gradient(ellipse at 18% 8%, rgba(96, 205, 255, 0.08), transparent 28%),
+    radial-gradient(ellipse at 86% 6%, rgba(167, 139, 250, 0.1), transparent 30%),
+    linear-gradient(180deg, var(--bg-base) 0%, #060610 26%, #040408 100%);
 }
 
 .site-footer__word {
@@ -460,17 +460,18 @@ body::before {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(170px, 1fr));
   gap: 2.25rem;
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
+  border-top: 1px solid rgba(96, 205, 255, 0.1);
+  border-left: 1px solid rgba(96, 205, 255, 0.08);
+  border-right: 1px solid rgba(96, 205, 255, 0.08);
   border-bottom: none;
   clip-path: polygon(0 52px, 52px 0, 100% 0, 100% 100%, 0 100%);
   background:
-    linear-gradient(145deg, rgba(16, 17, 20, 0.96) 0%, rgba(12, 13, 16, 0.98) 100%);
+    linear-gradient(145deg, rgba(10, 10, 20, 0.96) 0%, rgba(7, 7, 16, 0.98) 100%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 -1px 0 rgba(255, 255, 255, 0.02) inset,
+    0 -1px 0 rgba(96, 205, 255, 0.04) inset,
     0 10px 32px rgba(2, 8, 18, 0.12);
+  backdrop-filter: blur(16px);
 }
 
 .site-footer__brand,
@@ -562,9 +563,9 @@ body::before {
   min-height: 100vh;
   padding: clamp(4.25rem, 8vw, 6rem) 1rem 4rem;
   background:
-    radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
-    radial-gradient(circle at 85% 18%, rgb(var(--accent-rgb) / 0.10), transparent 26%),
-    linear-gradient(180deg, var(--bg-base) 0%, #0b0c10 46%, #07070a 100%);
+    var(--orb-1),
+    var(--orb-3),
+    linear-gradient(180deg, var(--bg-base) 0%, #060610 46%, #040408 100%);
 }
 
 .about-page-shell::before {
@@ -573,10 +574,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.3;
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
 }
 
 .about-page-hero,
@@ -738,9 +739,9 @@ body::before {
   min-height: 100vh;
   padding: clamp(4.25rem, 8vw, 6rem) 1rem 4rem;
   background:
-    radial-gradient(circle at top left, var(--accent-soft), transparent 30%),
-    radial-gradient(circle at 85% 18%, rgb(var(--accent-rgb) / 0.10), transparent 26%),
-    linear-gradient(180deg, var(--bg-base) 0%, #0b0c10 46%, #07070a 100%);
+    var(--orb-2),
+    var(--orb-1),
+    linear-gradient(180deg, var(--bg-base) 0%, #060610 46%, #040408 100%);
 }
 
 .notices-page-shell::before {
@@ -749,10 +750,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.3;
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
 }
 
 .notices-page-hero,
