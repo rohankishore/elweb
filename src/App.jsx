@@ -28,6 +28,8 @@ function App() {
       { label: 'Academics', to: '/academics' },
       { label: 'Notices', to: '/notices' },
       { label: 'Grievances', to: '/grievances' },
+      { label: 'Test 1', to: '/test1' },
+      { label: 'Test 2', to: '/test2' },
     ],
     [],
   )

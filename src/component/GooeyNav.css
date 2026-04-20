@@ -116,17 +116,23 @@
 
 .gooey-nav-container .effect.filter {
   filter: contrast(100);
-  @media (max-width: 600px) {
-    .gooey-nav-container nav ul {
-      gap: 1em;
-      padding: 0 0.3em;
-    }
-    .gooey-nav-container nav ul li a {
-      font-size: 1.15em;
-      padding: 0.9em 1.2em;
-    }
-  }
   mix-blend-mode: lighten;
+}
+
+@media (max-width: 768px) {
+  .gooey-nav-container nav ul {
+    gap: 0.1em;
+    padding: 0 0.1em;
+    width: 100%;
+    max-width: 100vw;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .gooey-nav-container nav ul li a {
+    font-size: clamp(0.65rem, 2.5vw, 0.9em);
+    padding: 0.7em 0.3em;
+    white-space: nowrap;
+  }
 }
 
 .gooey-nav-container .effect.filter::before {
