@@ -421,9 +421,15 @@ body::before {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   background: #000;
   line-height: 0;
+}
+
+@media (min-width: 768px) {
+  .sf {
+    min-height: 100vh;
+  }
 }
 
 .sf__img {
