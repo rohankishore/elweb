@@ -6,8 +6,7 @@ export default function StudentsPage() {
     <main className="notices-page-shell">
       <section className="notices-page-hero">
         <div className="notices-page-hero__copy">
-          <span className="notices-page-hero__eyebrow">Student's Corner</span>
-          <h1 className="notices-page-hero__title">Students</h1>
+          <h1 className="notices-page-hero__title">Students Corner</h1>
           <p className="notices-page-hero__subtitle">
             Details about all the students and their achievements. Data will be updated here soon.
           </p>
