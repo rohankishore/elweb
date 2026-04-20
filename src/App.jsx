@@ -416,8 +416,8 @@ function App() {
               <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontFamily: 'var(--display)' }}>Student's Corner</h1>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.8' }}>Details about all the students and their achievements. Data will be updated here soon.</p>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-                <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: '1px solid var(--border-soft)', background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '700' }}>First Years List</Link>
-                <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: '1px solid var(--border-soft)', background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '700' }}>Second Years List</Link>
+                <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: 'none', background: 'linear-gradient(135deg, rgb(var(--accent-rgb) / 0.96) 0%, rgb(var(--accent-rgb) / 0.74) 100%)', color: '#07090d', textDecoration: 'none', fontWeight: '800', boxShadow: '0 18px 46px rgba(0, 0, 0, 0.32)', transition: 'transform 160ms ease' }}>First Years List</Link>
+                <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: 'none', background: 'linear-gradient(135deg, rgb(var(--accent-rgb) / 0.96) 0%, rgb(var(--accent-rgb) / 0.74) 100%)', color: '#07090d', textDecoration: 'none', fontWeight: '800', boxShadow: '0 18px 46px rgba(0, 0, 0, 0.32)', transition: 'transform 160ms ease' }}>Second Years List</Link>
               </div>
               <h2 style={{ fontSize: '2.2rem', marginTop: '4rem', marginBottom: '1rem', fontFamily: 'var(--display)', color: 'var(--text-main)' }}>Achievements</h2>
             </div>
