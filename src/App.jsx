@@ -414,7 +414,7 @@ function App() {
           <Route path="/students" element={
             <div style={{ padding: '8rem 2rem', textAlign: 'center', color: 'white', minHeight: '100vh' }}>
               <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontFamily: 'var(--display)' }}>Student's Corner</h1>
-              <p style={{ color: 'var(--text-muted)' }}>Details about all the students and their achievements. Data will be updated here soon.</p>
+              <p style={{ color: 'var(--text-muted)', alignContent: 'left' }}>Details about all the students and their achievements. Data will be updated here soon.</p>
             </div>
           } />
         </Routes>
