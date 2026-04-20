@@ -7,7 +7,7 @@ const notesData = [
     subjects: [
       { name: "IEEE", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
       { name: "Maths", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" },
-      { name: "Atp", link: "https://drive.google.com/drive/folders/1tuNWP8MsMt5B_goMrZThYwvT1jGRU9Cw" },
+      { name: "Algorithmic Thinking with Python", link: "https://drive.google.com/drive/folders/1tuNWP8MsMt5B_goMrZThYwvT1jGRU9Cw" },
       { name: "Eg", link: "https://drive.google.com/drive/folders/1tWCSyc5VIMkg6JmNEUZNUC0_qk8DHgw4" },
       { name: "Physics", link: "https://drive.google.com/drive/folders/1K7j3cKe2p80PtqxJgBMjfRbL0QanKTB-" }
     ]
@@ -17,7 +17,7 @@ const notesData = [
     subjects: [
       { name: "Maths", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
       { name: "Chemistry", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" },
-      { name: "Foc", link: "https://drive.google.com/drive/folders/1l9xEpHoaECFQYW5bHH2k-GcfK6hzcV95" },
+      { name: "Foundations of Commputing", link: "https://drive.google.com/drive/folders/1l9xEpHoaECFQYW5bHH2k-GcfK6hzcV95" },
       { name: "Prc", link: "https://drive.google.com/drive/folders/1ja3ronoX8U3Uc1GPQRm3lwUSn4b36itJ" },
       { name: "Ipr", link: "https://drive.google.com/drive/folders/1sHABss4kioxE3m94URvIKJJsAWrnm_Cz" },
       { name: "Analog", link: "https://drive.google.com/drive/folders/1PiTxMxC6pzFgTO-f7-_K4wAhSPXmM_La" }
