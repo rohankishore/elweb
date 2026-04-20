@@ -5,10 +5,10 @@ const notesData = [
   {
     semester: "Sem 1",
     subjects: [
-      { name: "IEEE", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
+      { name: "Intro to Electrical & Electronics Engineering", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
       { name: "Maths", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" },
       { name: "Algorithmic Thinking with Python", link: "https://drive.google.com/drive/folders/1tuNWP8MsMt5B_goMrZThYwvT1jGRU9Cw" },
-      { name: "Eg", link: "https://drive.google.com/drive/folders/1tWCSyc5VIMkg6JmNEUZNUC0_qk8DHgw4" },
+      { name: "Engineering Graphics", link: "https://drive.google.com/drive/folders/1tWCSyc5VIMkg6JmNEUZNUC0_qk8DHgw4" },
       { name: "Physics", link: "https://drive.google.com/drive/folders/1K7j3cKe2p80PtqxJgBMjfRbL0QanKTB-" }
     ]
   },
@@ -18,9 +18,9 @@ const notesData = [
       { name: "Maths", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
       { name: "Chemistry", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" },
       { name: "Foundations of Commputing", link: "https://drive.google.com/drive/folders/1l9xEpHoaECFQYW5bHH2k-GcfK6hzcV95" },
-      { name: "Prc", link: "https://drive.google.com/drive/folders/1ja3ronoX8U3Uc1GPQRm3lwUSn4b36itJ" },
-      { name: "Ipr", link: "https://drive.google.com/drive/folders/1sHABss4kioxE3m94URvIKJJsAWrnm_Cz" },
-      { name: "Analog", link: "https://drive.google.com/drive/folders/1PiTxMxC6pzFgTO-f7-_K4wAhSPXmM_La" }
+      { name: "Programming in C", link: "https://drive.google.com/drive/folders/1ja3ronoX8U3Uc1GPQRm3lwUSn4b36itJ" },
+      { name: "Engineering Entrepreneurship and IPR", link: "https://drive.google.com/drive/folders/1sHABss4kioxE3m94URvIKJJsAWrnm_Cz" },
+      { name: "Analog Electronics", link: "https://drive.google.com/drive/folders/1PiTxMxC6pzFgTO-f7-_K4wAhSPXmM_La" }
     ]
   },
   {
@@ -38,7 +38,7 @@ const notesData = [
     semester: "Sem 4",
     subjects: [
       { name: "Economics", link: "https://drive.google.com/drive/folders/1c91yV9MtXrkjtDgpE0rib7wrI-rvSxoS" },
-      { name: "EM", link: "https://drive.google.com/drive/folders/1MqbQjT04APJChaf_x5S88RAqSXoSp7-G" },
+      { name: "Electrical Machines", link: "https://drive.google.com/drive/folders/1MqbQjT04APJChaf_x5S88RAqSXoSp7-G" },
       { name: "COA", link: "https://drive.google.com/drive/folders/1Z8QQwXmPmhhtA3wQOic9TGdzjz_SlTIM" },
       { name: "Java", link: "https://drive.google.com/drive/folders/1lVKt_Tosy0BMZvOCQ3C6RYN8viA9b_th" },
       { name: "Maths", link: "https://drive.google.com/drive/folders/1DO8NWwasga-WkUHGXv0YFqdtO1PvOYgr" },
