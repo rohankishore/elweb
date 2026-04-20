@@ -14,6 +14,7 @@ import AboutPage from './component/AboutPage';
 import AcademicsPage from './component/AcademicsPage';
 import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
+import StudentsPage from './component/StudentsPage';
 
 function App() {
   const videoRef = useRef(null)
@@ -411,24 +412,7 @@ function App() {
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/grievances" element={<GrievancesPage />} />
           <Route path="/notices" element={<NoticesPage />} />
-          <Route path="/students" element={
-            <div style={{ padding: '8rem 2rem', textAlign: 'left', color: 'white', minHeight: '100vh', maxWidth: '1120px', margin: '0 auto' }}>
-              <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontFamily: 'var(--display)' }}>Student's Corner</h1>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.8' }}>Details about all the students and their achievements. Data will be updated here soon.</p>
-              <div className="resource-badges" style={{ marginTop: "2rem", display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <Link to="#" className="resource-badge">
-                  <span className="badge-indicator">STUDENTS LIST</span>
-                  <span className="badge-value">First Years</span>
-                </Link>
-                <Link to="#" className="resource-badge">
-                  <span className="badge-indicator">STUDENTS LIST</span>
-                  <span className="badge-value">Second Years </span>
-                </Link>
-
-              </div>
-              <h2 style={{ fontSize: '2.2rem', marginTop: '4rem', marginBottom: '1rem', fontFamily: 'var(--display)', color: 'var(--text-main)' }}>Achievements</h2>
-            </div>
-          } />
+          <Route path="/students" element={<StudentsPage />} />
         </Routes>
       </Layout>
     </Router>
