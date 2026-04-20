@@ -75,32 +75,59 @@ export default function AcademicsPage() {
 
       <section className="academics-page-content">
         <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
-          <div className="academics-accordions-wrapper">
-            {notesData.map((sem, idx) => (
-              <details className="academics-accordion" key={idx}>
-                <summary className="academics-accordion__summary">
-                  <span>{sem.semester}</span>
-                  <svg className="academics-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                </summary>
-                <div className="academics-accordion__content">
-                  <div className="resource-badges">
-                    {sem.subjects.map((sub, sIdx) => (
-                      <a
-                        key={sIdx}
-                        className="resource-badge"
-                        href={sub.link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <span className="badge-indicator">NOTES</span>
-                        <span className="badge-value">{sub.name}</span>
-                      </a>
-                    ))}
+          {/* Mobile View */}
+          <div className="academics-mobile-accordions">
+            <div className="academics-accordions-wrapper">
+              {notesData.map((sem, idx) => (
+                <details className="academics-accordion" key={idx}>
+                  <summary className="academics-accordion__summary">
+                    <span>{sem.semester}</span>
+                    <svg className="academics-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </summary>
+                  <div className="academics-accordion__content">
+                    <div className="resource-badges">
+                      {sem.subjects.map((sub, sIdx) => (
+                        <a
+                          key={sIdx}
+                          className="resource-badge"
+                          href={sub.link}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="badge-indicator">NOTES</span>
+                          <span className="badge-value">{sub.name}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop View */}
+          <div className="academics-desktop-columns">
+            {notesData.map((sem, idx) => (
+              <div className="desktop-column" key={idx}>
+                <div className="desktop-column__header">
+                  {sem.semester.replace('Sem', 'Semester')}
                 </div>
-              </details>
+                <div className="desktop-column__body">
+                  {sem.subjects.map((sub, sIdx) => (
+                    <a
+                      key={sIdx}
+                      className="desktop-column__link"
+                      href={sub.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {sub.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
