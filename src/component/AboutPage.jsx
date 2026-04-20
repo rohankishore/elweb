@@ -37,39 +37,13 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
-          <div style={{ marginBottom: '0.8rem', display: 'flex', justifyContent: 'flex-start' }}>
-            <div style={{ width: 'fit-content' }}>
-              <TrueFocus
-                sentence="Our Commitment"
-                separator=" "
-                blurAmount={5}
-                borderColor="var(--accent)"
-                glowColor="rgba(108,99,255,0.4)"
-                animationDuration={0.5}
-                pauseBetweenAnimations={1}
-                manualMode={false}
-              />
-            </div>
-          </div>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Commitment</h2>
           <p className="about-page-content__text">
             As a newly established branch, we are committed to ensuring every student feels included and represented. As the inaugural committee, we aim to lay a strong foundation that fosters participation, belonging, and growth for the batches to come.
           </p>
         </div>
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
-          <div style={{ marginBottom: '0.8rem', display: 'flex', justifyContent: 'flex-start' }}>
-            <div style={{ width: 'fit-content' }}>
-              <TrueFocus
-                sentence="Our Faculties"
-                separator=" "
-                blurAmount={5}
-                borderColor="var(--accent)"
-                glowColor="rgba(108,99,255,0.4)"
-                animationDuration={0.5}
-                pauseBetweenAnimations={1}
-                manualMode={false}
-              />
-            </div>
-          </div>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Faculties</h2>
           <p className="about-page-content__text">
             Faculty details and photos will be updated soon.
           </p>
