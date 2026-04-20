@@ -26,9 +26,10 @@ function App() {
       { label: 'Home', to: '/' },
       { label: 'About', to: '/about' },
       { label: 'Academics', to: '/academics' },
+      { label: 'Students', to: '/students' },
       { label: 'Notices', to: '/notices' },
       { label: 'Grievances', to: '/grievances' },
-      { label: 'Students', to: '/students' },
+
     ],
     [],
   )
