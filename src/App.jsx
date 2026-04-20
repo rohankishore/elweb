@@ -275,9 +275,9 @@ function App() {
 
     // Determine active index for GooeyNav
     let activeIdx = 0;
-    if (location.pathname === '/notices') activeIdx = 3;
-    else if (location.pathname === '/grievances') activeIdx = 4;
-    else if (location.pathname === '/students') activeIdx = 5;
+    if (location.pathname === '/grievances') activeIdx = 5;
+    else if (location.pathname === '/notices') activeIdx = 4;
+    else if (location.pathname === '/students') activeIdx = 3;
     else if (location.pathname === '/academics') activeIdx = 2;
     else if (location.pathname === '/about') activeIdx = 1;
     else activeIdx = 0;
