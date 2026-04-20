@@ -75,6 +75,7 @@ export default function AcademicsPage() {
 
       <section className="academics-page-content">
         <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
+          <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Notes</h2>
           {/* Mobile View */}
           <div className="academics-mobile-accordions">
             <div className="academics-accordions-wrapper">
