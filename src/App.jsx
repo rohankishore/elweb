@@ -415,6 +415,10 @@ function App() {
             <div style={{ padding: '8rem 2rem', textAlign: 'left', color: 'white', minHeight: '100vh', maxWidth: '1120px', margin: '0 auto' }}>
               <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontFamily: 'var(--display)' }}>Student's Corner</h1>
               <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.8' }}>Details about all the students and their achievements. Data will be updated here soon.</p>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+                <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: '1px solid var(--border-soft)', background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '700' }}>First Years List</Link>
+                <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: '1px solid var(--border-soft)', background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '700' }}>Second Years List</Link>
+              </div>
             </div>
           } />
         </Routes>
