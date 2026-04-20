@@ -59,16 +59,7 @@ export default function AcademicsPage() {
           <p className="academics-page-hero__subtitle">
             Quick access to core academic materials for the EL/EO program.
           </p>
-        </div>
-      </section>
-
-      <section className="academics-page-content">
-        <div className="academics-page-content__header" style={{ marginBottom: "2rem" }}>
-          <h2 className="academics-page-content__title">Syllabus</h2>
-          <p className="academics-page-content__text">
-            Open the current syllabus folder directly from here.
-          </p>
-          <div className="resource-badges">
+          <div className="resource-badges" style={{ marginTop: "2rem" }}>
             <a
               className="resource-badge"
               href="https://drive.google.com/drive/folders/1X_GLuX7iMzN35Q03IfZfCNRgfCYZimMS"
@@ -80,12 +71,10 @@ export default function AcademicsPage() {
             </a>
           </div>
         </div>
+      </section>
 
-        <div className="academics-page-content__notes">
-          <h2 className="academics-page-content__title">Notes</h2>
-          <p className="academics-page-content__text" style={{ marginBottom: "1.5rem" }}>
-            Access study materials and notes for all semesters below.
-          </p>
+      <section className="academics-page-content">
+        <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
           <div className="academics-accordions-wrapper">
             {notesData.map((sem, idx) => (
               <details className="academics-accordion" key={idx}>
@@ -105,8 +94,8 @@ export default function AcademicsPage() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <span className="badge-indicator">{sub.name}</span>
-                        <span className="badge-value">Open Drive</span>
+                        <span className="badge-indicator">NOTES</span>
+                        <span className="badge-value">{sub.name}</span>
                       </a>
                     ))}
                   </div>
