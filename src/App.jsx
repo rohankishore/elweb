@@ -419,6 +419,7 @@ function App() {
                 <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: '1px solid var(--border-soft)', background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '700' }}>First Years List</Link>
                 <Link to="#" style={{ padding: '0.9rem 1.8rem', borderRadius: '999px', border: '1px solid var(--border-soft)', background: 'rgba(255, 255, 255, 0.04)', color: 'var(--text-main)', textDecoration: 'none', fontWeight: '700' }}>Second Years List</Link>
               </div>
+              <h2 style={{ fontSize: '2.2rem', marginTop: '4rem', marginBottom: '1rem', fontFamily: 'var(--display)', color: 'var(--text-main)' }}>Achievements</h2>
             </div>
           } />
         </Routes>
