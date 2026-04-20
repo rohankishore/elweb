@@ -22,21 +22,6 @@ export default function StudentsPage() {
             </Link>
           </div>
         </div>
-
-        <div className="notices-page-overview" aria-label="Students overview">
-          <div className="notices-page-overview__card">
-            <span className="notices-page-overview__label">Total Students</span>
-            <strong className="notices-page-overview__value">120+</strong>
-          </div>
-          <div className="notices-page-overview__card">
-            <span className="notices-page-overview__label">First Years</span>
-            <strong className="notices-page-overview__value">60</strong>
-          </div>
-          <div className="notices-page-overview__card">
-            <span className="notices-page-overview__label">Second Years</span>
-            <strong className="notices-page-overview__value">60</strong>
-          </div>
-        </div>
       </section>
 
       <section className="notices-page-content" id="achievements">
