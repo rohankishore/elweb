@@ -28,8 +28,7 @@ function App() {
       { label: 'Academics', to: '/academics' },
       { label: 'Notices', to: '/notices' },
       { label: 'Grievances', to: '/grievances' },
-      { label: 'Test 1', to: '/test1' },
-      { label: 'Test 2', to: '/test2' },
+      { label: 'Students', to: '/students' },
     ],
     [],
   )
@@ -277,6 +276,7 @@ function App() {
     let activeIdx = 0;
     if (location.pathname === '/notices') activeIdx = 3;
     else if (location.pathname === '/grievances') activeIdx = 4;
+    else if (location.pathname === '/students') activeIdx = 5;
     else if (location.pathname === '/academics') activeIdx = 2;
     else if (location.pathname === '/about') activeIdx = 1;
     else activeIdx = 0;
@@ -410,6 +410,12 @@ function App() {
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/grievances" element={<GrievancesPage />} />
           <Route path="/notices" element={<NoticesPage />} />
+          <Route path="/students" element={
+            <div style={{ padding: '8rem 2rem', textAlign: 'center', color: 'white', minHeight: '100vh' }}>
+              <h1 style={{ fontSize: '3rem', marginBottom: '1rem', fontFamily: 'var(--display)' }}>Student Achievements</h1>
+              <p style={{ color: 'var(--text-muted)' }}>Details about students and their achievements will be updated here soon.</p>
+            </div>
+          } />
         </Routes>
       </Layout>
     </Router>
