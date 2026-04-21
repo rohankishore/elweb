@@ -11,7 +11,7 @@ export default function StudentsPage() {
             Welcome to the EL Family! This isn't just a list of names. It's a directory of the next generation of engineers who refuse to be boxed into just one discipline.
           </p>
           <div className="resource-badges" style={{ marginTop: "2.5rem", display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <a href="/assets/students.pdf" className="resource-badge" target="_blank" rel="noopener noreferrer" download>
+            <a href="/assets/docs/students.pdf" className="resource-badge" target="_blank" rel="noopener noreferrer" download>
               <span className="badge-indicator">2024 & 25 Batch</span>
               <span className="badge-value">STUDENT LIST</span>
             </a>
