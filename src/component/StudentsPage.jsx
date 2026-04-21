@@ -11,13 +11,12 @@ export default function StudentsPage() {
             Details about all the students and their achievements. Data will be updated here soon.
           </p>
           <div className="resource-badges" style={{ marginTop: "2.5rem", display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <p className="notices-page-hero__subtitle">
+              Welcome to the EL Family! 
+            </p>
             <Link to="#" className="resource-badge">
-              <span className="badge-indicator">STUDENTS LIST</span>
-              <span className="badge-value">First Years</span>
-            </Link>
-            <Link to="#" className="resource-badge">
-              <span className="badge-indicator">STUDENTS LIST</span>
-              <span className="badge-value">Second Years</span>
+              <span className="badge-indicator">2024 & 25 Batch</span>
+              <span className="badge-value">STUDENT LIST</span>
             </Link>
           </div>
         </div>
