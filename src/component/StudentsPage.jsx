@@ -8,12 +8,9 @@ export default function StudentsPage() {
         <div className="notices-page-hero__copy">
           <h1 className="notices-page-hero__title">Students Corner</h1>
           <p className="notices-page-hero__subtitle">
-            Details about all the students and their achievements. Data will be updated here soon.
+            Welcome to the EL Family! This isn't just a list of names. It's a directory of the next generation of engineers who refuse to be boxed into just one discipline.
           </p>
           <div className="resource-badges" style={{ marginTop: "2.5rem", display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <p className="notices-page-hero__subtitle">
-              Welcome to the EL Family! 
-            </p>
             <Link to="#" className="resource-badge">
               <span className="badge-indicator">2024 & 25 Batch</span>
               <span className="badge-value">STUDENT LIST</span>
