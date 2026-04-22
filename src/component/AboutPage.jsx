@@ -17,6 +17,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+      
 
       <section className="about-page-content">
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
