@@ -1,7 +1,9 @@
 
+
 import React from "react";
 import { Link } from "react-router-dom";
 import TrueFocus from "./TrueFocus";
+import Spline from '@splinetool/react-spline';
 
 export default function AboutPage() {
   return (
@@ -13,6 +15,9 @@ export default function AboutPage() {
           <p className="about-page-hero__subtitle">
             The <strong>EL Association</strong> is the official student body of the Electrical and Computer Engineering branch, functioning as an all-in-one support space for students to meet their academic, extra-curricular, and student welfare needs.
           </p>
+          <div style={{ width: 200, margin: '2rem 0' }}>
+            <Spline scene="https://prod.spline.design/UnrBMkvEx8IlqHXb/scene.splinecode" />
+          </div>
         </div>
       </section>
 
