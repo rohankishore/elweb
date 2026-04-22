@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="about-page-hero" style={{ boxShadow: "none", background: "none", border: "none" }}>
         <div className="about-page-hero__copy" style={{ boxShadow: "none", background: "none", border: "none" }}>
           <span className="about-page-hero__eyebrow">About the Association</span>
-          <h1 className="about-page-hero__title">EL Association</h1>
+          <h1 className="about-page-hero__title" style={{ whiteSpace: 'nowrap' }}>EL Association</h1>
           <p className="about-page-hero__subtitle">
             The <strong>EL Association</strong> is the official student body of the Electrical and Computer Engineering branch, functioning as an all-in-one support space for students to meet their academic, extra-curricular, and student welfare needs.
           </p>
