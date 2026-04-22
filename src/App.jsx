@@ -16,57 +16,20 @@ import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
 
-function App() {
+// ─── Extracted into its own component so the scroll-scrub effect re-mounts
+// every time the user navigates back to "/". Previously these refs and effects
+// lived in App, which never unmounts, so journeyRef.current was stale/null
+// after the first navigation away from home.
+function HomePage() {
   const videoRef = useRef(null)
   const captionRef = useRef(null)
   const scrollHintRef = useRef(null)
   const journeyRef = useRef(null)
 
-  const navItems = useMemo(
-    () => [
-      { label: 'Home', to: '/' },
-      { label: 'About', to: '/about' },
-      { label: 'Academics', to: '/academics' },
-      { label: 'Students', to: '/students' },
-      { label: 'Notices', to: '/notices' },
-      { label: 'Help', to: '/grievances' },
-
-    ],
-    [],
-  )
-
-  const facultyProfiles = useMemo(
-    () => [
-      {
-        name: 'Faculty 1',
-        position: 'Professor, Embedded Systems',
-        photo: 'https://i.pravatar.cc/420?img=12',
-      },
-      {
-        name: 'Faculty 2',
-        position: 'Associate Professor, Power Electronics',
-        photo: 'https://i.pravatar.cc/420?img=32',
-      },
-      {
-        name: 'Faculty 3',
-        position: 'Assistant Professor, Signal Processing',
-        photo: 'https://i.pravatar.cc/420?img=36',
-      },
-      {
-        name: 'Faculty 4',
-        position: 'Professor, Communication Systems',
-        photo: 'https://i.pravatar.cc/420?img=47',
-      },
-
-    ],
-    [],
-  )
-
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    // Lowered scrubFps for better performance (less frequent seeking)
     const scrubFps = 12
     const frameStep = 1 / scrubFps
     let duration = 0
@@ -124,7 +87,6 @@ function App() {
       }
       video.currentTime = time
     }
-
 
     const pumpScrub = () => {
       if (duration > 0) {
@@ -197,6 +159,11 @@ function App() {
     video.addEventListener('loadedmetadata', onVideoReady)
     video.addEventListener('seeked', onVideoSeeked)
 
+    // If video metadata is already loaded (e.g. browser cached it), fire manually
+    if (video.readyState >= 1) {
+      onVideoReady()
+    }
+
     syncVideoToScroll()
     updateCaptionReveal()
     updateScrollHint()
@@ -206,12 +173,8 @@ function App() {
     window.addEventListener('resize', onResize)
 
     return () => {
-      if (scrollRafId) {
-        cancelAnimationFrame(scrollRafId)
-      }
-      if (scrubRafId) {
-        cancelAnimationFrame(scrubRafId)
-      }
+      if (scrollRafId) cancelAnimationFrame(scrollRafId)
+      if (scrubRafId) cancelAnimationFrame(scrubRafId)
       video.removeEventListener('loadedmetadata', onVideoReady)
       video.removeEventListener('seeked', onVideoSeeked)
       window.removeEventListener('scroll', onScroll)
@@ -219,6 +182,7 @@ function App() {
     }
   }, [])
 
+  // Reveal-on-scroll animations scoped to this page only
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll('.reveal-section'))
     if (!sections.length) return
@@ -254,6 +218,120 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  return (
+    <>
+      <section className="scroll-journey" id="hero" ref={journeyRef}>
+        <div className="frame-stage" aria-hidden="true">
+          <video
+            className="frame-video"
+            ref={videoRef}
+            src="/frames-scrub.mp4"
+            preload="auto"
+            muted
+            playsInline
+            tabIndex={-1}
+            aria-hidden="true"
+          />
+          <div className="frame-overlay" />
+        </div>
+
+        <div className="hero-wrap">
+          <h1 className="hero-shine-text">
+            Electrical and Computer Engineering
+          </h1>
+          <div className="caption-wrap" ref={captionRef}>
+            <p className="eyebrow">College of Engineering Trivandrum</p>
+            <p className="subline">
+              Bridging electrical engineering and computing for tomorrow's technology.
+            </p>
+          </div>
+        </div>
+
+        <div className="scroll-indicator" ref={scrollHintRef}>
+          <span className="scroll-indicator-mouse" aria-hidden="true" />
+        </div>
+      </section>
+
+      <MarqueeLinks />
+      <section className="content-sections overview-section" id="overview">
+        <div className="section-head">
+          <span className="section-eyebrow">Program Overview</span>
+          <h2>Electrical and Computer Engineering (EL/EO)</h2>
+        </div>
+        <div className="section-body">
+          <p>
+            Electrical and Computer Engineering (EL/EO) is CET's newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
+          </p>
+          <div className="program-badges">
+            <div className="shiny-badge">
+              <span className="badge-indicator">Duration</span>
+              <span className="badge-value">4 Years</span>
+            </div>
+            <div className="shiny-badge">
+              <span className="badge-indicator">Structure</span>
+              <span className="badge-value">8 Semesters</span>
+            </div>
+            <div className="shiny-badge">
+              <span className="badge-indicator">Degree</span>
+              <span className="badge-value">B.Tech</span>
+            </div>
+            <div className="shiny-badge">
+              <span className="badge-indicator">Capacity</span>
+              <span className="badge-value">Intake: 60</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="content-sections notices-feature-section" id="notices">
+        <div className="section-head notices-head">
+          <h2>Latest Notices</h2>
+          <p className="notices-subtitle">Stay updated with important announcements</p>
+        </div>
+
+        <div className="notices-feature-card">
+          <div className="notices-meta">
+            <span className="notice-tag notice-tag-pinned">Pinned</span>
+            <span className="notice-tag">Time Table</span>
+          </div>
+          <div className="notice-copy">
+            <h3>Semester Exam Time Table for S2 & S4</h3>
+            <p className="notice-description">
+              KTU Semester exam timetables for EL S2 and S4 batches have been released.
+            </p>
+          </div>
+          <span className="notice-arrow" aria-hidden="true">›</span>
+        </div>
+        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+          <Link to="/notices" className="shiny-badge" style={{
+            display: 'inline-block',
+            borderRadius: '16px',
+            fontWeight: 700,
+            fontSize: '1.18rem',
+            padding: '1.1rem 2.5rem',
+            textDecoration: 'none',
+            margin: 0,
+            boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)',
+            verticalAlign: 'top',
+          }}>View all notices &rarr;</Link>
+        </div>
+      </section>
+    </>
+  )
+}
+
+function App() {
+  const navItems = useMemo(
+    () => [
+      { label: 'Home', to: '/' },
+      { label: 'About', to: '/about' },
+      { label: 'Academics', to: '/academics' },
+      { label: 'Students', to: '/students' },
+      { label: 'Notices', to: '/notices' },
+      { label: 'Help', to: '/grievances' },
+    ],
+    [],
+  )
+
   // Layout with nav and highlight logic
   function Layout({ children }) {
     const location = useLocation();
@@ -282,6 +360,7 @@ function App() {
     else if (location.pathname === '/academics') activeIdx = 2;
     else if (location.pathname === '/about') activeIdx = 1;
     else activeIdx = 0;
+
     return (
       <>
         <div className="site-nav">
@@ -306,108 +385,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <section className="scroll-journey" id="hero" ref={journeyRef}>
-                  <div className="frame-stage" aria-hidden="true">
-                    <video
-                      className="frame-video"
-                      ref={videoRef}
-                      src="/frames-scrub.mp4"
-                      preload="auto"
-                      muted
-                      playsInline
-                      tabIndex={-1}
-                      aria-hidden="true"
-                    />
-                    <div className="frame-overlay" />
-                  </div>
-
-                  <div className="hero-wrap">
-                    <h1 className="hero-shine-text">
-                      Electrical and Computer Engineering
-                    </h1>
-                    <div className="caption-wrap" ref={captionRef}>
-                      <p className="eyebrow">College of Engineering Trivandrum</p>
-                      <p className="subline">
-                        Bridging electrical engineering and computing for tomorrow’s technology.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="scroll-indicator" ref={scrollHintRef}>
-                    <span className="scroll-indicator-mouse" aria-hidden="true" />
-                  </div>
-                </section>
-
-                <MarqueeLinks />
-                <section className="content-sections overview-section" id="overview">
-                  <div className="section-head">
-                    <span className="section-eyebrow">Program Overview</span>
-                    <h2>Electrical and Computer Engineering (EL/EO)</h2>
-                  </div>
-                  <div className="section-body">
-                    <p>
-                      Electrical and Computer Engineering (EL/EO) is CET’s newest B.Tech program, introduced in 2024. The course focuses on integrating computing technologies with electrical engineering to design smarter and more efficient systems. By combining principles of electronics, programming, and system design, it enables the development of intelligent solutions for automation, control, communication, and real-time monitoring. This interdisciplinary approach prepares students to build adaptive, high-performance electrical and electronic systems for a wide range of modern applications.
-                    </p>
-                    <div className="program-badges">
-                      <div className="shiny-badge">
-                        <span className="badge-indicator">Duration</span>
-                        <span className="badge-value">4 Years</span>
-                      </div>
-                      <div className="shiny-badge">
-                        <span className="badge-indicator">Structure</span>
-                        <span className="badge-value">8 Semesters</span>
-                      </div>
-                      <div className="shiny-badge">
-                        <span className="badge-indicator">Degree</span>
-                        <span className="badge-value">B.Tech</span>
-                      </div>
-                      <div className="shiny-badge">
-                        <span className="badge-indicator">Capacity</span>
-                        <span className="badge-value">Intake: 60</span>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section className="content-sections notices-feature-section" id="notices">
-                  <div className="section-head notices-head">
-                    <h2>Latest Notices</h2>
-                    <p className="notices-subtitle">Stay updated with important announcements</p>
-                  </div>
-
-                  <div className="notices-feature-card">
-                    <div className="notices-meta">
-                      <span className="notice-tag notice-tag-pinned">Pinned</span>
-                      <span className="notice-tag">Time Table</span>
-                    </div>
-                    <div className="notice-copy">
-                      <h3>Semester Exam Time Table for S2 & S4</h3>
-                      <p className="notice-description">
-                        KTU Semester exam timetables for EL S2 and S4 batches have been released.
-                      </p>
-                    </div>
-                    <span className="notice-arrow" aria-hidden="true">›</span>
-                  </div>
-                  <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-                    <Link to="/notices" className="shiny-badge" style={{
-                      display: 'inline-block',
-                      borderRadius: '16px',
-                      fontWeight: 700,
-                      fontSize: '1.18rem',
-                      padding: '1.1rem 2.5rem',
-                      textDecoration: 'none',
-                      margin: 0,
-                      boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)',
-                      verticalAlign: 'top',
-                    }}>View all notices &rarr;</Link>
-                  </div>
-                </section>
-              </>
-            }
-          />
+          <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/academics" element={<AcademicsPage />} />
           <Route path="/grievances" element={<GrievancesPage />} />
