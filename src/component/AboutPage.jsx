@@ -48,6 +48,12 @@ export default function AboutPage() {
             Faculty details and photos will be updated soon.
           </p>
         </div>
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Technical staff</h2>
+          <p className="about-page-content__text">
+            Whether you're hunting for a specific resistor, need to figure out why your motor isn't spinning, or need a crash course on using the DSO, these are the experts you'll find on the ground, the Technical Staff !
+          </p>
+        </div>
       </section>
     </main>
   );
