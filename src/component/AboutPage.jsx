@@ -47,7 +47,7 @@ export default function AboutPage() {
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
           <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Faculties</h2>
           <p className="about-page-content__text">
-            Faculty details and photos will be updated soon.
+            Our professors are more than just lecturers—they’re the ones helping us connect the dots between complex circuits and high-level code. Whether they’re deep-diving into AI or breaking down Power Systems, they bring the expertise that turns us into engineers. Check the list below for official contact details
           </p>
         </div>
       </section>
