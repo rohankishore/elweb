@@ -53,20 +53,101 @@ const questionPaperData = [
   {
     semester: "Sem 1",
     papers: [
-      { name: "Intro to Electrical & Electronics Engineering QP", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
-      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" }
-      // Add more question papers as needed
+      {
+        subject: "IEEE",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1EOb1p7WHT4OKp6L_TF00Uq9HC8iIyH_l/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1EOb1p7WHT4OKp6L_TF00Uq9HC8iIyH_l/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1jRUWVVJXD0HEe7XFaiRoMIxr7JntHsDv/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Maths",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1Jh_jInTkNMVKFGKRAT96QlH_o1ECh-8D/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1JbTGnEd4mxYsE-h4phRlTliswGAicywC/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1ZFBNY0lHyhE_HD7ypoX9d5EN8IttcIYL/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Atp",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1ruSnBmc51BOh9dcZzRTOZ1didyBc7rq7/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1Gm8wy63qmCOP1MnhFcuAhExLjgHDxM0P/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1sFdeeXOMliuKPwDrNZFlKu5macog_8qm/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Eg",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1GU0mJOXQIU_PkhNPZDeMSdFraeBvdsb0/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/14V-8oI1zdssG-1TaLw4Ci4PrRy5M0AVA/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1Idh-TobVQiTK9Mamv6eTguEz3g1o9USd/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Physics",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1_Dpi5fSpBvUqjNB2NZGxs4F9Hy3Z6ikd/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1Zm1BE0VRx-cLbb4q_pzjPjsf_Rk_T5EL/view?usp=drivesdk" }
+          // No Sem link provided
+        ]
+      }
     ]
   },
   {
     semester: "Sem 2",
     papers: [
-      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
-      { name: "Chemistry QP", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" }
-      // Add more question papers as needed
+      {
+        subject: "Chemistry",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1tbB-zshs7EKTck-nQnfQaAgQcItTF5JT/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1pFtGv3mI5BOnpZcDKyPlDbzlm-0eNgKb/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/16DSfgdyOZfxv_OmYF4peBNwUgtuJTZ8p/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Maths",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/15nKqir2rsFsrVet0jD4FIxvhi9iOAB9P/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/15myYCyUrCOgZwXzeLMl9f4SL2inHInMl/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1t9CN6Sdfc7oA5VLd5DAy_gMIYR2ym9Ik/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Foc",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1qlZwoigDbvBrV4lj_l36xfH8meBwJ5in/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1WVkFBwzn9xO5UFE9MJyNYcyOwMJp-qtD/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1-ImbEEJm29fFypJYUFRu2-1L2dE31GdP/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Prc",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/15vt30ZXrLGDfCtCoXhso0Xmlbo0S_V9d/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/15wlfzogU_gifC1g8Rv-7fIocG0Q1bRjh/view?usp=drivesdk" },
+          { name: "Sem", link: "https://drive.google.com/file/d/1-2hmU_fwbScTJ9gzbZSZ7Hq2O9fdWJ05/view?usp=drivesdk" }
+        ]
+      },
+      {
+        subject: "Ipr",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1FKisQu2Mp6_BB28ZT2XX_GXDTwfHEiYw/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1qPegpzzWdwMkMnNT5ro5iOOY65PqxJy6/view?usp=drivesdk" }
+          // No Sem link provided
+        ]
+      },
+      {
+        subject: "Analog",
+        series: [
+          { name: "Series 1", link: "https://drive.google.com/file/d/1YlIxdhhq99WTfglIxcajWbFW_4RHO6MV/view?usp=drivesdk" },
+          { name: "Series 2", link: "https://drive.google.com/file/d/1Yp7fOsUhp8xEkl8368I8vDI4MX5EUDlQ/view?usp=drivesdk" }
+          // No Sem link provided
+        ]
+      }
     ]
-  },
-  // Add more semesters as needed
+  }
 ];
 
 export default function AcademicsPage() {
@@ -169,20 +250,25 @@ export default function AcademicsPage() {
                     </svg>
                   </summary>
                   <div className="academics-accordion__content">
-                    <div className="resource-badges">
-                      {sem.papers.map((paper, pIdx) => (
-                        <a
-                          key={pIdx}
-                          className="resource-badge"
-                          href={paper.link}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <span className="badge-indicator">QP</span>
-                          <span className="badge-value">{paper.name}</span>
-                        </a>
-                      ))}
-                    </div>
+                    {sem.papers.map((paper, pIdx) => (
+                      <div key={pIdx} style={{ marginBottom: '1rem' }}>
+                        <div style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{paper.subject}</div>
+                        <div className="resource-badges">
+                          {paper.series.map((ser, sIdx) => (
+                            <a
+                              key={sIdx}
+                              className="resource-badge"
+                              href={ser.link}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span className="badge-indicator">{ser.name}</span>
+                              <span className="badge-value">{paper.subject}</span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </details>
               ))}
@@ -198,15 +284,22 @@ export default function AcademicsPage() {
                 </div>
                 <div className="desktop-column__body">
                   {sem.papers.map((paper, pIdx) => (
-                    <a
-                      key={pIdx}
-                      className="desktop-column__link"
-                      href={paper.link}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {paper.name}
-                    </a>
+                    <div key={pIdx} style={{ marginBottom: '1.5rem' }}>
+                      <div style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{paper.subject}</div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        {paper.series.map((ser, sIdx) => (
+                          <a
+                            key={sIdx}
+                            className="desktop-column__link"
+                            href={ser.link}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {ser.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
