@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import DownloadIcon from "./DownloadIcon";
 
@@ -152,14 +152,6 @@ const questionPaperData = [
 ];
 
 export default function AcademicsPage() {
-  // Gather all semesters from notesData for selector
-  const semesters = notesData.map((n) => n.semester);
-  const [selectedSemester, setSelectedSemester] = useState(semesters[0]);
-
-  // Filter notes and question papers by selected semester
-  const filteredNotes = notesData.find((n) => n.semester === selectedSemester);
-  const filteredPapers = questionPaperData.find((q) => q.semester === selectedSemester);
-
   return (
     <main className="academics-page-shell">
       <section className="academics-page-hero">
@@ -184,46 +176,23 @@ export default function AcademicsPage() {
       </section>
 
       <section className="academics-page-content">
-        {/* Semester Selector */}
-        <div style={{ margin: '1.5rem 0 2.5rem 0', display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-          {semesters.map((sem) => (
-            <button
-              key={sem}
-              className="resource-badge"
-              style={{
-                cursor: 'pointer',
-                borderColor: sem === selectedSemester ? 'var(--accent, #4ec9e1)' : undefined,
-                boxShadow: sem === selectedSemester ? '0 0 0 2px var(--accent, #4ec9e1)' : undefined,
-                outline: 'none',
-                fontWeight: sem === selectedSemester ? 700 : 500,
-                color: sem === selectedSemester ? 'var(--accent, #4ec9e1)' : undefined,
-                transition: 'box-shadow 0.2s, border-color 0.2s, color 0.2s',
-              }}
-              onClick={() => setSelectedSemester(sem)}
-            >
-              <span className="badge-indicator">{sem}</span>
-              <span className="badge-value">{sem === selectedSemester ? 'Selected' : 'View'}</span>
-            </button>
-          ))}
-        </div>
-
         {/* Notes Section */}
         <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
           <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Notes</h2>
           {/* Mobile View */}
           <div className="academics-mobile-accordions">
             <div className="academics-accordions-wrapper">
-              {filteredNotes && (
-                <details className="academics-accordion" open>
+              {notesData.map((sem, idx) => (
+                <details className="academics-accordion" key={idx}>
                   <summary className="academics-accordion__summary">
-                    <span>{filteredNotes.semester}</span>
+                    <span>{sem.semester}</span>
                     <svg className="academics-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </summary>
                   <div className="academics-accordion__content">
                     <div className="resource-badges">
-                      {filteredNotes.subjects.map((sub, sIdx) => (
+                      {sem.subjects.map((sub, sIdx) => (
                         <a
                           key={sIdx}
                           className="resource-badge"
@@ -238,19 +207,19 @@ export default function AcademicsPage() {
                     </div>
                   </div>
                 </details>
-              )}
+              ))}
             </div>
           </div>
 
           {/* Desktop View */}
           <div className="academics-desktop-columns">
-            {filteredNotes && (
-              <div className="desktop-column">
+            {notesData.map((sem, idx) => (
+              <div className="desktop-column" key={idx}>
                 <div className="desktop-column__header">
-                  {filteredNotes.semester.replace('Sem', 'Semester')}
+                  {sem.semester.replace('Sem', 'Semester')}
                 </div>
                 <div className="desktop-column__body">
-                  {filteredNotes.subjects.map((sub, sIdx) => (
+                  {sem.subjects.map((sub, sIdx) => (
                     <a
                       key={sIdx}
                       className="desktop-column__link"
@@ -263,7 +232,7 @@ export default function AcademicsPage() {
                   ))}
                 </div>
               </div>
-            )}
+            ))}
           </div>
         </div>
 
@@ -271,16 +240,16 @@ export default function AcademicsPage() {
           <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Question Papers</h2>
           <div className="academics-mobile-accordions">
             <div className="academics-accordions-wrapper">
-              {filteredPapers && (
-                <details className="academics-accordion" open>
+              {questionPaperData.map((sem, idx) => (
+                <details className="academics-accordion" key={idx}>
                   <summary className="academics-accordion__summary">
-                    <span>{filteredPapers.semester}</span>
+                    <span>{sem.semester}</span>
                     <svg className="academics-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </summary>
                   <div className="academics-accordion__content" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                    {filteredPapers.papers.map((paper, pIdx) => (
+                    {sem.papers.map((paper, pIdx) => (
                       <div key={pIdx} style={{ borderRadius: '1rem', overflow: 'hidden', background: '#181f2a', boxShadow: '0 2px 8px #0002' }}>
                         <div style={{ background: 'linear-gradient(90deg, #1e90ff, #00c6fb)', color: '#fff', fontWeight: 700, padding: '1rem', fontSize: '1.1rem', textAlign: 'center' }}>{paper.subject}</div>
                         <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -301,13 +270,13 @@ export default function AcademicsPage() {
                     ))}
                   </div>
                 </details>
-              )}
+              ))}
             </div>
           </div>
 
           {/* Desktop View */}
           <div className="academics-desktop-columns" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', marginTop: '2rem' }}>
-            {filteredPapers && filteredPapers.papers.map((paper, pIdx) => (
+            {questionPaperData[0].papers.map((paper, pIdx) => (
               <div key={pIdx} style={{ flex: '1 1 260px', minWidth: 260, maxWidth: 340, background: '#181f2a', borderRadius: '1.5rem', overflow: 'hidden', boxShadow: '0 2px 12px #0003', display: 'flex', flexDirection: 'column', marginBottom: '2rem' }}>
                 <div style={{ background: 'linear-gradient(90deg, #1e90ff, #00c6fb)', color: '#fff', fontWeight: 700, padding: '1.2rem 1rem', fontSize: '1.15rem', textAlign: 'center', letterSpacing: 0.1 }}>{paper.subject}</div>
                 <div style={{ padding: '1.2rem 1rem', display: 'flex', flexDirection: 'column', gap: '1.1rem', flex: 1 }}>
