@@ -2,28 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const notesData = [
-  // ...existing code...
-];
-
-const questionPaperData = [
-  {
-    semester: "Sem 1",
-    papers: [
-      { name: "Intro to Electrical & Electronics Engineering QP", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
-      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" }
-      // Add more question papers as needed
-    ]
-  },
-  {
-    semester: "Sem 2",
-    papers: [
-      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
-      { name: "Chemistry QP", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" }
-      // Add more question papers as needed
-    ]
-  },
-  // Add more semesters as needed
-];
   {
     semester: "Sem 1",
     subjects: [
@@ -33,7 +11,7 @@ const questionPaperData = [
       { name: "Engineering Graphics", link: "https://drive.google.com/drive/folders/1tWCSyc5VIMkg6JmNEUZNUC0_qk8DHgw4" },
       { name: "Physics", link: "https://drive.google.com/drive/folders/1K7j3cKe2p80PtqxJgBMjfRbL0QanKTB-" }
     ]
-  };
+  },
   {
     semester: "Sem 2",
     subjects: [
@@ -69,6 +47,26 @@ const questionPaperData = [
       { name: "ML", link: "https://drive.google.com/drive/folders/19ReTagHlWRETWTEzMJUNeV2orIalqsLQ" }
     ]
   }
+];
+
+const questionPaperData = [
+  {
+    semester: "Sem 1",
+    papers: [
+      { name: "Intro to Electrical & Electronics Engineering QP", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
+      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" }
+      // Add more question papers as needed
+    ]
+  },
+  {
+    semester: "Sem 2",
+    papers: [
+      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
+      { name: "Chemistry QP", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" }
+      // Add more question papers as needed
+    ]
+  },
+  // Add more semesters as needed
 ];
 
 export default function AcademicsPage() {
