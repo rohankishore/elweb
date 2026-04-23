@@ -2,6 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const notesData = [
+  // ...existing code...
+];
+
+const questionPaperData = [
+  {
+    semester: "Sem 1",
+    papers: [
+      { name: "Intro to Electrical & Electronics Engineering QP", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
+      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" }
+      // Add more question papers as needed
+    ]
+  },
+  {
+    semester: "Sem 2",
+    papers: [
+      { name: "Maths QP", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
+      { name: "Chemistry QP", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" }
+      // Add more question papers as needed
+    ]
+  },
+  // Add more semesters as needed
+];
   {
     semester: "Sem 1",
     subjects: [
@@ -74,6 +96,7 @@ export default function AcademicsPage() {
       </section>
 
       <section className="academics-page-content">
+        {/* Notes Section */}
         <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
           <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Notes</h2>
           {/* Mobile View */}
@@ -125,6 +148,66 @@ export default function AcademicsPage() {
                       rel="noreferrer"
                     >
                       {sub.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Question Paper Section */}
+        <div className="academics-page-content__question-papers" style={{ marginTop: "3rem" }}>
+          <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Question Papers</h2>
+          {/* Mobile View */}
+          <div className="academics-mobile-accordions">
+            <div className="academics-accordions-wrapper">
+              {questionPaperData.map((sem, idx) => (
+                <details className="academics-accordion" key={idx}>
+                  <summary className="academics-accordion__summary">
+                    <span>{sem.semester}</span>
+                    <svg className="academics-accordion__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </summary>
+                  <div className="academics-accordion__content">
+                    <div className="resource-badges">
+                      {sem.papers.map((paper, pIdx) => (
+                        <a
+                          key={pIdx}
+                          className="resource-badge"
+                          href={paper.link}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <span className="badge-indicator">QP</span>
+                          <span className="badge-value">{paper.name}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop View */}
+          <div className="academics-desktop-columns">
+            {questionPaperData.map((sem, idx) => (
+              <div className="desktop-column" key={idx}>
+                <div className="desktop-column__header">
+                  {sem.semester.replace('Sem', 'Semester')}
+                </div>
+                <div className="desktop-column__body">
+                  {sem.papers.map((paper, pIdx) => (
+                    <a
+                      key={pIdx}
+                      className="desktop-column__link"
+                      href={paper.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {paper.name}
                     </a>
                   ))}
                 </div>
