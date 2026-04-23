@@ -417,6 +417,145 @@ body::before {
   }
 }
 
+/* ─── Question Paper Cards & Semester Selector ──────────────── */
+.qp-desktop {
+  display: none;
+}
+
+.qp-card {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, var(--accent-faint), transparent 30%),
+    radial-gradient(circle at bottom right, rgb(169 180 255 / 0.08), transparent 36%),
+    linear-gradient(145deg, rgba(20, 22, 26, 0.98) 0%, rgba(14, 15, 18, 0.98) 54%, rgba(22, 24, 28, 0.98) 100%);
+  border: 1px solid var(--border-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 12px 32px rgba(4, 10, 20, 0.32);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.qp-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 16px 42px rgba(6, 14, 28, 0.42);
+  transform: translateY(-3px);
+}
+
+.qp-card__header {
+  padding: 1.15rem 1.2rem;
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(90deg, #1e90ff, #00c6fb);
+  letter-spacing: 0.02em;
+}
+
+.qp-card__body {
+  padding: 1.15rem 1.2rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.qp-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.97rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.qp-card__link:hover {
+  color: var(--accent);
+  transform: translateX(2px);
+}
+
+.qp-card__link svg {
+  color: rgb(var(--accent-rgb) / 0.7);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.qp-card__link:hover svg {
+  color: var(--accent);
+}
+
+/* Semester selector pill bar */
+.qp-semester-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.qp-semester-selector__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--text-muted);
+  font-family: var(--display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+}
+
+.qp-semester-selector__pill svg {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.qp-semester-selector__pill:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.qp-semester-selector__pill--active {
+  border-color: rgb(var(--accent-rgb) / 0.5);
+  color: var(--accent);
+  background:
+    radial-gradient(circle at center, rgb(var(--accent-rgb) / 0.08), transparent 70%),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 18px rgb(var(--accent-rgb) / 0.15);
+}
+
+.qp-semester-selector__pill--active svg {
+  opacity: 1;
+  color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+  .qp-desktop {
+    display: block;
+    margin-top: 1rem;
+  }
+
+  .qp-desktop__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+    width: 100%;
+  }
+}
+
 /* Grievances Page Styles */
 .grievances-page-shell {
   position: relative;
