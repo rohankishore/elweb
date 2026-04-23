@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DownloadIcon from "./DownloadIcon";
 
 const notesData = [
   {
@@ -249,21 +250,21 @@ export default function AcademicsPage() {
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                   </summary>
-                  <div className="academics-accordion__content">
+                  <div className="academics-accordion__content" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                     {sem.papers.map((paper, pIdx) => (
-                      <div key={pIdx} style={{ marginBottom: '1rem' }}>
-                        <div style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{paper.subject}</div>
-                        <div className="resource-badges">
+                      <div key={pIdx} style={{ borderRadius: '1rem', overflow: 'hidden', background: '#181f2a', boxShadow: '0 2px 8px #0002' }}>
+                        <div style={{ background: 'linear-gradient(90deg, #1e90ff, #00c6fb)', color: '#fff', fontWeight: 700, padding: '1rem', fontSize: '1.1rem', textAlign: 'center' }}>{paper.subject}</div>
+                        <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                           {paper.series.map((ser, sIdx) => (
                             <a
                               key={sIdx}
-                              className="resource-badge"
                               href={ser.link}
                               target="_blank"
                               rel="noreferrer"
+                              style={{ display: 'flex', alignItems: 'center', color: '#fff', textDecoration: 'none', justifyContent: 'space-between', fontWeight: 500 }}
                             >
-                              <span className="badge-indicator">{ser.name}</span>
-                              <span className="badge-value">{paper.subject}</span>
+                              <span>{ser.name === 'Sem' ? 'Semester Paper' : ser.name}</span>
+                              <DownloadIcon style={{ marginLeft: 8, color: '#1e90ff' }} />
                             </a>
                           ))}
                         </div>
@@ -276,30 +277,22 @@ export default function AcademicsPage() {
           </div>
 
           {/* Desktop View */}
-          <div className="academics-desktop-columns">
-            {questionPaperData.map((sem, idx) => (
-              <div className="desktop-column" key={idx}>
-                <div className="desktop-column__header">
-                  {sem.semester.replace('Sem', 'Semester')}
-                </div>
-                <div className="desktop-column__body">
-                  {sem.papers.map((paper, pIdx) => (
-                    <div key={pIdx} style={{ marginBottom: '1.5rem' }}>
-                      <div style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{paper.subject}</div>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                        {paper.series.map((ser, sIdx) => (
-                          <a
-                            key={sIdx}
-                            className="desktop-column__link"
-                            href={ser.link}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {ser.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
+          <div className="academics-desktop-columns" style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', marginTop: '2rem' }}>
+            {questionPaperData[0].papers.map((paper, pIdx) => (
+              <div key={pIdx} style={{ flex: '1 1 260px', minWidth: 260, maxWidth: 340, background: '#181f2a', borderRadius: '1.5rem', overflow: 'hidden', boxShadow: '0 2px 12px #0003', display: 'flex', flexDirection: 'column', marginBottom: '2rem' }}>
+                <div style={{ background: 'linear-gradient(90deg, #1e90ff, #00c6fb)', color: '#fff', fontWeight: 700, padding: '1.2rem 1rem', fontSize: '1.15rem', textAlign: 'center', letterSpacing: 0.1 }}>{paper.subject}</div>
+                <div style={{ padding: '1.2rem 1rem', display: 'flex', flexDirection: 'column', gap: '1.1rem', flex: 1 }}>
+                  {paper.series.map((ser, sIdx) => (
+                    <a
+                      key={sIdx}
+                      href={ser.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{ display: 'flex', alignItems: 'center', color: '#fff', textDecoration: 'none', justifyContent: 'space-between', fontWeight: 500 }}
+                    >
+                      <span>{ser.name === 'Sem' ? 'Semester Paper' : ser.name}</span>
+                      <DownloadIcon style={{ marginLeft: 8, color: '#1e90ff' }} />
+                    </a>
                   ))}
                 </div>
               </div>
