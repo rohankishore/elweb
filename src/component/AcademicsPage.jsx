@@ -181,7 +181,10 @@ export default function AcademicsPage() {
       <section className="academics-page-content">
         {/* Notes Section */}
         <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
-          <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Notes</h2>
+          <h2 className="academics-page-content__title">Notes</h2>
+          <p className="academics-page-content__text" style={{ marginBottom: "2rem" }}>
+            Comprehensive subject-wise notes curated to help you master the core concepts.
+          </p>
           {/* Mobile View */}
           <div className="academics-mobile-accordions">
             <div className="academics-accordions-wrapper">
@@ -240,7 +243,10 @@ export default function AcademicsPage() {
         </div>
 
         <div className="academics-page-content__question-papers" style={{ marginTop: "3rem" }}>
-          <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Question Papers</h2>
+          <h2 className="academics-page-content__title">Question Papers</h2>
+          <p className="academics-page-content__text" style={{ marginBottom: "2rem" }}>
+            Access previous series and semester examination papers for effective practice.
+          </p>
 
           {/* Mobile View — accordions */}
           <div className="academics-mobile-accordions">
