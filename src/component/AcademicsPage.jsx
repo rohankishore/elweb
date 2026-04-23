@@ -54,7 +54,7 @@ const questionPaperData = [
     semester: "Sem 1",
     papers: [
       {
-        subject: "IEEE",
+        subject: "Intro to Electrical & Electronics Engineering",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/1EOb1p7WHT4OKp6L_TF00Uq9HC8iIyH_l/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/1EOb1p7WHT4OKp6L_TF00Uq9HC8iIyH_l/view?usp=drivesdk" },
@@ -70,7 +70,7 @@ const questionPaperData = [
         ]
       },
       {
-        subject: "Atp",
+        subject: "Algorithmic Thinking with Python",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/1ruSnBmc51BOh9dcZzRTOZ1didyBc7rq7/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/1Gm8wy63qmCOP1MnhFcuAhExLjgHDxM0P/view?usp=drivesdk" },
@@ -78,7 +78,7 @@ const questionPaperData = [
         ]
       },
       {
-        subject: "Eg",
+        subject: "Engineering Graphics",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/1GU0mJOXQIU_PkhNPZDeMSdFraeBvdsb0/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/14V-8oI1zdssG-1TaLw4Ci4PrRy5M0AVA/view?usp=drivesdk" },
@@ -115,7 +115,7 @@ const questionPaperData = [
         ]
       },
       {
-        subject: "Foc",
+        subject: "Foundations of Commputing",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/1qlZwoigDbvBrV4lj_l36xfH8meBwJ5in/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/1WVkFBwzn9xO5UFE9MJyNYcyOwMJp-qtD/view?usp=drivesdk" },
@@ -123,7 +123,7 @@ const questionPaperData = [
         ]
       },
       {
-        subject: "Prc",
+        subject: "Programming in C",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/15vt30ZXrLGDfCtCoXhso0Xmlbo0S_V9d/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/15wlfzogU_gifC1g8Rv-7fIocG0Q1bRjh/view?usp=drivesdk" },
@@ -131,7 +131,7 @@ const questionPaperData = [
         ]
       },
       {
-        subject: "Ipr",
+        subject: "Engineering Entrepreneurship and IPR",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/1FKisQu2Mp6_BB28ZT2XX_GXDTwfHEiYw/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/1qPegpzzWdwMkMnNT5ro5iOOY65PqxJy6/view?usp=drivesdk" }
@@ -139,7 +139,7 @@ const questionPaperData = [
         ]
       },
       {
-        subject: "Analog",
+        subject: "Analog Electronics",
         series: [
           { name: "Series 1", link: "https://drive.google.com/file/d/1YlIxdhhq99WTfglIxcajWbFW_4RHO6MV/view?usp=drivesdk" },
           { name: "Series 2", link: "https://drive.google.com/file/d/1Yp7fOsUhp8xEkl8368I8vDI4MX5EUDlQ/view?usp=drivesdk" }
