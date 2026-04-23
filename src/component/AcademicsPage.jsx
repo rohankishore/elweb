@@ -33,7 +33,7 @@ const questionPaperData = [
       { name: "Engineering Graphics", link: "https://drive.google.com/drive/folders/1tWCSyc5VIMkg6JmNEUZNUC0_qk8DHgw4" },
       { name: "Physics", link: "https://drive.google.com/drive/folders/1K7j3cKe2p80PtqxJgBMjfRbL0QanKTB-" }
     ]
-  },
+  };
   {
     semester: "Sem 2",
     subjects: [
