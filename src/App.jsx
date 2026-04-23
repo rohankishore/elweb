@@ -348,6 +348,7 @@ function HomePage() {
         </div>
         <div className="home-achieve-grid">
           <Link to="/students" className="home-achieve-card">
+            <img src="https://placehold.co/340x180/png" alt="Hackathons & Competitions" style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }} />
             <div className="home-achieve-card__top">
               <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
               <span className="notice-tag notice-tag-pinned">Coming Soon</span>
@@ -357,6 +358,7 @@ function HomePage() {
             <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
           </Link>
           <Link to="/students" className="home-achieve-card">
+            <img src="https://placehold.co/340x180/png" alt="Open Source & Projects" style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }} />
             <div className="home-achieve-card__top">
               <span className="home-achieve-card__icon" aria-hidden="true">💻</span>
               <span className="notice-tag notice-tag-pinned">Coming Soon</span>
@@ -366,6 +368,7 @@ function HomePage() {
             <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
           </Link>
           <Link to="/students" className="home-achieve-card">
+            <img src="https://placehold.co/340x180/png" alt="Portfolios & Recognitions" style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }} />
             <div className="home-achieve-card__top">
               <span className="home-achieve-card__icon" aria-hidden="true">🌟</span>
               <span className="notice-tag notice-tag-pinned">Coming Soon</span>
