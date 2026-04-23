@@ -236,10 +236,8 @@ export default function AcademicsPage() {
           </div>
         </div>
 
-        {/* Question Paper Section */}
         <div className="academics-page-content__question-papers" style={{ marginTop: "3rem" }}>
           <h2 className="academics-page-content__title" style={{ marginBottom: "1.5rem" }}>Question Papers</h2>
-          {/* Mobile View */}
           <div className="academics-mobile-accordions">
             <div className="academics-accordions-wrapper">
               {questionPaperData.map((sem, idx) => (
