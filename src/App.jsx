@@ -290,7 +290,7 @@ function HomePage() {
           <h2>Latest Notices</h2>
           <p className="notices-subtitle">Stay updated with important announcements</p>
         </div>
-        <div className="notices-feature-card">
+        <Link to="/notices" className="notices-feature-card notices-feature-card--link">
           <div className="notices-meta">
             <span className="notice-tag notice-tag-pinned">Pinned</span>
             <span className="notice-tag">Time Table</span>
@@ -302,8 +302,8 @@ function HomePage() {
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>
-        </div>
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+        </Link>
+        <div style={{ textAlign: 'center' }}>
           <Link to="/notices" className="shiny-badge" style={{
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
             fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
@@ -318,7 +318,7 @@ function HomePage() {
           <h2>Academics</h2>
           <p className="notices-subtitle">Notes, question papers &amp; syllabus — all in one place</p>
         </div>
-        <div className="notices-feature-card">
+        <Link to="/academics" className="notices-feature-card notices-feature-card--link">
           <div className="notices-meta">
             <span className="notice-tag">Resources</span>
             <span className="notice-tag">Sem 1–4</span>
@@ -330,8 +330,8 @@ function HomePage() {
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>
-        </div>
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+        </Link>
+        <div style={{ textAlign: 'center' }}>
           <Link to="/academics" className="shiny-badge" style={{
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
             fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
@@ -346,20 +346,36 @@ function HomePage() {
           <h2>Achievements</h2>
           <p className="notices-subtitle">Celebrating what our students build, win, and create</p>
         </div>
-        <div className="notices-feature-card">
-          <div className="notices-meta">
-            <span className="notice-tag notice-tag-pinned">Coming Soon</span>
-            <span className="notice-tag">All Batches</span>
-          </div>
-          <div className="notice-copy">
-            <h3>Student Achievements &amp; Portfolios</h3>
-            <p className="notice-description">
-              Hackathon wins, open-source contributions, and personal projects from the EL family — being compiled and coming soon.
-            </p>
-          </div>
-          <span className="notice-arrow" aria-hidden="true">›</span>
+        <div className="home-achieve-grid">
+          <Link to="/students" className="home-achieve-card">
+            <div className="home-achieve-card__top">
+              <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
+              <span className="notice-tag notice-tag-pinned">Coming Soon</span>
+            </div>
+            <h3 className="home-achieve-card__title">Hackathons &amp; Competitions</h3>
+            <p className="home-achieve-card__desc">Contest wins, inter-college fests, and technical challenge victories from our students.</p>
+            <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
+          </Link>
+          <Link to="/students" className="home-achieve-card">
+            <div className="home-achieve-card__top">
+              <span className="home-achieve-card__icon" aria-hidden="true">💻</span>
+              <span className="notice-tag notice-tag-pinned">Coming Soon</span>
+            </div>
+            <h3 className="home-achieve-card__title">Open Source &amp; Projects</h3>
+            <p className="home-achieve-card__desc">Open source contributions, research papers, and independent projects built by EL students.</p>
+            <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
+          </Link>
+          <Link to="/students" className="home-achieve-card">
+            <div className="home-achieve-card__top">
+              <span className="home-achieve-card__icon" aria-hidden="true">🌟</span>
+              <span className="notice-tag notice-tag-pinned">Coming Soon</span>
+            </div>
+            <h3 className="home-achieve-card__title">Portfolios &amp; Recognitions</h3>
+            <p className="home-achieve-card__desc">Student portfolios, internship milestones, certifications, and notable recognitions.</p>
+            <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
+          </Link>
         </div>
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+        <div style={{ textAlign: 'center' }}>
           <Link to="/students" className="shiny-badge" style={{
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
             fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
@@ -374,7 +390,7 @@ function HomePage() {
           <h2>We Hear You</h2>
           <p className="notices-subtitle">Got a problem? Let's fix it together</p>
         </div>
-        <div className="notices-feature-card">
+        <Link to="/grievances" className="notices-feature-card notices-feature-card--link">
           <div className="notices-meta">
             <span className="notice-tag">Support</span>
             <span className="notice-tag">Confidential</span>
@@ -386,8 +402,8 @@ function HomePage() {
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>
-        </div>
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+        </Link>
+        <div style={{ textAlign: 'center' }}>
           <Link to="/grievances" className="shiny-badge" style={{
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
             fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
