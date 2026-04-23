@@ -242,7 +242,7 @@ export default function AcademicsPage() {
           </div>
         </div>
 
-        <div className="academics-page-content__question-papers" style={{ marginTop: "3rem" }}>
+        <div className="academics-page-content__question-papers">
           <h2 className="academics-page-content__title">Question Papers</h2>
           <p className="academics-page-content__text" style={{ marginBottom: "2rem" }}>
             Access previous series and semester examination papers for effective practice.

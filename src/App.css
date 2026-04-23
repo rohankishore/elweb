@@ -1,3 +1,19 @@
+/* Align Question Papers section with Notes section */
+.academics-page-content__question-papers {
+  display: grid;
+  gap: 1.1rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  margin-top: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .qp-desktop__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    width: 100%;
+  }
+}
 /* Force left alignment for resource badges button */
 .resource-badges,
 .resource-badge {
