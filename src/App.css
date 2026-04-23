@@ -102,6 +102,131 @@
   font-family: var(--mono);
 }
 
+/* ── Clickable feature card (Link renders as block with same grid layout) ── */
+.notices-feature-card--link {
+  display: grid;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* ── Achievements 3-col grid ────────────────────────────── */
+.home-achieve-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+@media (max-width: 600px) {
+  .home-achieve-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .home-achieve-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.home-achieve-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.6rem 1.5rem 1.4rem;
+  border-radius: 1.35rem;
+  border: 1px solid var(--border-soft);
+  background:
+    radial-gradient(circle at top left, var(--accent-faint), transparent 30%),
+    radial-gradient(circle at bottom right, rgb(169 180 255 / 0.08), transparent 36%),
+    linear-gradient(145deg, rgba(20, 22, 26, 0.98) 0%, rgba(14, 15, 18, 0.98) 54%, rgba(22, 24, 28, 0.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 46px rgba(6, 14, 28, 0.42);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.home-achieve-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 0% 0%, rgb(var(--accent-rgb) / 0.28), transparent 36%),
+    radial-gradient(circle at 100% 100%, rgb(169 180 255 / 0.18), transparent 40%);
+  opacity: 0.56;
+  mix-blend-mode: soft-light;
+  background-size: 155% 155%, 155% 155%;
+  background-position: 0% 0%, 100% 100%;
+  animation: liquid-float 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.home-achieve-card:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 22px 54px rgba(6, 14, 28, 0.45);
+  transform: translateY(-3px);
+}
+
+.home-achieve-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  position: relative;
+  z-index: 1;
+}
+
+.home-achieve-card__icon {
+  font-size: 1.7rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.home-achieve-card__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.18;
+  color: var(--text-main);
+}
+
+.home-achieve-card__desc {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  flex: 1;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  color: var(--text-muted);
+}
+
+.home-achieve-card__arrow {
+  position: relative;
+  z-index: 1;
+  align-self: flex-end;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: rgb(var(--accent-rgb) / 0.55);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.home-achieve-card:hover .home-achieve-card__arrow {
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
 /* Align Question Papers section with Notes section */
 
 .academics-page-content__question-papers {
