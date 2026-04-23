@@ -284,68 +284,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* ── About ── */}
-      <section className="content-sections home-preview-section" id="about-preview">
-        <div className="section-head notices-head">
-          <h2>About the Association</h2>
-          <p className="notices-subtitle">Who we are and what we stand for</p>
-        </div>
-        <div className="home-preview-cards">
-          <div className="home-preview-card">
-            <span className="home-preview-card__icon" aria-hidden="true">⚡</span>
-            <div className="home-preview-card__body">
-              <h3>Our Mission</h3>
-              <p>Centralising every important update — timetables, notices, study materials, and question papers — so no EL student is ever left behind.</p>
-            </div>
-          </div>
-          <div className="home-preview-card">
-            <span className="home-preview-card__icon" aria-hidden="true">🤝</span>
-            <div className="home-preview-card__body">
-              <h3>Our Commitment</h3>
-              <p>As the inaugural committee of CET's newest branch, we're laying a foundation that fosters participation, belonging, and growth for every batch to come.</p>
-            </div>
-          </div>
-        </div>
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-          <Link to="/about" className="shiny-badge" style={{
-            display: 'inline-block', borderRadius: '16px', fontWeight: 700,
-            fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
-            margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
-          }}>Learn more &rarr;</Link>
-        </div>
-      </section>
-
-      {/* ── Academics ── */}
-      <section className="content-sections home-preview-section" id="academics-preview">
-        <div className="section-head notices-head">
-          <h2>Academics</h2>
-          <p className="notices-subtitle">Notes, question papers &amp; syllabus — all in one place</p>
-        </div>
-        <div className="home-preview-cards">
-          <div className="home-preview-card">
-            <span className="home-preview-card__icon" aria-hidden="true">📄</span>
-            <div className="home-preview-card__body">
-              <h3>Notes</h3>
-              <p>Semester-wise subject notes curated for Sem 1–4, shared via Google Drive for easy access and download.</p>
-            </div>
-          </div>
-          <div className="home-preview-card">
-            <span className="home-preview-card__icon" aria-hidden="true">📝</span>
-            <div className="home-preview-card__body">
-              <h3>Question Papers</h3>
-              <p>Previous series and semester exam papers for Sem 1 &amp; 2, organised by subject — perfect for last-minute prep.</p>
-            </div>
-          </div>
-        </div>
-        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
-          <Link to="/academics" className="shiny-badge" style={{
-            display: 'inline-block', borderRadius: '16px', fontWeight: 700,
-            fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
-            margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
-          }}>Explore resources &rarr;</Link>
-        </div>
-      </section>
-
       {/* ── Notices ── */}
       <section className="content-sections notices-feature-section" id="notices">
         <div className="section-head notices-head">
@@ -374,21 +312,52 @@ function HomePage() {
         </div>
       </section>
 
+      {/* ── Academics ── */}
+      <section className="content-sections notices-feature-section" id="academics-preview">
+        <div className="section-head notices-head">
+          <h2>Academics</h2>
+          <p className="notices-subtitle">Notes, question papers &amp; syllabus — all in one place</p>
+        </div>
+        <div className="notices-feature-card">
+          <div className="notices-meta">
+            <span className="notice-tag">Resources</span>
+            <span className="notice-tag">Sem 1–4</span>
+          </div>
+          <div className="notice-copy">
+            <h3>Notes &amp; Question Papers</h3>
+            <p className="notice-description">
+              Semester-wise subject notes and previous series/semester exam papers for Sem 1–4, all shared via Google Drive and organised by subject.
+            </p>
+          </div>
+          <span className="notice-arrow" aria-hidden="true">›</span>
+        </div>
+        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+          <Link to="/academics" className="shiny-badge" style={{
+            display: 'inline-block', borderRadius: '16px', fontWeight: 700,
+            fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
+            margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
+          }}>Explore resources &rarr;</Link>
+        </div>
+      </section>
+
       {/* ── Achievements ── */}
-      <section className="content-sections home-preview-section" id="achievements-preview">
+      <section className="content-sections notices-feature-section" id="achievements-preview">
         <div className="section-head notices-head">
           <h2>Achievements</h2>
           <p className="notices-subtitle">Celebrating what our students build, win, and create</p>
         </div>
-        <div className="home-preview-cards">
-          <div className="home-preview-card home-preview-card--coming-soon">
-            <span className="home-preview-card__icon" aria-hidden="true">🏆</span>
-            <div className="home-preview-card__body">
-              <h3>Student Achievements</h3>
-              <p>Hackathon wins, open-source contributions, and personal projects from the EL family — being compiled and coming soon.</p>
-            </div>
-            <span className="home-preview-tag">Coming Soon</span>
+        <div className="notices-feature-card">
+          <div className="notices-meta">
+            <span className="notice-tag notice-tag-pinned">Coming Soon</span>
+            <span className="notice-tag">All Batches</span>
           </div>
+          <div className="notice-copy">
+            <h3>Student Achievements &amp; Portfolios</h3>
+            <p className="notice-description">
+              Hackathon wins, open-source contributions, and personal projects from the EL family — being compiled and coming soon.
+            </p>
+          </div>
+          <span className="notice-arrow" aria-hidden="true">›</span>
         </div>
         <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
           <Link to="/students" className="shiny-badge" style={{
@@ -400,26 +369,23 @@ function HomePage() {
       </section>
 
       {/* ── Help / Grievances ── */}
-      <section className="content-sections home-preview-section" id="help-preview">
+      <section className="content-sections notices-feature-section" id="help-preview">
         <div className="section-head notices-head">
           <h2>We Hear You</h2>
           <p className="notices-subtitle">Got a problem? Let's fix it together</p>
         </div>
-        <div className="home-preview-cards">
-          <div className="home-preview-card">
-            <span className="home-preview-card__icon" aria-hidden="true">🔒</span>
-            <div className="home-preview-card__body">
-              <h3>Confidential</h3>
-              <p>Every submission is kept strictly private by the EL Welfare Committee. Your trust is our first priority.</p>
-            </div>
+        <div className="notices-feature-card">
+          <div className="notices-meta">
+            <span className="notice-tag">Support</span>
+            <span className="notice-tag">Confidential</span>
           </div>
-          <div className="home-preview-card">
-            <span className="home-preview-card__icon" aria-hidden="true">💬</span>
-            <div className="home-preview-card__body">
-              <h3>We Listen &amp; Act</h3>
-              <p>No issue is too small. Whether it's a scheduling clash or something personal, we'll talk to the department and get it sorted.</p>
-            </div>
+          <div className="notice-copy">
+            <h3>Grievance &amp; Welfare Form</h3>
+            <p className="notice-description">
+              Whether it's a lab issue, scheduling clash, or something personal — the EL Welfare Committee keeps every submission strictly private and acts on it.
+            </p>
           </div>
+          <span className="notice-arrow" aria-hidden="true">›</span>
         </div>
         <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
           <Link to="/grievances" className="shiny-badge" style={{
