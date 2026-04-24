@@ -113,6 +113,40 @@
   }
 
   @media (max-width: 700px) {
+      .section-head,
+      .notices-head,
+      .notices-page-content__header,
+      .academics-page-content__header,
+      .about-page-hero__copy,
+      .about-page-content__intro,
+      .grievances-page-hero__copy,
+      .grievances-page-content__intro {
+        padding-left: 1.1rem !important;
+        padding-right: 0.5rem !important;
+      }
+      h1,
+      h2,
+      .notices-page-hero__title,
+      .academics-page-hero__title,
+      .about-page-hero__title {
+        font-size: 2.1rem !important;
+        line-height: 1.08 !important;
+        padding-left: 0.1em !important;
+      }
+      h2,
+      .notices-page-content__title,
+      .academics-page-content__title,
+      .about-page-content__title {
+        font-size: 1.35rem !important;
+        line-height: 1.13 !important;
+        padding-left: 0.1em !important;
+      }
+      p,
+      .notices-page-hero__subtitle,
+      .academics-page-hero__subtitle,
+      .about-page-hero__subtitle {
+        padding-left: 0.1em !important;
+      }
     .home-achieve-grid {
       grid-template-columns: 1fr !important;
       gap: 0.85rem !important;
