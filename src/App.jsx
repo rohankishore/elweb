@@ -376,14 +376,14 @@ function HomePage() {
           <h2>Need a hand?</h2>
           <p className="notices-subtitle">Stuck with something? Facing a problem, big or small? We’re here to help—no judgment, just support. Reach out and we’ll do our best to sort it out, quietly and quickly.</p>
         </div>
-        <div style={{ textAlign: 'center', margin: '2.5rem 0 1.5rem 0', fontSize: '1.1rem', color: '#b16e7c' }}>
-          <span style={{ display: 'inline-block', marginBottom: '1.2rem' }}>
+        <div style={{ textAlign: 'center', margin: '1.2rem 0 0.5rem 0', fontSize: '1.05rem', color: '#b16e7c' }}>
+          <span style={{ display: 'inline-block', marginBottom: '0.5rem' }}>
             🫂 Your message is confidential. The EL Welfare team is friendly, and you can even submit anonymously if you want!
           </span>
           <br />
           <Link to="/grievances" className="shiny-badge" style={{
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
-            fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
+            fontSize: '1.08rem', padding: '0.85rem 2rem', textDecoration: 'none',
             margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
           }}>Open grievance form &rarr;</Link>
         </div>
