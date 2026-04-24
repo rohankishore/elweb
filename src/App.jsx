@@ -369,11 +369,10 @@ function HomePage() {
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
             fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
             margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
-          }}>Students corner &rarr;</Link>
+          }}>View All Achievements &rarr;</Link>
         </div>
       </section>
 
-      {/* ── Help / Grievances ── */}
       <section className="content-sections notices-feature-section" id="help-preview">
         <div className="section-head notices-head">
           <h2>We Hear You</h2>
