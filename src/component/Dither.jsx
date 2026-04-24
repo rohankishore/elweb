@@ -2,7 +2,7 @@
 import { useRef, useEffect, forwardRef } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { EffectComposer, wrapEffect } from '@react-three/postprocessing';
-import { Effect } from 'postprocessing/build/postprocessing.esm.js';
+import { Effect } from 'postprocessing';
 import * as THREE from 'three';
 
 import './Dither.css';
