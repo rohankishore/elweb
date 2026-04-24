@@ -16,6 +16,7 @@ import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
 import { achievements } from './component/achievementsData';
+import Dither from './component/Dither';
 
 // ─── Extracted into its own component so the scroll-scrub effect re-mounts
 // every time the user navigates back to "/". Previously these refs and effects
@@ -436,7 +437,13 @@ function App() {
 
     return (
       <>
-        <div className="site-nav">
+        {/* Dither background for all pages except HomePage hero video */}
+        <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }} aria-hidden="true">
+          <Dither waveColor={[0.18, 0.32, 0.65]} colorNum={5} pixelSize={2} disableAnimation={false} enableMouseInteraction={false} />
+        </div>
+        {/* Invisible blur overlay above dither, below content */}
+        <div style={{ position: 'fixed', inset: 0, zIndex: 1, pointerEvents: 'none', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }} aria-hidden="true" />
+        <div className="site-nav" style={{ position: 'relative', zIndex: 2 }}>
           <GooeyNav
             className="site-gooey-nav"
             items={navItems}
@@ -448,7 +455,9 @@ function App() {
             timeVariance={180}
           />
         </div>
-        {children}
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          {children}
+        </div>
         <SiteFooter />
       </>
     );
