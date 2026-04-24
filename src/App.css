@@ -102,7 +102,6 @@
   font-family: var(--mono);
 }
 
-/* ── Clickable feature card (Link renders as block with same grid layout) ── */
 .notices-feature-card--link {
   display: grid;
   text-decoration: none;
@@ -110,13 +109,93 @@
   cursor: pointer;
 }
 
-/* ── Achievements 3-col grid ────────────────────────────── */
 .home-achieve-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.1rem;
   width: min(100%, 1120px);
   margin-inline: auto;
+}
+
+.home-achieve-card img {
+  width: calc(100% + 3rem);
+  margin-top: -1.6rem;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  border-radius: 1.35rem 1.35rem 0 0;
+  object-fit: cover;
+  min-height: 140px;
+  max-height: 180px;
+  height: auto;
+}
+
+@media (max-width: 700px) {
+  .section-head,
+  .notices-head,
+  .notices-page-content__header,
+  .academics-page-content__header,
+  .about-page-hero__copy,
+  .about-page-content__intro,
+  .grievances-page-hero__copy,
+  .grievances-page-content__intro {
+    padding-left: 1.1rem !important;
+    padding-right: 0.5rem !important;
+  }
+  h1,
+  .notices-page-hero__title,
+  .academics-page-hero__title,
+  .about-page-hero__title {
+    font-size: 2.9rem !important;
+    line-height: 1.05 !important;
+    padding-left: 0.1em !important;
+  }
+  h2,
+  .notices-page-content__title,
+  .academics-page-content__title,
+  .about-page-content__title {
+    font-size: 2rem !important;
+    line-height: 1.11 !important;
+    padding-left: 0.1em !important;
+  }
+  p,
+  .notices-page-hero__subtitle,
+  .academics-page-hero__subtitle,
+  .about-page-hero__subtitle {
+    padding-left: 0.1em !important;
+  }
+  .home-achieve-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    margin-inline: 0 !important;
+  }
+  .home-achieve-card {
+    max-width: 100vw !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    border-radius: 14px !important;
+    padding: 1.1rem 1rem 1rem !important;
+    box-shadow: 0 1px 8px #0002 !important;
+    margin: 0 auto 0 0 !important;
+  }
+  .home-achieve-card img {
+    margin: -1.1rem -1rem 0 !important;
+    width: calc(100% + 2rem) !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+    border-radius: 12px 12px 0 0 !important;
+    object-fit: cover !important;
+  }
+  .home-achieve-card__title {
+    font-size: 1.05rem !important;
+    margin-top: 0.5rem !important;
+  }
+  .home-achieve-card__icon {
+    font-size: 1.2rem !important;
+  }
+  .home-achieve-card__arrow {
+    font-size: 1.3rem !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -251,11 +330,11 @@
   text-align: left !important;
   margin-left: 0 !important;
 }
-/* Use Tactic Sans for all headings */
+
 h1, h2, h3, h4, h5, h6, .about-page-hero__title, .about-page-content__title, .focus-container, .focus-word {
   font-family: 'TacticSans', 'Sora', sans-serif !important;
 }
-/* Force deep dark background for the entire home page */
+
 html, body, #root {
   position: relative;
   min-height: 100vh;
@@ -272,10 +351,10 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.13) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 56px 56px;
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 /* Remove background and box-shadow from main sections to allow global background to show through */
@@ -304,10 +383,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .academics-page-hero,
@@ -813,10 +892,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .grievances-page-hero,
@@ -1012,10 +1091,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .about-page-hero,
@@ -1358,8 +1437,51 @@ body::before {
 }
 
 .notices-page-list {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  .notices-page-list,
+  .achievements-list {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  .achievement-card.notice-panel {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    min-height: unset !important;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #0004;
+    border: 1.5px solid var(--border-soft);
+    background:
+      radial-gradient(circle at top right, var(--accent-faint), transparent 26%),
+      linear-gradient(135deg, rgba(18, 19, 22, 0.97) 0%, rgba(12, 13, 16, 0.99) 100%);
+  }
+  .achievement-card.notice-panel img {
+    min-height: 140px !important;
+    max-height: 140px !important;
+    border-radius: 16px 16px 0 0;
+    object-fit: cover;
+  }
+  .notice-panel__body {
+    padding: 1rem 1.1rem !important;
+  }
+  .notice-panel__title {
+    font-size: 1.15rem !important;
+  }
+  .notice-panel__desc {
+    font-size: 0.98rem !important;
+    margin: 0.7rem 0 0;
+  }
+  .notice-panel__chip {
+    font-size: 0.78rem !important;
+    margin: 0.7rem 0 !important;
+  }
+}
 }
 
 .notice-panel {
@@ -2746,4 +2868,45 @@ h2 {
     max-width: 28rem;
     margin-inline: auto;
   }
+}
+
+/* --- Global Background Overlay for Dither --- */
+html, body, #root {
+  background: transparent !important;
+}
+
+body::before {
+  opacity: 0.05 !important;
+}
+
+.global-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* Dither background canvas stretches here */
+}
+
+.global-bg-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  z-index: 1; /* Sits on top of the Dither canvas to blur it */
+  pointer-events: none; /* Let any pointer events through */
+}
+
+/* Remove backgrounds from shells to reveal the global background */
+.academics-page-shell,
+.grievances-page-shell,
+.notices-page-shell,
+.about-page-shell,
+.students-page-shell {
+  background: transparent !important;
+}
+
+.academics-page-shell::before,
+.grievances-page-shell::before,
+.notices-page-shell::before,
+.about-page-shell::before,
+.students-page-shell::before {
+  opacity: 0.1 !important; /* Make grid lines more subtle or hide them altogether */
 }

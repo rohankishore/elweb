@@ -12,6 +12,7 @@ import NoticeSection from './component/NoticeSection';
 import NoticesPage from './component/NoticesPage';
 import AboutPage from './component/AboutPage';
 import AcademicsPage from './component/AcademicsPage';
+import Dither from './component/Dither';
 import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
@@ -345,14 +346,16 @@ function HomePage() {
       <section className="content-sections notices-feature-section" id="achievements-preview">
         <div className="section-head notices-head">
           <h2>Achievements</h2>
+          <p className="achievements-caption" style={{ margin: '0.3em 0 0.7em 0', color: '#b6c6e0', fontSize: '1.04rem', fontWeight: 400 }}>
+            Check out some of the cool things our folks have been up to!
+          </p>
         </div>
         <div className="home-achieve-grid">
           {achievements.filter(a => a.featured).slice(0, 3).map((ach) => (
-            <Link to="/students" className="home-achieve-card" key={ach.id} style={{ minHeight: 420, width: '100%', maxWidth: 340, margin: '0 auto' }}>
+            <Link to="/students" className="home-achieve-card" key={ach.id}>
               <img
                 src={ach.img || 'https://placehold.co/340x180/png'}
                 alt={ach.imgAlt}
-                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', minHeight: 180, maxHeight: 180 }}
               />
               <div className="home-achieve-card__top">
                 <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
@@ -436,6 +439,10 @@ function App() {
 
     return (
       <>
+        <div className="global-bg-container">
+          <Dither waveColor={[0.13, 0.23, 0.47]} enableMouseInteraction={true} disableAnimation={false} waveSpeed={0.03} waveAmplitude={0.27} mouseRadius={0.4} />
+          <div className="global-bg-blur"></div>
+        </div>
         <div className="site-nav">
           <GooeyNav
             className="site-gooey-nav"
