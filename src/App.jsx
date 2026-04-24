@@ -346,6 +346,9 @@ function HomePage() {
       <section className="content-sections notices-feature-section" id="achievements-preview">
         <div className="section-head notices-head">
           <h2>Achievements</h2>
+          <p className="achievements-caption" style={{margin: '0.3em 0 0.7em 0', color: '#b6c6e0', fontSize: '1.04rem', fontWeight: 400}}>
+            Check out some of the cool things our folks have been up to!
+          </p>
         </div>
         <div className="home-achieve-grid">
           {achievements.filter(a => a.featured).slice(0, 3).map((ach) => (
