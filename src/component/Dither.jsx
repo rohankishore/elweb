@@ -227,12 +227,17 @@ function DitheredWaves({
     }
   });
 
-  const handlePointerMove = e => {
+  useEffect(() => {
     if (!enableMouseInteraction) return;
-    const rect = gl.domElement.getBoundingClientRect();
-    const dpr = gl.getPixelRatio();
-    mouseRef.current.set((e.clientX - rect.left) * dpr, (e.clientY - rect.top) * dpr);
-  };
+    const handleGlobalMouseMove = (e) => {
+      const dpr = gl.getPixelRatio();
+      // gl.domElement is the canvas, its rect might be offset if scrolling, but since it's fixed inset: 0, 
+      // rect.left=0 and rect.top=0. We can just use clientX and clientY.
+      mouseRef.current.set(e.clientX * dpr, e.clientY * dpr);
+    };
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    return () => window.removeEventListener('mousemove', handleGlobalMouseMove);
+  }, [enableMouseInteraction, gl]);
 
   return (
     <>
@@ -248,16 +253,6 @@ function DitheredWaves({
       <EffectComposer>
         <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
       </EffectComposer>
-
-      <mesh
-        onPointerMove={handlePointerMove}
-        position={[0, 0, 0.01]}
-        scale={[viewport.width, viewport.height, 1]}
-        visible={false}
-      >
-        <planeGeometry args={[1, 1]} />
-        <meshBasicMaterial transparent opacity={0} />
-      </mesh>
     </>
   );
 }
