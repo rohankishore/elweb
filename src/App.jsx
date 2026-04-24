@@ -346,7 +346,7 @@ function HomePage() {
       <section className="content-sections notices-feature-section" id="achievements-preview">
         <div className="section-head notices-head">
           <h2>Achievements</h2>
-          <p className="achievements-caption" style={{margin: '0.3em 0 0.7em 0', color: '#b6c6e0', fontSize: '1.04rem', fontWeight: 400}}>
+          <p className="achievements-caption" style={{ margin: '0.3em 0 0.7em 0', color: '#b6c6e0', fontSize: '1.04rem', fontWeight: 400 }}>
             Check out some of the cool things our folks have been up to!
           </p>
         </div>
@@ -440,7 +440,7 @@ function App() {
     return (
       <>
         <div className="global-bg-container">
-          <Dither waveColor={[0.0, 0.15, 0.4]} enableMouseInteraction={true} disableAnimation={false} waveSpeed={0.03} waveAmplitude={0.27} mouseRadius={0.4} />
+          <Dither waveColor={[0.13, 0.23, 0.47]} enableMouseInteraction={true} disableAnimation={false} waveSpeed={0.03} waveAmplitude={0.27} mouseRadius={0.4} />
           <div className="global-bg-blur"></div>
         </div>
         <div className="site-nav">
