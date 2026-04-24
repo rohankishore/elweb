@@ -345,21 +345,19 @@ function HomePage() {
       <section className="content-sections notices-feature-section" id="achievements-preview">
         <div className="section-head notices-head">
           <h2>Achievements</h2>
-          <p className="notices-subtitle">Celebrating what our students build, win, and create</p>
         </div>
         <div className="home-achieve-grid">
-          {achievements.filter(a => a.featured).slice(0, 3).map((ach, idx) => (
-            <Link to="/students" className="home-achieve-card" key={ach.id}>
+          {achievements.filter(a => a.featured).slice(0, 3).map((ach) => (
+            <Link to="/students" className="home-achieve-card" key={ach.id} style={{ minHeight: 420, width: '100%', maxWidth: 340, margin: '0 auto' }}>
               <img
                 src={ach.img || 'https://placehold.co/340x180/png'}
                 alt={ach.imgAlt}
-                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }}
+                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', minHeight: 180, maxHeight: 180 }}
               />
               <div className="home-achieve-card__top">
                 <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
               </div>
               <h3 className="home-achieve-card__title">{ach.title}</h3>
-              <p className="home-achieve-card__desc">{ach.description.split('. ')[0] + '.'}</p>
               <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
             </Link>
           ))}

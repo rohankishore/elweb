@@ -26,13 +26,13 @@ export default function StudentsPage() {
             <h2 className="notices-page-content__title">Achievements</h2>
           </div>
         </div>
-        <div className="notices-page-list achievements-list" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <div className="notices-page-list achievements-list" style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
           {achievements.map((ach) => (
             <article className="achievement-card notice-panel" key={ach.id} style={{ width: '340px', minHeight: '420px', display: 'flex', flexDirection: 'column', boxShadow: '0 2px 16px #0002' }}>
               <img
                 src={ach.img || 'https://placehold.co/340x180/png'}
                 alt={ach.imgAlt}
-                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover' }}
+                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', minHeight: 180, maxHeight: 180 }}
               />
               <div className="notice-panel__body" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
