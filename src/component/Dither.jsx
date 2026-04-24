@@ -206,6 +206,7 @@ function DitheredWaves({
   useFrame(({ clock }) => {
     const u = waveUniformsRef.current;
 
+    // Always animate time
     if (!disableAnimation) {
       u.time.value = clock.getElapsedTime();
     }
@@ -219,20 +220,25 @@ function DitheredWaves({
       prevColor.current = [...waveColor];
     }
 
+    // Mouse effect is additive, but animation always runs
     u.enableMouseInteraction.value = enableMouseInteraction ? 1 : 0;
     u.mouseRadius.value = mouseRadius;
-
     if (enableMouseInteraction) {
       u.mousePos.value.copy(mouseRef.current);
+    } else {
+      u.mousePos.value.set(-10000, -10000); // Move mouse far away so effect is not visible
     }
   });
 
-  const handlePointerMove = e => {
+  useEffect(() => {
     if (!enableMouseInteraction) return;
-    const rect = gl.domElement.getBoundingClientRect();
-    const dpr = gl.getPixelRatio();
-    mouseRef.current.set((e.clientX - rect.left) * dpr, (e.clientY - rect.top) * dpr);
-  };
+    const handleGlobalMouseMove = (e) => {
+      const dpr = gl.getPixelRatio();
+      mouseRef.current.set(e.clientX * dpr, e.clientY * dpr);
+    };
+    window.addEventListener('mousemove', handleGlobalMouseMove);
+    return () => window.removeEventListener('mousemove', handleGlobalMouseMove);
+  }, [enableMouseInteraction, gl]);
 
   return (
     <>
@@ -248,16 +254,6 @@ function DitheredWaves({
       <EffectComposer>
         <RetroEffect colorNum={colorNum} pixelSize={pixelSize} />
       </EffectComposer>
-
-      <mesh
-        onPointerMove={handlePointerMove}
-        position={[0, 0, 0.01]}
-        scale={[viewport.width, viewport.height, 1]}
-        visible={false}
-      >
-        <planeGeometry args={[1, 1]} />
-        <meshBasicMaterial transparent opacity={0} />
-      </mesh>
     </>
   );
 }
