@@ -375,23 +375,14 @@ function HomePage() {
 
       <section className="content-sections notices-feature-section" id="help-preview">
         <div className="section-head notices-head">
-          <h2>We Hear You</h2>
-          <p className="notices-subtitle">Got a problem? Let's fix it together</p>
+          <h2>Need a hand?</h2>
+          <p className="notices-subtitle">Stuck with something? Facing a problem, big or small? We’re here to help—no judgment, just support. Reach out and we’ll do our best to sort it out, quietly and quickly.</p>
         </div>
-        <Link to="/grievances" className="notices-feature-card notices-feature-card--link">
-          <div className="notices-meta">
-            <span className="notice-tag">Support</span>
-            <span className="notice-tag">Confidential</span>
-          </div>
-          <div className="notice-copy">
-            <h3>Grievance &amp; Welfare Form</h3>
-            <p className="notice-description">
-              Whether it's a lab issue, scheduling clash, or something personal — the EL Welfare Committee keeps every submission strictly private and acts on it.
-            </p>
-          </div>
-          <span className="notice-arrow" aria-hidden="true">›</span>
-        </Link>
-        <div style={{ textAlign: 'center' }}>
+        <div style={{ textAlign: 'center', margin: '2.5rem 0 1.5rem 0', fontSize: '1.1rem', color: '#b16e7c' }}>
+          <span style={{ display: 'inline-block', marginBottom: '1.2rem' }}>
+            🫂 Your message is confidential. The EL Welfare team is friendly, and you can even submit anonymously if you want!
+          </span>
+          <br />
           <Link to="/grievances" className="shiny-badge" style={{
             display: 'inline-block', borderRadius: '16px', fontWeight: 700,
             fontSize: '1.18rem', padding: '1.1rem 2.5rem', textDecoration: 'none',
