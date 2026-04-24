@@ -15,6 +15,7 @@ import AcademicsPage from './component/AcademicsPage';
 import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
+import { achievements } from './component/achievementsData';
 
 // ─── Extracted into its own component so the scroll-scrub effect re-mounts
 // every time the user navigates back to "/". Previously these refs and effects
@@ -347,36 +348,21 @@ function HomePage() {
           <p className="notices-subtitle">Celebrating what our students build, win, and create</p>
         </div>
         <div className="home-achieve-grid">
-          <Link to="/students" className="home-achieve-card">
-            <img src="https://placehold.co/340x180/png" alt="Hackathons & Competitions" style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }} />
-            <div className="home-achieve-card__top">
-              <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
-              <span className="notice-tag notice-tag-pinned">Coming Soon</span>
-            </div>
-            <h3 className="home-achieve-card__title">Hackathons &amp; Competitions</h3>
-            <p className="home-achieve-card__desc">Contest wins, inter-college fests, and technical challenge victories from our students.</p>
-            <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
-          </Link>
-          <Link to="/students" className="home-achieve-card">
-            <img src="https://placehold.co/340x180/png" alt="Open Source & Projects" style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }} />
-            <div className="home-achieve-card__top">
-              <span className="home-achieve-card__icon" aria-hidden="true">💻</span>
-              <span className="notice-tag notice-tag-pinned">Coming Soon</span>
-            </div>
-            <h3 className="home-achieve-card__title">Open Source &amp; Projects</h3>
-            <p className="home-achieve-card__desc">Open source contributions, research papers, and independent projects built by EL students.</p>
-            <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
-          </Link>
-          <Link to="/students" className="home-achieve-card">
-            <img src="https://placehold.co/340x180/png" alt="Portfolios & Recognitions" style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }} />
-            <div className="home-achieve-card__top">
-              <span className="home-achieve-card__icon" aria-hidden="true">🌟</span>
-              <span className="notice-tag notice-tag-pinned">Coming Soon</span>
-            </div>
-            <h3 className="home-achieve-card__title">Portfolios &amp; Recognitions</h3>
-            <p className="home-achieve-card__desc">Student portfolios, internship milestones, certifications, and notable recognitions.</p>
-            <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
-          </Link>
+          {achievements.filter(a => a.featured).slice(0, 3).map((ach, idx) => (
+            <Link to="/students" className="home-achieve-card" key={ach.id}>
+              <img
+                src={ach.img || 'https://placehold.co/340x180/png'}
+                alt={ach.imgAlt}
+                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', marginBottom: '0.5rem' }}
+              />
+              <div className="home-achieve-card__top">
+                <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
+              </div>
+              <h3 className="home-achieve-card__title">{ach.title}</h3>
+              <p className="home-achieve-card__desc">{ach.description.split('. ')[0] + '.'}</p>
+              <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
+            </Link>
+          ))}
         </div>
         <div style={{ textAlign: 'center' }}>
           <Link to="/students" className="shiny-badge" style={{
