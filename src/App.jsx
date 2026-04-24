@@ -349,16 +349,16 @@ function HomePage() {
         </div>
         <div className="home-achieve-grid">
           {achievements.filter(a => a.featured).slice(0, 3).map((ach) => (
-            <Link to="/students" className="home-achieve-card" key={ach.id} style={{ minHeight: 420, width: '100%', maxWidth: 340, margin: '0 auto' }}>
+            <Link to="/students" className="home-achieve-card" key={ach.id} style={{ width: '100%', maxWidth: 340, margin: '0 auto', padding: '1rem 1rem 0.7rem', minHeight: 'unset', height: 'auto' }}>
               <img
                 src={ach.img || 'https://placehold.co/340x180/png'}
                 alt={ach.imgAlt}
-                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', minHeight: 180, maxHeight: 180 }}
+                style={{ width: '100%', borderRadius: '12px 12px 0 0', objectFit: 'cover', minHeight: 90, maxHeight: 110, height: 'auto' }}
               />
-              <div className="home-achieve-card__top">
+              <div className="home-achieve-card__top" style={{ marginTop: '0.5rem', marginBottom: '0.2rem' }}>
                 <span className="home-achieve-card__icon" aria-hidden="true">🏆</span>
               </div>
-              <h3 className="home-achieve-card__title">{ach.title}</h3>
+              <h3 className="home-achieve-card__title" style={{ margin: 0 }}>{ach.title}</h3>
               <span className="home-achieve-card__arrow" aria-hidden="true">›</span>
             </Link>
           ))}
