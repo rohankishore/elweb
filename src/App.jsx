@@ -12,6 +12,7 @@ import NoticeSection from './component/NoticeSection';
 import NoticesPage from './component/NoticesPage';
 import AboutPage from './component/AboutPage';
 import AcademicsPage from './component/AcademicsPage';
+import Dither from './component/Dither';
 import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
@@ -436,6 +437,10 @@ function App() {
 
     return (
       <>
+        <div className="global-bg-container">
+          <Dither waveColor={[0.0, 0.15, 0.4]} enableMouseInteraction={true} disableAnimation={false} />
+          <div className="global-bg-blur"></div>
+        </div>
         <div className="site-nav">
           <GooeyNav
             className="site-gooey-nav"
