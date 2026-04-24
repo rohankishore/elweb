@@ -102,7 +102,6 @@
   font-family: var(--mono);
 }
 
-/* ── Clickable feature card (Link renders as block with same grid layout) ── */
 .notices-feature-card--link {
   display: grid;
   text-decoration: none;
@@ -110,7 +109,6 @@
   cursor: pointer;
 }
 
-/* ── Achievements 3-col grid ────────────────────────────── */
 .home-achieve-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -251,11 +249,11 @@
   text-align: left !important;
   margin-left: 0 !important;
 }
-/* Use Tactic Sans for all headings */
+
 h1, h2, h3, h4, h5, h6, .about-page-hero__title, .about-page-content__title, .focus-container, .focus-word {
   font-family: 'TacticSans', 'Sora', sans-serif !important;
 }
-/* Force deep dark background for the entire home page */
+
 html, body, #root {
   position: relative;
   min-height: 100vh;
@@ -2746,4 +2744,45 @@ h2 {
     max-width: 28rem;
     margin-inline: auto;
   }
+}
+
+/* --- Global Background Overlay for Dither --- */
+html, body, #root {
+  background: transparent !important;
+}
+
+body::before {
+  opacity: 0.05 !important;
+}
+
+.global-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* Dither background canvas stretches here */
+}
+
+.global-bg-blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  z-index: 1; /* Sits on top of the Dither canvas to blur it */
+  pointer-events: none; /* Let any pointer events through */
+}
+
+/* Remove backgrounds from shells to reveal the global background */
+.academics-page-shell,
+.grievances-page-shell,
+.notices-page-shell,
+.about-page-shell,
+.students-page-shell {
+  background: transparent !important;
+}
+
+.academics-page-shell::before,
+.grievances-page-shell::before,
+.notices-page-shell::before,
+.about-page-shell::before,
+.students-page-shell::before {
+  opacity: 0.1 !important; /* Make grid lines more subtle or hide them altogether */
 }
