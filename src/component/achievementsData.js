@@ -6,7 +6,7 @@ export const achievements = [
     id: 'allianz',
     title: 'Allianz Tech Championship 2025',
     description: `Govind G and Madhav K of EL’28 won the Allianz Tech Championship 2025, their outstanding ideas earned them a prestigious scholarship of €3000 each, recognizing their innovation, technical excellence, and dedication to pushing boundaries in technology.`,
-    img: null, // Image not yet received
+    img: '/assets/achievements/allianz.png',
     imgAlt: 'Allianz Tech Championship',
     year: 2025,
     people: ['Govind G', 'Madhav K'],
