@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/immutability */
-import { useRef, useEffect, useMemo } from 'react';
+import { useRef, useEffect, useMemo, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -222,6 +222,51 @@ function DitheredWaves({
   );
 }
 
+function getCanvasSettings() {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+    return {
+      dpr: 1,
+      pixelSizeBoost: 0,
+      prefersReducedMotion: false
+    };
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  const isNarrow = window.matchMedia('(max-width: 720px)').matches;
+
+  return {
+    dpr: isCoarsePointer || isNarrow ? 0.65 : 1,
+    pixelSizeBoost: isCoarsePointer || isNarrow ? 1.5 : 0,
+    prefersReducedMotion
+  };
+}
+
+function useMobileCanvasSettings() {
+  const [settings, setSettings] = useState(() => ({
+    dpr: 1,
+    pixelSizeBoost: 0,
+    prefersReducedMotion: false
+  }));
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return;
+
+    const queries = [
+      window.matchMedia('(prefers-reduced-motion: reduce)'),
+      window.matchMedia('(pointer: coarse)'),
+      window.matchMedia('(max-width: 720px)')
+    ];
+    const sync = () => setSettings(getCanvasSettings());
+
+    sync();
+    queries.forEach((query) => query.addEventListener('change', sync));
+    return () => queries.forEach((query) => query.removeEventListener('change', sync));
+  }, []);
+
+  return settings;
+}
+
 export default function Dither({
   waveSpeed = 0.05,
   waveFrequency = 3,
@@ -233,13 +278,21 @@ export default function Dither({
   enableMouseInteraction = true,
   mouseRadius = 1
 }) {
+  const canvasSettings = useMobileCanvasSettings();
+  const effectivePixelSize = pixelSize + canvasSettings.pixelSizeBoost;
+  const effectiveDisableAnimation = disableAnimation || canvasSettings.prefersReducedMotion;
+
   return (
     <Canvas
       className="dither-container"
       camera={{ position: [0, 0, 6] }}
-      dpr={1}
+      dpr={canvasSettings.dpr}
       frameloop="always"
-      gl={{ antialias: true, preserveDrawingBuffer: true }}
+      gl={{
+        antialias: false,
+        preserveDrawingBuffer: false,
+        powerPreference: 'high-performance'
+      }}
     >
       <DitheredWaves
         waveSpeed={waveSpeed}
@@ -247,8 +300,8 @@ export default function Dither({
         waveAmplitude={waveAmplitude}
         waveColor={waveColor}
         colorNum={colorNum}
-        pixelSize={pixelSize}
-        disableAnimation={disableAnimation}
+        pixelSize={effectivePixelSize}
+        disableAnimation={effectiveDisableAnimation}
         enableMouseInteraction={enableMouseInteraction}
         mouseRadius={mouseRadius}
       />

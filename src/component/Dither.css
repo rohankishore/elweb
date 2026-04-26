@@ -1,8 +1,19 @@
 .dither-container {
   position: absolute;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: -24px 0;
+  width: 100%;
+  height: calc(100dvh + 48px);
+  min-height: calc(100svh + 48px);
   z-index: 0;
   pointer-events: none;
+  display: block;
+  contain: strict;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+@supports not (height: 100dvh) {
+  .dither-container {
+    height: calc(100vh + 48px);
+  }
 }
