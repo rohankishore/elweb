@@ -455,8 +455,12 @@ function App() {
             timeVariance={180}
           />
         </div>
-        {children}
-        <SiteFooter />
+        <main className="site-main">
+          {children}
+        </main>
+        <div className="site-footer-layer">
+          <SiteFooter />
+        </div>
       </>
     );
   }

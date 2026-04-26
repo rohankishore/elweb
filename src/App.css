@@ -2950,10 +2950,17 @@ body::before {
 .global-bg-container {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
   /* Dither background canvas stretches here */
+}
+
+.site-main,
+.site-footer-layer {
+  position: relative;
+  z-index: 1;
 }
 
 .global-bg-blur {
@@ -2977,6 +2984,17 @@ body::before {
 .about-page-shell,
 .students-page-shell {
   background: transparent !important;
+}
+
+.scroll-journey,
+.marquee-container,
+.content-sections,
+.program-overview-section,
+.overview-section,
+.notices-feature-section {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
 }
 
 .academics-page-shell::before,
