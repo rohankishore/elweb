@@ -2949,8 +2949,8 @@ body::before {
 
 .global-bg-container {
   position: fixed;
-  inset: -24px 0;
-  min-height: calc(100dvh + 48px);
+  inset: -40px 0;
+  min-height: calc(100lvh + 80px);
   z-index: 0;
   pointer-events: none;
   transform: translateZ(0);
@@ -2966,10 +2966,10 @@ body::before {
 
 .global-bg-blur {
   position: fixed;
-  inset: -24px 0;
-  background: rgba(0, 0, 0, 0.22);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  inset: -40px 0;
+  background: rgba(0, 0, 0, 0.24);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   z-index: 1;
   /* Sits on top of the Dither canvas to blur it */
   pointer-events: none;
@@ -2983,19 +2983,20 @@ body::before {
     opacity: 0.025 !important;
   }
 
-  .global-bg-container,
-  .global-bg-blur {
-    inset: -40px 0;
-  }
-
   .global-bg-container {
-    min-height: calc(100dvh + 80px);
+    min-height: calc(100lvh + 80px);
   }
 
   .global-bg-blur {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.24);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+  }
+}
+
+@supports not (height: 100lvh) {
+  .global-bg-container {
+    min-height: calc(100vh + 80px);
   }
 }
 
