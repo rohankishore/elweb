@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TrueFocus from "./TrueFocus";
 import Spline from '@splinetool/react-spline';
+import FacultySection from './FacultySection.jsx';
 
 export default function AboutPage() {
   return (
@@ -46,10 +47,30 @@ export default function AboutPage() {
           </p>
         </div>
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
-          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Faculties</h2>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Faculty</h2>
           <p className="about-page-content__text">
             Our professors are more than just lecturers—they’re the ones helping us connect the dots between complex circuits and high-level code. Whether they’re deep-diving into AI or breaking down Power Systems, they bring the expertise that turns us into engineers. Check the list below for official contact details
           </p>
+        </div>
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Electrical Engineering Faculty</h2>
+          <FacultySection type="e" />
+        </div>
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Computer Science Faculty</h2>
+          <FacultySection type="c" />
+        </div>
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Mathematics Faculty</h2>
+          <FacultySection type="m" />
+        </div>
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Physics Faculty</h2>
+          <FacultySection type="p" />
+        </div>
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Chemistry Faculty</h2>
+          <FacultySection type="ch" />
         </div>
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
           <h2 className="about-page-content__title" style={{ marginBottom: '0.8rem', textAlign: 'left' }}>Our Technical staff</h2>
