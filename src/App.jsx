@@ -440,7 +440,7 @@ function App() {
     return (
       <>
         <div className="global-bg-container">
-          <Dither waveColor={[0.13, 0.47, 0.47]} enableMouseInteraction={true/*check*/} disableAnimation={false} waveSpeed={0.06} waveAmplitude={0.27} mouseRadius={0.4} />
+          <Dither waveColor={[0.13, 0.47, 0.47]} enableMouseInteraction={true} disableAnimation={false} waveSpeed={0.06} waveAmplitude={0.27} mouseRadius={0.4} />
           <div className="global-bg-blur"></div>
         </div>
         <div className="site-nav">
