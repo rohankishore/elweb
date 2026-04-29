@@ -18,10 +18,6 @@ import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
 import { achievements } from './component/achievementsData';
 
-// ─── Extracted into its own component so the scroll-scrub effect re-mounts
-// every time the user navigates back to "/". Previously these refs and effects
-// lived in App, which never unmounts, so journeyRef.current was stale/null
-// after the first navigation away from home.
 function HomePage() {
   const videoRef = useRef(null)
   const captionRef = useRef(null)
