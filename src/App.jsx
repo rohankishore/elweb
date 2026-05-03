@@ -30,7 +30,7 @@ function HomePage() {
     const video = videoRef.current
     if (!video) return
 
-    const scrubFps = 12
+    const scrubFps = 6
     const frameStep = 1 / scrubFps
     let duration = 0
     let desiredTime = 0
@@ -93,15 +93,15 @@ function HomePage() {
     const pumpScrub = () => {
       const timeSinceScroll = Date.now() - lastScrollTime
       
-      if (duration > 0 && timeSinceScroll < 200) {
+      if (duration > 0 && timeSinceScroll < 300) {
         const quantizedTime = Math.round(desiredTime / frameStep) * frameStep
         const targetTime = Math.min(Math.max(quantizedTime, 0), duration)
-        if (Math.abs(targetTime - lastAppliedTime) >= frameStep * 0.85) {
+        if (Math.abs(targetTime - lastAppliedTime) >= frameStep * 0.5) {
           seekToTime(targetTime)
         }
       }
 
-      if (timeSinceScroll < 1000) {
+      if (timeSinceScroll < 800) {
         scrubRafId = requestAnimationFrame(pumpScrub)
       } else {
         isRafActive = false
@@ -184,7 +184,6 @@ function HomePage() {
     syncVideoToScroll()
     updateCaptionReveal()
     updateScrollHint()
-    scrubRafId = requestAnimationFrame(pumpScrub)
 
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
@@ -215,11 +214,10 @@ function HomePage() {
           anime({
             targets: section.querySelectorAll('[data-animate]'),
             opacity: [0, 1],
-            translateY: [42, 0],
-            scale: [0.985, 1],
-            easing: 'easeOutExpo',
-            duration: 920,
-            delay: anime.stagger(120),
+            translateY: [28, 0],
+            easing: 'easeOutCubic',
+            duration: 600,
+            delay: anime.stagger(50),
           })
 
           observer.unobserve(section)
@@ -463,11 +461,11 @@ function App() {
             className="site-gooey-nav"
             items={navItems}
             initialActiveIndex={activeIdx}
-            animationTime={520}
-            particleCount={14}
-            particleDistances={[72, 14]}
-            particleR={92}
-            timeVariance={180}
+            animationTime={380}
+            particleCount={8}
+            particleDistances={[60, 10]}
+            particleR={80}
+            timeVariance={120}
           />
         </div>
         <main className="site-main">
