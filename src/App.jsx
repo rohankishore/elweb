@@ -1,6 +1,8 @@
 /*Some of the parts are ai generated , and i havent verified every one of them.
 so the chances of breaking some shi is really high */
 
+/*IM SORRY FOR AI SLOPING*/
+
 import { useEffect, useMemo, useRef } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
 import anime from 'animejs/lib/anime.es.js'
