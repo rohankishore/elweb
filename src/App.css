@@ -2035,7 +2035,6 @@ body::before {
   display: block;
   object-fit: cover;
   object-position: center;
-  will-change: contents;
 }
 
 .frame-overlay {

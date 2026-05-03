@@ -38,6 +38,8 @@ function HomePage() {
     let hasInitializedVideo = false
     let scrollRafId = 0
     let scrubRafId = 0
+    let lastScrollTime = 0
+    let isRafActive = false
 
     const getJourneyProgress = () => {
       const journey = journeyRef.current
@@ -87,13 +89,21 @@ function HomePage() {
     }
 
     const pumpScrub = () => {
-      if (duration > 0) {
+      const timeSinceScroll = Date.now() - lastScrollTime
+      
+      if (duration > 0 && timeSinceScroll < 200) {
         const quantizedTime = Math.round(desiredTime / frameStep) * frameStep
         const targetTime = Math.min(Math.max(quantizedTime, 0), duration)
-        seekToTime(targetTime)
+        if (Math.abs(targetTime - lastAppliedTime) >= frameStep * 0.85) {
+          seekToTime(targetTime)
+        }
       }
 
-      scrubRafId = requestAnimationFrame(pumpScrub)
+      if (timeSinceScroll < 1000) {
+        scrubRafId = requestAnimationFrame(pumpScrub)
+      } else {
+        isRafActive = false
+      }
     }
 
     const updateCaptionReveal = () => {
@@ -109,6 +119,13 @@ function HomePage() {
     }
 
     const onScroll = () => {
+      lastScrollTime = Date.now()
+      
+      if (!isRafActive) {
+        isRafActive = true
+        scrubRafId = requestAnimationFrame(pumpScrub)
+      }
+      
       if (scrollRafId) return
       scrollRafId = requestAnimationFrame(() => {
         scrollRafId = 0
