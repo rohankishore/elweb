@@ -3,7 +3,7 @@ so the chances of breaking some shi is really high */
 
 /*IM SORRY FOR AI SLOPING*/
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
 import anime from 'animejs/lib/anime.es.js'
 import GooeyNav from './component/GooeyNav'
@@ -214,10 +214,11 @@ function HomePage() {
           anime({
             targets: section.querySelectorAll('[data-animate]'),
             opacity: [0, 1],
-            translateY: [28, 0],
-            easing: 'easeOutCubic',
-            duration: 600,
-            delay: anime.stagger(50),
+            translateY: [42, 0],
+            scale: [0.985, 1],
+            easing: 'easeOutExpo',
+            duration: 920,
+            delay: anime.stagger(120),
           })
 
           observer.unobserve(section)
@@ -424,9 +425,6 @@ function App() {
   // Layout with nav and highlight logic
   function Layout({ children }) {
     const location = useLocation();
-    const [prefersReducedMotion] = useState(
-      typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    );
 
     useEffect(() => {
       if (!location.hash) {
@@ -456,15 +454,20 @@ function App() {
     return (
       <>
         <div className="global-bg-container">
-          <Dither 
-            waveColor={[0.13, 0.47, 0.47]} 
-            enableMouseInteraction={!prefersReducedMotion} 
-            disableAnimation={prefersReducedMotion} 
-            waveSpeed={0.03} 
-            waveAmplitude={0.15} 
-            mouseRadius={0.35} 
-          />
+          <Dither waveColor={[0.13, 0.47, 0.47]} enableMouseInteraction={true} disableAnimation={false} waveSpeed={0.06} waveAmplitude={0.27} mouseRadius={0.4} />
           <div className="global-bg-blur"></div>
+        </div>
+        <div className="site-nav">
+          <GooeyNav
+            className="site-gooey-nav"
+            items={navItems}
+            initialActiveIndex={activeIdx}
+            animationTime={520}
+            particleCount={14}
+            particleDistances={[72, 14]}
+            particleR={92}
+            timeVariance={180}
+          />
         </div>
         <div className="site-nav">
           <GooeyNav
