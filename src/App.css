@@ -2062,7 +2062,8 @@ body::before {
 
 @media (min-width: 768px) {
   .frame-overlay {
-    display: none;
+    background: linear-gradient(rgba(5, 8, 14, 0.15), rgba(2, 4, 8, 0.2));
+    backdrop-filter: none;
   }
 }
 
