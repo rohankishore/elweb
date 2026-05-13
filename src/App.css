@@ -2829,7 +2829,16 @@ h2 {
 
 @media (max-width: 720px) {
   .scroll-journey {
-    height: 320vh;
+    height: 130svh;
+  }
+
+  .frame-stage {
+    background: transparent !important;
+  }
+  
+  .frame-video, 
+  .frame-overlay {
+    display: none !important;
   }
 
   .hero-wrap {
@@ -2992,6 +3001,19 @@ body::before {
 @media (max-width: 720px), (pointer: coarse) {
   body::before {
     opacity: 0.025 !important;
+  }
+
+  .scroll-journey {
+    height: 130svh;
+  }
+
+  .frame-stage {
+    background: transparent !important;
+  }
+  
+  .frame-video, 
+  .frame-overlay {
+    display: none !important;
   }
 
   .global-bg-container {
