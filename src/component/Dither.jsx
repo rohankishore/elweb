@@ -234,7 +234,7 @@ function getCanvasSettings() {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-  const isNarrow = window.matchMedia('(max-width: 720px)').matches;
+  const isNarrow = window.matchMedia('(max-width: 768px)').matches;
   const isMobile = isCoarsePointer || isNarrow;
 
   return {
@@ -246,12 +246,7 @@ function getCanvasSettings() {
 }
 
 function useMobileCanvasSettings() {
-  const [settings, setSettings] = useState(() => ({
-    dpr: 1,
-    pixelSizeBoost: 0,
-    prefersReducedMotion: false,
-    isMobile: false
-  }));
+  const [settings, setSettings] = useState(() => getCanvasSettings());
 
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return;
@@ -259,7 +254,7 @@ function useMobileCanvasSettings() {
     const queries = [
       window.matchMedia('(prefers-reduced-motion: reduce)'),
       window.matchMedia('(pointer: coarse)'),
-      window.matchMedia('(max-width: 720px)')
+      window.matchMedia('(max-width: 768px)')
     ];
     const sync = () => setSettings(getCanvasSettings());
 
