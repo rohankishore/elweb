@@ -227,18 +227,21 @@ function getCanvasSettings() {
     return {
       dpr: 1,
       pixelSizeBoost: 0,
-      prefersReducedMotion: false
+      prefersReducedMotion: false,
+      isMobile: false
     };
   }
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
   const isNarrow = window.matchMedia('(max-width: 720px)').matches;
+  const isMobile = isCoarsePointer || isNarrow;
 
   return {
-    dpr: isCoarsePointer || isNarrow ? 0.65 : 1,
-    pixelSizeBoost: isCoarsePointer || isNarrow ? 1.5 : 0,
-    prefersReducedMotion
+    dpr: isMobile ? 0.65 : 1,
+    pixelSizeBoost: isMobile ? 1.5 : 0,
+    prefersReducedMotion,
+    isMobile
   };
 }
 
@@ -246,7 +249,8 @@ function useMobileCanvasSettings() {
   const [settings, setSettings] = useState(() => ({
     dpr: 1,
     pixelSizeBoost: 0,
-    prefersReducedMotion: false
+    prefersReducedMotion: false,
+    isMobile: false
   }));
 
   useEffect(() => {
