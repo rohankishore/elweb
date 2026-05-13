@@ -16,6 +16,7 @@ import NoticesPage from './component/NoticesPage';
 import AboutPage from './component/AboutPage';
 import AcademicsPage from './component/AcademicsPage';
 import Dither from './component/Dither';
+import LineWaves from './component/LineWaves';
 import GrievancesPage from './component/GrievancesPage';
 import SiteFooter from './component/SiteFooter';
 import StudentsPage from './component/StudentsPage';
@@ -26,6 +27,7 @@ function HomePage() {
   const captionRef = useRef(null)
   const scrollHintRef = useRef(null)
   const journeyRef = useRef(null)
+  const linewavesRef = useRef(null)
 
   // Get scroll progress relative to the hero section
   const { scrollYProgress } = useScroll({
@@ -59,6 +61,15 @@ function HomePage() {
   useMotionValueEvent(hintOpacity, 'change', (value) => {
     if (scrollHintRef.current) {
       scrollHintRef.current.style.setProperty('--hint-opacity', value.toFixed(3))
+    }
+  })
+
+  // Map scroll progress to LineWaves opacity
+  const wavesOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0.4], { clamp: false })
+
+  useMotionValueEvent(wavesOpacity, 'change', (value) => {
+    if (linewavesRef.current) {
+      linewavesRef.current.style.setProperty('--waves-opacity', Math.max(0, Math.min(1, value)).toFixed(3))
     }
   })
 
@@ -141,6 +152,21 @@ function HomePage() {
             aria-hidden="true"
           />
           <div className="frame-overlay" />
+          <div className="linewaves-hero" ref={linewavesRef}>
+            <LineWaves 
+              color1="#1a9a9a" 
+              color2="#217878" 
+              color3="#0d5a5a" 
+              brightness={0.25}
+              speed={0.35}
+              rotation={-22}
+              innerLineCount={24}
+              outerLineCount={28}
+              warpIntensity={0.8}
+              edgeFadeWidth={0.3}
+              colorCycleSpeed={0.8}
+            />
+          </div>
         </div>
 
         <div className="hero-wrap">
