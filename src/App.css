@@ -2079,6 +2079,12 @@ body::before {
   transition: opacity 120ms ease-out;
 }
 
+@media (min-width: 768px) {
+  .linewaves-hero {
+    display: none;
+  }
+}
+
 .scroll-journey {
   width: 100%;
   max-width: 100%;
