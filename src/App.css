@@ -2060,6 +2060,12 @@ body::before {
   z-index: 2;
 }
 
+@media (min-width: 768px) {
+  .frame-overlay {
+    display: none;
+  }
+}
+
 .linewaves-hero {
   position: absolute;
   inset: 0;
