@@ -151,7 +151,6 @@ function HomePage() {
             tabIndex={-1}
             aria-hidden="true"
           />
-          <div className="frame-overlay" />
           <div className="linewaves-hero" ref={linewavesRef}>
             <LineWaves 
               color1="#1a9a9a" 
@@ -167,6 +166,7 @@ function HomePage() {
               colorCycleSpeed={0.8}
             />
           </div>
+          <div className="frame-overlay" />
         </div>
 
         <div className="hero-wrap">
