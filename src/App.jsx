@@ -64,15 +64,6 @@ function HomePage() {
     }
   })
 
-  // Map scroll progress to LineWaves opacity
-  const wavesOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0.4], { clamp: false })
-
-  useMotionValueEvent(wavesOpacity, 'change', (value) => {
-    if (linewavesRef.current) {
-      linewavesRef.current.style.setProperty('--waves-opacity', Math.max(0, Math.min(1, value)).toFixed(3))
-    }
-  })
-
   useEffect(() => {
     const video = videoRef.current
     if (!video) return

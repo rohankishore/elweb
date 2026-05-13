@@ -2066,7 +2066,7 @@ body::before {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-  opacity: var(--waves-opacity, 1);
+  opacity: 1;
   mix-blend-mode: screen;
   mask-image: radial-gradient(
     ellipse 85% 90% at 50% 50%,
