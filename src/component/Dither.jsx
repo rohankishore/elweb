@@ -284,7 +284,8 @@ export default function Dither({
 }) {
   const canvasSettings = useMobileCanvasSettings();
   const effectivePixelSize = pixelSize + canvasSettings.pixelSizeBoost;
-  const effectiveDisableAnimation = disableAnimation || canvasSettings.prefersReducedMotion;
+  const effectiveDisableAnimation = disableAnimation || canvasSettings.prefersReducedMotion || canvasSettings.isMobile;
+  const effectiveEnableMouseInteraction = enableMouseInteraction && !canvasSettings.isMobile;
 
   return (
     <Canvas
@@ -306,7 +307,7 @@ export default function Dither({
         colorNum={colorNum}
         pixelSize={effectivePixelSize}
         disableAnimation={effectiveDisableAnimation}
-        enableMouseInteraction={enableMouseInteraction}
+        enableMouseInteraction={effectiveEnableMouseInteraction}
         mouseRadius={mouseRadius}
       />
     </Canvas>
