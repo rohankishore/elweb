@@ -74,11 +74,10 @@ function HomePage() {
     video.pause()
 
     return () => {
-      // Cleanup if needed
+      // sukhalle bro
     }
   }, [])
 
-  // Update video time range when metadata loads
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
