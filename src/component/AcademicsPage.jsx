@@ -186,7 +186,7 @@ export default function AcademicsPage() {
             Comprehensive subject-wise notes curated to help you master the core concepts.
           </p>
           {/* Mobile View */}
-          <div className="academics-mobile-accordions">
+          <div className="academics-mobile-accordions" style={{ display: 'none' }}>
             <div className="academics-accordions-wrapper">
               {notesData.map((sem, idx) => (
                 <details className="academics-accordion" key={idx}>
@@ -218,7 +218,7 @@ export default function AcademicsPage() {
           </div>
 
           {/* Desktop View */}
-          <div className="academics-desktop-columns">
+          <div className="academics-desktop-columns" style={{ display: 'none' }}>
             {notesData.map((sem, idx) => (
               <div className="desktop-column" key={idx}>
                 <div className="desktop-column__header">
