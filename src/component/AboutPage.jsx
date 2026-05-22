@@ -4,7 +4,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TrueFocus from "./TrueFocus";
 import Spline from '@splinetool/react-spline';
-import FacultySection from './FacultySection.jsx';
 
 export default function AboutPage() {
   return (

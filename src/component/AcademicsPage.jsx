@@ -6,47 +6,47 @@ const notesData = [
   {
     semester: "Sem 1",
     subjects: [
-      { name: "Intro to Electrical & Electronics Engineering", link: "https://drive.google.com/drive/folders/1toKzgcwqqJeiEprNENlXE3XDTOKZWabq" },
-      { name: "Maths", link: "https://drive.google.com/drive/folders/1tS5U03kyE4Zb6xAo2NtDlPMkS7LZBNRf" },
-      { name: "Algorithmic Thinking with Python", link: "https://drive.google.com/drive/folders/1tuNWP8MsMt5B_goMrZThYwvT1jGRU9Cw" },
-      { name: "Engineering Graphics", link: "https://drive.google.com/drive/folders/1tWCSyc5VIMkg6JmNEUZNUC0_qk8DHgw4" },
-      { name: "Physics", link: "https://drive.google.com/drive/folders/1K7j3cKe2p80PtqxJgBMjfRbL0QanKTB-" }
+      { name: "Intro to Electrical & Electronics Engineering", link: "" },
+      { name: "Maths", link: "" },
+      { name: "Algorithmic Thinking with Python", link: "" },
+      { name: "Engineering Graphics", link: "" },
+      { name: "Physics", link: "" }
     ]
   },
   {
     semester: "Sem 2",
     subjects: [
-      { name: "Maths", link: "https://drive.google.com/drive/folders/1izqk86n_uF5VA0fpNDnBsnTeJKNj0W1U" },
-      { name: "Chemistry", link: "https://drive.google.com/drive/folders/1rOC_rEZGIDE__-ci07BMT2h4ytwbGgJJ" },
+      { name: "Maths", link: "" },
+      { name: "Chemistry", link: "" },
       
-      { name: "Foundations of Commputing", link: "https://drive.google.com/drive/folders/1l9xEpHoaECFQYW5bHH2k-GcfK6hzcV95" },
-      { name: "Programming in C", link: "https://drive.google.com/drive/folders/1ja3ronoX8U3Uc1GPQRm3lwUSn4b36itJ" },
-      { name: "Engineering Entrepreneurship and IPR", link: "https://drive.google.com/drive/folders/1sHABss4kioxE3m94URvIKJJsAWrnm_Cz" },
-      { name: "Analog Electronics", link: "https://drive.google.com/drive/folders/1PiTxMxC6pzFgTO-f7-_K4wAhSPXmM_La" }
+      { name: "Foundations of Commputing", link: "" },
+      { name: "Programming in C", link: "" },
+      { name: "Engineering Entrepreneurship and IPR", link: "" },
+      { name: "Analog Electronics", link: "" }
     ]
   },
   {
     semester: "Sem 3",
     subjects: [
-      { name: "Maths", link: "https://drive.google.com/drive/folders/1FY4_iUcyH2mdDFghMtmWWPZ1uoF-X2pS" },
-      { name: "Circuits and networks", link: "https://drive.google.com/drive/folders/1hfgjL-h-y4CvnC_I9XT2HGupMzNuVKSG" },
-      { name: "Data structures and algorithms", link: "https://drive.google.com/drive/folders/1wtFb2yzwvmxvbSijVcphztB71fzHVLvW" },
-      { name: "Digital electronics and logic system design", link: "https://drive.google.com/drive/folders/1iMlzag8zLAbwXmSwoxdvgw42H1xyUeMQ" },
-      { name: "Ai and ds", link: "https://drive.google.com/drive/folders/1vEFmZihxN1W0hj3ORB2Ljxaiz0acLJr3" },
-      { name: "Engineering ethics", link: "https://drive.google.com/drive/folders/1fgmDIQEBM1F_AxKFqLYJOgBgG2VGj7vY" }
+      { name: "Maths", link: "" },
+      { name: "Circuits and networks", link: "" },
+      { name: "Data structures and algorithms", link: "" },
+      { name: "Digital electronics and logic system design", link: "" },
+      { name: "Ai and ds", link: "" },
+      { name: "Engineering ethics", link: "" }
     ]
   },
   {
     semester: "Sem 4",
     subjects: [
-      { name: "Economics", link: "https://drive.google.com/drive/folders/1c91yV9MtXrkjtDgpE0rib7wrI-rvSxoS" },
-      { name: "Electrical Machines", link: "https://drive.google.com/drive/folders/1MqbQjT04APJChaf_x5S88RAqSXoSp7-G" },
-      { name: "COA", link: "https://drive.google.com/drive/folders/1Z8QQwXmPmhhtA3wQOic9TGdzjz_SlTIM" },
-      { name: "Java", link: "https://drive.google.com/drive/folders/1lVKt_Tosy0BMZvOCQ3C6RYN8viA9b_th" },
-      { name: "Maths", link: "https://drive.google.com/drive/folders/1DO8NWwasga-WkUHGXv0YFqdtO1PvOYgr" },
-      { name: "SSD (Elective)", link: "https://drive.google.com/drive/folders/16Xim2A1niBx5Ny_yUzp2kw6pXSNyjcJq" },
-      { name: "Renewable (Elective)", link: "https://drive.google.com/drive/folders/1venG4qNp6bx6pbN1QbJ42P0vdjbDVl8t" },
-      { name: "ML", link: "https://drive.google.com/drive/folders/19ReTagHlWRETWTEzMJUNeV2orIalqsLQ" }
+      { name: "Economics", link: "" },
+      { name: "Electrical Machines", link: "" },
+      { name: "COA", link: "" },
+      { name: "Java", link: "" },
+      { name: "Maths", link: "" },
+      { name: "SSD (Elective)", link: "" },
+      { name: "Renewable (Elective)", link: "" },
+      { name: "ML", link: "" }
     ]
   }
 ];
