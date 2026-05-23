@@ -16,17 +16,22 @@ export default function NoticeSection() {
       <div className="notice-card">
         <div className="notice-card__badges">
           <span className="notice-card__badge notice-card__badge--pinned">📌 PINNED</span>
-          <span className="notice-card__badge">NOTICE</span>
+          <span className="notice-card__badge">Results</span>
         </div>
-        <div className="notice-card__title">Sem Exam Dates</div>
+        <div className="notice-card__title">S1 Toppers of EL</div>
         <div className="notice-card__date">April 12, 2026</div>
         <div className="notice-card__desc">
-          B.Tech Applied Electronics Detailed Examination Time Table (S2, S4, S6, S8).
+          Meet the toppers for the first semester of the 2025 EL batch and celebrate the consistency, focus, and academic excellence across the program.
         </div>
-        <div className="notice-card__attachment">
-          <a href="#" className="notice-card__attachment-link">📎 Attachment available</a>
-        </div>
-        <span className="notice-card__arrow">&gt;</span>
+        <a
+          href="https://www.instagram.com/p/DWW_OoiEswz/?img_index=1"
+          className="notice-card__arrow"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View S1 toppers on Instagram"
+        >
+          &gt;
+        </a>
       </div>
       <div className="notice-section__footer">
         <Link to="/notices" className="notice-section__view-all">View all notices <span>&rarr;</span></Link>

@@ -9,6 +9,7 @@ const notices = [
     title: "Semester Exam Time Table for S2 & S4",
     date: "April 12, 2026",
     desc: "KTU semester exam timetables for EL S2 and S4 batches have been released.",
+    href: "https://www.instagram.com/p/DWrRFRHAWsU/?img_index=1",
   },
   {
     pinned: true,
@@ -17,6 +18,7 @@ const notices = [
     title: "S1 Toppers of EL",
     date: "April 12, 2026",
     desc: "Meet the toppers for the first semester of the 2025 EL batch and celebrate the consistency, focus, and academic excellence across the program.",
+    href: "https://www.instagram.com/p/DWW_OoiEswz/?img_index=1",
   },
 ];
 
@@ -78,9 +80,21 @@ export default function NoticesPage() {
 
               <div className="notice-panel__footer">
                 <span className="notice-panel__action">{notice.action}</span>
-                <span className="notice-panel__arrow" aria-hidden="true">
-                  →
-                </span>
+                {notice.href ? (
+                  <a
+                    href={notice.href}
+                    className="notice-panel__arrow"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Open ${notice.title}`}
+                  >
+                    →
+                  </a>
+                ) : (
+                  <span className="notice-panel__arrow" aria-hidden="true">
+                    →
+                  </span>
+                )}
               </div>
             </article>
           ))}
