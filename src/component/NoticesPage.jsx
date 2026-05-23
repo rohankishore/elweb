@@ -20,6 +20,15 @@ const notices = [
     desc: "Meet the toppers for the first semester of the 2025 EL batch and celebrate the consistency, focus, and academic excellence across the program.",
     href: "https://www.instagram.com/p/DWW_OoiEswz/?img_index=1",
   },
+  {
+    pinned: true,
+    type: "Placement Talk",
+    audience: "Talk Session",
+    title: "Placement Talk Session",
+    date: "May 31, 2026 · 7:30 PM · Online",
+    desc: "What Recruiters Really Expect From You? — Step into an insightful session with Athul, Senior Embedded Firmware Engineer at Texas Instruments, and gain industry perspectives on placements, skills, and career growth. An initiative under EPOCH by the Electronics Department, in collaboration with the Internship Cell CET and EL Association.",
+    href: "https://www.instagram.com/p/DYrDu3YRdNm/",
+  },
 ];
 
 const pinnedCount = notices.filter((notice) => notice.pinned).length;
@@ -48,7 +57,7 @@ export default function NoticesPage() {
           </div>
           <div className="notices-page-overview__card">
             <span className="notices-page-overview__label">Latest update</span>
-            <strong className="notices-page-overview__value">April 12</strong>
+            <strong className="notices-page-overview__value">May 31</strong>
           </div>
         </div>
       </section>
