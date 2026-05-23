@@ -179,13 +179,13 @@ export default function AcademicsPage() {
       </section>
 
       <section className="academics-page-content">
-        {/* Notes Section */}
+        {/* Notes Section
         <div className="academics-page-content__notes" style={{ paddingTop: 0 }}>
           <h2 className="academics-page-content__title">Notes</h2>
           <p className="academics-page-content__text" style={{ marginBottom: "2rem" }}>
             Comprehensive subject-wise notes curated to help you master the core concepts.
           </p>
-        </div>
+        </div> */}
 
         <div className="academics-page-content__question-papers">
           <h2 className="academics-page-content__title">Question Papers</h2>
