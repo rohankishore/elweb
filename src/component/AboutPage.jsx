@@ -91,9 +91,6 @@ export default function AboutPage() {
                 />
                 <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: '600' }}>{head.name}</h3>
                 <p style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500' }}>{head.role}</p>
-                <a href={`mailto:${head.email}`} style={{ color: 'var(--accent)', textDecoration: 'none', fontSize: '0.9rem', wordBreak: 'break-all' }}>
-                  {head.email}
-                </a>
               </div>
             ))}
           </div>
