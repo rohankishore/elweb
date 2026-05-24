@@ -9,22 +9,26 @@ const associationHeads = [
   {
     name: "Head 1",
     role: "President",
-    email: "head1@example.com"
+    email: "head1@example.com",
+    image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 2",
     role: "Vice President",
-    email: "head2@example.com"
+    email: "head2@example.com",
+    image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 3",
     role: "General Secretary",
-    email: "head3@example.com"
+    email: "head3@example.com",
+    image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 4",
     role: "Treasurer",
-    email: "head4@example.com"
+    email: "head4@example.com",
+    image: "https://via.placeholder.com/150"
   }
 ];
 
