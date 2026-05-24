@@ -70,7 +70,7 @@ export default function NoticesPage() {
         </div>
 
         <div className="notices-page-list">
-          {notices.map((notice, idx) => (
+          {notices.reverse().map((notice, idx) => (
             <article className="notice-panel" key={notice.title}>
               <div className="notice-panel__meta">
                 <span className="notice-panel__index">{String(idx + 1).padStart(2, "0")}</span>
