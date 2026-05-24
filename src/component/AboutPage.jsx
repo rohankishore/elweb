@@ -7,13 +7,12 @@ import Spline from '@splinetool/react-spline';
 
 const associationHeads = [
   {
-    name: "Head 1",
+    name: "Yashnik M",
     role: "Secretary",
-    email: "secretary@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
-    name: "Head 2",
+    name: "Rohan Kishore",
     role: "Web Head",
     email: "webhead1@example.com",
     image: "https://via.placeholder.com/150"
