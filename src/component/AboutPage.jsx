@@ -14,31 +14,26 @@ const associationHeads = [
   {
     name: "Rohan Kishore",
     role: "Web Head",
-    email: "webhead1@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 3",
     role: "Web Head",
-    email: "webhead2@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 4",
     role: "Content Head",
-    email: "contenthead1@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 5",
     role: "Content Head",
-    email: "contenthead2@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 6",
     role: "Staff Adviser",
-    email: "adviser@example.com",
     image: "https://via.placeholder.com/150"
   }
 ];
