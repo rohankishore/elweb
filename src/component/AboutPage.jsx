@@ -12,6 +12,11 @@ const associationHeads = [
     image: "https://via.placeholder.com/150"
   },
   {
+    name: "Dr Deepa",
+    role: "Staff Adviser",
+    image: "https://via.placeholder.com/150"
+  },
+  {
     name: "Rohan Kishore",
     role: "Web Head",
     image: "https://via.placeholder.com/150"
@@ -29,11 +34,6 @@ const associationHeads = [
   {
     name: "Neha J Shibu",
     role: "Content Head",
-    image: "https://via.placeholder.com/150"
-  },
-  {
-    name: "Dr Deepa",
-    role: "Staff Adviser",
     image: "https://via.placeholder.com/150"
   }
 ];
