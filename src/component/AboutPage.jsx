@@ -103,7 +103,7 @@ export default function AboutPage() {
                 <img 
                   src={head.image} 
                   alt={head.name}
-                  style={{ width: '120px', height: '120px', borderRadius: '50%', marginBottom: '1rem', objectFit: 'cover', objectPosition: head.name === 'Meera RS' ? 'center 35%' : 'center', border: '2px solid var(--accent)' }}
+                  style={{ width: '120px', height: '120px', borderRadius: '50%', marginBottom: '1rem', objectFit: 'cover', objectPosition: head.name === 'Meera RS' ? 'center 25%' : 'center', border: '2px solid var(--accent)' }}
                 />
                 <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: '600' }}>{head.name}</h3>
                 <p className="role-glow" style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500' }}>{head.role}</p>
