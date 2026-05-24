@@ -5,6 +5,29 @@ import { Link } from "react-router-dom";
 import TrueFocus from "./TrueFocus";
 import Spline from '@splinetool/react-spline';
 
+const associationHeads = [
+  {
+    name: "Head 1",
+    role: "President",
+    email: "head1@example.com"
+  },
+  {
+    name: "Head 2",
+    role: "Vice President",
+    email: "head2@example.com"
+  },
+  {
+    name: "Head 3",
+    role: "General Secretary",
+    email: "head3@example.com"
+  },
+  {
+    name: "Head 4",
+    role: "Treasurer",
+    email: "head4@example.com"
+  }
+];
+
 export default function AboutPage() {
   return (
     <main className="about-page-shell">
@@ -46,10 +69,22 @@ export default function AboutPage() {
           </p>
         </div>
 
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>Association Heads</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+            {associationHeads.map((head, idx) => (
+              <div key={idx} style={{ padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'rgba(108,99,255,0.05)' }}>
+                <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: '600' }}>{head.name}</h3>
+                <p style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500' }}>{head.role}</p>
+                <a href={`mailto:${head.email}`} style={{ color: 'var(--accent)', textDecoration: 'none', fontSize: '0.9rem' }}>
+                  {head.email}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
 
-
-
-
+      </section>
       </section>
     </main>
   );
