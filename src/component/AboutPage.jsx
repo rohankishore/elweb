@@ -13,7 +13,7 @@ const associationHeads = [
   },
   {
     name: "Dr Deepa",
-    role: "Staff Adviser",
+    role: "Staff Advisor",
     image: "https://via.placeholder.com/150"
   },
   {
