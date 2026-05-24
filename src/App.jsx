@@ -319,7 +319,7 @@ function HomePage() {
           <h2>Connect With Us</h2>
           <p className="notices-subtitle">Follow us on social media for the latest updates</p>
         </div>
-        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap', margin: '1.5rem 0' }}>
+        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'flex-start', flexWrap: 'wrap', margin: '1.5rem 0' }}>
           <a 
             href="https://www.instagram.com/elassociation" 
             target="_blank" 
@@ -331,7 +331,12 @@ function HomePage() {
               margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
             }}
           >
-            📷 Instagram
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37"></path>
+              <circle cx="17.5" cy="6.5" r="1.5"></circle>
+            </svg>
+            Instagram
           </a>
           <a 
             href="https://www.linkedin.com/company/el-association" 
@@ -344,7 +349,12 @@ function HomePage() {
               margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
             }}
           >
-            💼 LinkedIn
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6 z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn
           </a>
         </div>
       </section>
