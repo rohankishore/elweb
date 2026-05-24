@@ -81,7 +81,7 @@ export default function AboutPage() {
 
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
           <h2 className="about-page-content__title" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>Association Heads</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', '@media (max-width: 768px)': { gridTemplateColumns: '1fr' } }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem' }}>
             {associationHeads.map((head, idx) => (
               <div key={idx} style={{ padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'rgba(108,99,255,0.05)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <img 
