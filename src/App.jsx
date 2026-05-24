@@ -313,6 +313,41 @@ function HomePage() {
           }}>Open grievance form &rarr;</Link>
         </div>
       </section>
+
+      <section className="content-sections notices-feature-section" id="connect-preview">
+        <div className="section-head notices-head">
+          <h2>Connect With Us</h2>
+          <p className="notices-subtitle">Follow us on social media for the latest updates</p>
+        </div>
+        <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap', margin: '1.5rem 0' }}>
+          <a 
+            href="https://www.instagram.com/elassociation" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="shiny-badge"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.8rem', borderRadius: '16px', fontWeight: 700,
+              fontSize: '1.08rem', padding: '0.85rem 2rem', textDecoration: 'none',
+              margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
+            }}
+          >
+            📷 Instagram
+          </a>
+          <a 
+            href="https://www.linkedin.com/company/el-association" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="shiny-badge"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.8rem', borderRadius: '16px', fontWeight: 700,
+              fontSize: '1.08rem', padding: '0.85rem 2rem', textDecoration: 'none',
+              margin: 0, boxShadow: '0 2px 16px 0 rgba(20,24,32,0.13)', verticalAlign: 'top',
+            }}
+          >
+            💼 LinkedIn
+          </a>
+        </div>
+      </section>
     </>
   )
 }
