@@ -40,7 +40,7 @@ export default function StudentsPage() {
                   <h3 className="notice-panel__title">{ach.title}</h3>
                   <p className="notice-panel__desc">{ach.description}</p>
                   <div style={{ marginTop: '0.5rem', fontSize: '0.98em', color: '#b16e7c' }}>
-                    <strong>Team:</strong> {(ach.people ?? ach.winners ?? []).join(', ') || '—'}<br />
+                    <strong>{ach.id === 'allianz' ? 'Winners:' : 'Team:'}</strong> {(ach.people ?? ach.winners ?? []).join(', ') || '—'}<br />
                     <strong>Prize:</strong> {ach.prize}
                   </div>
                 </div>
