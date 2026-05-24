@@ -90,7 +90,7 @@ export default function AboutPage() {
                   style={{ width: '120px', height: '120px', borderRadius: '50%', marginBottom: '1rem', objectFit: 'cover', border: '2px solid var(--accent)' }}
                 />
                 <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: '600' }}>{head.name}</h3>
-                <p style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500' }}>{head.role}</p>
+                <p style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500', textShadow: '0 0 10px rgba(108,99,255,0.6), 0 0 20px rgba(108,99,255,0.3)' }}>{head.role}</p>
               </div>
             ))}
           </div>
