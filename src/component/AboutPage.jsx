@@ -9,7 +9,7 @@ const associationHeads = [
   {
     name: "Yashnik",
     role: "Secretary",
-    image: "https://via.placeholder.com/150"
+    image: "/src/assets/heads/yashnik.jpeg"
   },
   {
     name: "Dr Deepa",
