@@ -105,6 +105,32 @@ export default function AboutPage() {
           </div>
         </div>
 
+        <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
+          <h2 className="about-page-content__title" style={{ marginBottom: '1.5rem', textAlign: 'left' }}>Connect With Us</h2>
+          <div style={{ display: 'flex', gap: '2rem', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+            <a 
+              href="https://www.instagram.com/elassociation" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', padding: '1rem 1.5rem', border: '1px solid var(--accent)', borderRadius: '8px', color: 'var(--accent)', textDecoration: 'none', transition: 'all 0.3s ease', fontSize: '1rem', fontWeight: '500' }}
+              onMouseEnter={(e) => { e.target.style.background = 'rgba(108,99,255,0.1)'; }}
+              onMouseLeave={(e) => { e.target.style.background = 'transparent'; }}
+            >
+              📷 Instagram
+            </a>
+            <a 
+              href="https://www.linkedin.com/company/el-association" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', padding: '1rem 1.5rem', border: '1px solid var(--accent)', borderRadius: '8px', color: 'var(--accent)', textDecoration: 'none', transition: 'all 0.3s ease', fontSize: '1rem', fontWeight: '500' }}
+              onMouseEnter={(e) => { e.target.style.background = 'rgba(108,99,255,0.1)'; }}
+              onMouseLeave={(e) => { e.target.style.background = 'transparent'; }}
+            >
+              💼 LinkedIn
+            </a>
+          </div>
+        </div>
+
       </section>
     </main>
   );
