@@ -41,6 +41,22 @@ const associationHeads = [
 export default function AboutPage() {
   return (
     <main className="about-page-shell">
+      <style>{`
+        @keyframes glowPulse {
+          0% {
+            text-shadow: 0 0 10px rgba(108,99,255,0.4), 0 0 20px rgba(108,99,255,0.2);
+          }
+          50% {
+            text-shadow: 0 0 20px rgba(108,99,255,0.8), 0 0 30px rgba(108,99,255,0.5);
+          }
+          100% {
+            text-shadow: 0 0 10px rgba(108,99,255,0.4), 0 0 20px rgba(108,99,255,0.2);
+          }
+        }
+        .role-glow {
+          animation: glowPulse 2.5s ease-in-out infinite;
+        }
+      `}</style>
       <section className="about-page-hero" style={{ boxShadow: "none", background: "none", border: "none" }}>
         <div className="about-page-hero__copy" style={{ boxShadow: "none", background: "none", border: "none" }}>
           <span className="about-page-hero__eyebrow">About the Association</span>
@@ -90,7 +106,7 @@ export default function AboutPage() {
                   style={{ width: '120px', height: '120px', borderRadius: '50%', marginBottom: '1rem', objectFit: 'cover', border: '2px solid var(--accent)' }}
                 />
                 <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: '600' }}>{head.name}</h3>
-                <p style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500', textShadow: '0 0 10px rgba(108,99,255,0.6), 0 0 20px rgba(108,99,255,0.3)' }}>{head.role}</p>
+                <p className="role-glow" style={{ margin: '0 0 0.8rem 0', color: 'var(--accent)', fontSize: '0.95rem', fontWeight: '500' }}>{head.role}</p>
               </div>
             ))}
           </div>
