@@ -4,17 +4,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import TrueFocus from "./TrueFocus";
 import Spline from '@splinetool/react-spline';
-import yashnikImg from '../assets/heads/yashnik.jpeg';
-import rohankishoreImg from '../assets/heads/rohankishore.jpeg';
-import harikrishnaImg from '../assets/heads/harikrishna.jpeg';
-import meeraImg from '../assets/heads/Meera_R_S.jpg.jpeg';
-import nehaImg from '../assets/heads/nehashibu.jpeg';
 
 const associationHeads = [
   {
     name: "Yashnik",
     role: "Secretary",
-    image: yashnikImg
+    image: "/assets/heads/yashnik.jpeg"
   },
   {
     name: "Dr Deepa",
@@ -24,22 +19,22 @@ const associationHeads = [
   {
     name: "Rohan Kishore",
     role: "Web Head",
-    image: rohankishoreImg
+    image: "/assets/heads/rohankishore.jpeg"
   },
   {
     name: "Harikrishnan",
     role: "Web Head",
-    image: harikrishnaImg
+    image: "/assets/heads/harikrishna.jpeg"
   },
   {
     name: "Meera RS",
     role: "Content Head",
-    image: meeraImg
+    image: "/assets/heads/Meera_R_S.jpg.jpeg"
   },
   {
     name: "Neha J Shibu",
     role: "Content Head",
-    image: nehaImg
+    image: "/assets/heads/nehashibu.jpeg"
   }
 ];
 
