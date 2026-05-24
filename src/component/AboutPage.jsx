@@ -8,26 +8,26 @@ import Spline from '@splinetool/react-spline';
 const associationHeads = [
   {
     name: "Head 1",
-    role: "President",
-    email: "head1@example.com",
+    role: "Secretary",
+    email: "secretary@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 2",
-    role: "Vice President",
-    email: "head2@example.com",
+    role: "Web Heads",
+    email: "webheads@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 3",
-    role: "General Secretary",
-    email: "head3@example.com",
+    role: "Content Heads",
+    email: "contentheads@example.com",
     image: "https://via.placeholder.com/150"
   },
   {
     name: "Head 4",
-    role: "Treasurer",
-    email: "head4@example.com",
+    role: "Staff Adviser",
+    email: "adviser@example.com",
     image: "https://via.placeholder.com/150"
   }
 ];
