@@ -321,7 +321,7 @@ function HomePage() {
         </div>
         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'flex-start', flexWrap: 'wrap', margin: '1.5rem 0' }}>
           <a 
-            href="https://www.instagram.com/elassociation" 
+            href="https://www.instagram.com/el.association.cet/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="shiny-badge"
@@ -339,7 +339,7 @@ function HomePage() {
             Instagram
           </a>
           <a 
-            href="https://www.linkedin.com/company/el-association" 
+            href="https://www.linkedin.com/company/el-association-cet/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="shiny-badge"
