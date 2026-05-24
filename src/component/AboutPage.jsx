@@ -19,22 +19,22 @@ const associationHeads = [
   {
     name: "Rohan Kishore",
     role: "Web Head",
-    image: "https://via.placeholder.com/150"
+    image: "/src/assets/heads/rohankishore.jpeg"
   },
   {
     name: "Harikrishna",
     role: "Web Head",
-    image: "https://via.placeholder.com/150"
+    image: "/src/assets/heads/harikrishna.jpeg"
   },
   {
     name: "Meera RS",
     role: "Content Head",
-    image: "https://via.placeholder.com/150"
+    image: "/src/assets/heads/Meera_R_S.jpg.jpeg"
   },
   {
     name: "Neha J Shibu",
     role: "Content Head",
-    image: "https://via.placeholder.com/150"
+    image: "/src/assets/heads/nehashibu.jpeg"
   }
 ];
 
