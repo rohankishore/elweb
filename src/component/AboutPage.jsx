@@ -22,7 +22,7 @@ const associationHeads = [
     image: "/src/assets/heads/rohankishore.jpeg"
   },
   {
-    name: "Harikrishna",
+    name: "Harikrishnan",
     role: "Web Head",
     image: "/src/assets/heads/harikrishna.jpeg"
   },
