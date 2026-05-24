@@ -86,6 +86,6 @@ export default function AboutPage() {
 
       </section>
       </section>
-    </main>
+</main>
   );
 }
