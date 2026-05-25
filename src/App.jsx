@@ -248,9 +248,9 @@ function HomePage() {
             <span className="notice-tag">Sem 1–4</span>
           </div>
           <div className="notice-copy">
-            <h3>Notes &amp; Question Papers</h3>
+            <h3> Question Papers</h3>
             <p className="notice-description">
-              Semester-wise subject notes and previous series/semester exam papers for Sem 1–4, all shared via Google Drive and organised by subject.
+              Semester-wise previous series/semester exam papers for Sem 1–4, all shared via Google Drive and organised by subject.
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>
