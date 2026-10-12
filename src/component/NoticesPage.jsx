@@ -61,6 +61,36 @@ const notices = [
   },
   {
     pinned: true,
+    type: "Student Welfare",
+    audience: "Welfare Committee Representation",
+    title: "Request to HOD on Basic Facility Issues & Student Welfare",
+    date: "September 1, 2026",
+    desc: "The Secretary of the EL Association, on behalf of the Welfare Committee, has requested the HOD to address basic facility issues affecting students' comfort and safety: 1. Drinking Water: Changed taste and irregular availability from purifiers. 2. Washrooms: Need regular cleaning and maintenance. 3. Wi-Fi: Weak and unstable connectivity in classrooms and common areas. 4. Lights & Fans: Faulty lights and fans in classrooms. 5. Damaged Tiles: Broken tiles causing inconvenience and safety concerns. The committee requests prompt action to resolve these issues for student welfare.",
+    href: "https://www.instagram.com/el.association.cet/",
+    action: "View Update",
+  },
+  {
+    pinned: true,
+    type: "Placement & Training",
+    audience: "CGPU Representation · EL Association",
+    title: "Representation to CGPU for CS Placements & Internships",
+    date: "September 27, 2026",
+    desc: "The EL Association Secretary has submitted a request to the Career Guidance & Placement Unit (CGPU) to consider Electrical & Computer Engineering students for suitable CS-oriented placements and internship opportunities. With the interdisciplinary nature of the EL programme and its strong foundation in programming, computing, embedded systems, digital systems, and related technologies, the request aims to ensure that eligible EL students have access to relevant opportunities alongside other computing-oriented branches.",
+    href: "https://www.instagram.com/el.association.cet/",
+    action: "View Update",
+  },
+  {
+    pinned: true,
+    type: "Academic Affairs",
+    audience: "KTU Academic Affairs · Board of Studies",
+    title: "Request to KTU Dean for Academic Equivalency with EEE",
+    date: "September 29, 2026",
+    desc: "The Electrical and Computer Department Student Representative submitted a formal request to the KTU Dean (Academics), seeking consideration for academic equivalency of the Electrical and Computer Engineering programme with the Electrical and Electronics Engineering (EEE) programme. The matter was discussed and subsequently forwarded to the Board of Studies for further consideration.",
+    href: "https://www.instagram.com/el.association.cet/",
+    action: "View Update",
+  },
+  {
+    pinned: true,
     featured: true,
     type: "Featured Event",
     audience: "EL Association Presents · Flagship Night",
@@ -98,7 +128,7 @@ export default function NoticesPage() {
           </div>
           <div className="notices-page-overview__card">
             <span className="notices-page-overview__label">Latest update</span>
-            <strong className="notices-page-overview__value">Sep 2</strong>
+            <strong className="notices-page-overview__value">Sep 29</strong>
           </div>
         </div>
       </section>

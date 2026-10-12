@@ -47,6 +47,30 @@ export default function GrievancesPage() {
         </div>
 
         <div className="grievances-page-rules">
+          <h2 className="grievances-page-rules__title">Recent Welfare Committee Representations</h2>
+          <div className="grievances-page-rules__grid">
+            <article className="grievances-page-rules__card">
+              <h3>Basic Facilities Representation (Sept 1)</h3>
+              <p>
+                The Secretary of the EL Association submitted a formal request to the HOD addressing essential issues: drinking water purifiers, washroom hygiene, campus Wi-Fi stability, faulty lights &amp; fans, and broken tiles for student safety.
+              </p>
+            </article>
+            <article className="grievances-page-rules__card">
+              <h3>CGPU CS Placement Access (Sept 27)</h3>
+              <p>
+                Submitted an official request to CGPU advocating for EL students to be eligible for CS-oriented placements and internships, building upon our solid foundation in computing, embedded systems, and programming.
+              </p>
+            </article>
+            <article className="grievances-page-rules__card">
+              <h3>KTU EEE Equivalency Request (Sept 29)</h3>
+              <p>
+                Our Department Student Representative submitted a representation to the KTU Dean (Academics) seeking academic equivalency with EEE, which has been forwarded to the Board of Studies.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div className="grievances-page-rules">
           <h2 className="grievances-page-rules__title">The Ground Rules</h2>
           <div className="grievances-page-rules__grid">
             {groundRules.map((rule) => (
