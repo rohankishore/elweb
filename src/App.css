@@ -1114,6 +1114,52 @@ body::before {
   cursor: default;
 }
 
+.sf__credits {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: var(--font, sans-serif);
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: auto;
+  user-select: text;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 0.4rem 1.1rem;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sf__credits-link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  position: relative;
+}
+
+.sf__credits-link:hover {
+  color: #ffd768;
+  text-shadow: 0 0 12px rgba(255, 215, 104, 0.5);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .sf__credits {
+    bottom: 4.8rem;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.85rem;
+  }
+}
+
 /* About Page Styles */
 .about-page-shell {
   position: relative;
