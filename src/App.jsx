@@ -214,15 +214,20 @@ function HomePage() {
           <h2>Latest Notices</h2>
           <p className="notices-subtitle">Stay updated with important announcements</p>
         </div>
-        <Link to="/notices" className="notices-feature-card notices-feature-card--link">
+        <Link to="/notices" className="notices-feature-card notices-feature-card--link notices-feature-card--featured">
           <div className="notices-meta">
-            <span className="notice-tag notice-tag-pinned">Pinned</span>
-            <span className="notice-tag">Workshop</span>
+            <span className="notice-tag notice-tag-pinned">✨ Featured</span>
+            <span className="notice-tag" style={{ borderColor: 'rgba(255, 215, 0, 0.4)', color: '#ffd768' }}>EL Night ’26</span>
           </div>
           <div className="notice-copy">
-            <h3>READY TO EXPLORE MATLAB? &amp; PCB Designing Workshops</h3>
-            <p className="notice-description">
-              Hands-on workshops on MATLAB, KiCad PCB Designing, and Proteus Circuit Simulation. Register now and level up your skills!
+            <div style={{ fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255, 215, 0, 0.9)', marginBottom: '0.35rem' }}>
+              EL Association Presents
+            </div>
+            <h3 style={{ fontSize: 'clamp(1.4rem, 2.4vw, 2.1rem)', letterSpacing: '-0.02em', color: '#fff' }}>
+              ECHELON — EL NIGHT ’26
+            </h3>
+            <p className="notice-description" style={{ color: 'rgba(255, 255, 255, 0.82)' }}>
+              📅 1st September 2026 · An evening of celebration, entertainment, and togetherness awaits. Step away from the usual and join us for music, entertainment, and unforgettable moments! 🤍
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>

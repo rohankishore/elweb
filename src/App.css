@@ -1665,6 +1665,27 @@ a.notice-panel__arrow:hover {
   background: rgb(var(--accent-rgb) / 0.08);
 }
 
+.notice-panel--featured {
+  border: 1px solid rgba(255, 215, 0, 0.45);
+  background:
+    radial-gradient(circle at top right, rgba(255, 215, 0, 0.16), transparent 38%),
+    radial-gradient(circle at bottom left, rgba(169, 110, 255, 0.12), transparent 42%),
+    linear-gradient(135deg, rgba(26, 22, 34, 0.96) 0%, rgba(14, 13, 20, 0.98) 100%);
+  box-shadow: 0 8px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 215, 0, 0.12);
+}
+
+.notice-panel--featured:hover {
+  border-color: rgba(255, 215, 0, 0.7);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 32px rgba(255, 215, 0, 0.22);
+}
+
+.notice-panel__chip--featured {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.22) 0%, rgba(255, 170, 0, 0.18) 100%);
+  color: #ffd768;
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+
 @media (max-width: 900px) {
 
   .about-page-hero,
