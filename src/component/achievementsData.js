@@ -6,14 +6,26 @@ import { title } from "motion/react-client";
 export const achievements = [
 
   {
+    id: 'raam-2026',
+    title: 'Presented Papers at RAAM 2026, IIT Hyderabad',
+    description: `Madhav J Nair and Dr K Z Najiya Presented Papers at RAAM 2026, IIT Hyderabad on the topic: An Algebraic Approach to Fractional Calculus`,
+    img: '/assets/achievements/raam.png',
+    imgAlt: 'RAAM',
+    year: 2026,
+    people: ['Madhav J Nair', 'Dr K Z Najiya'],
+    prize: '€3000 each',
+    featured: true,
+  },
+
+  {
     id: 'maze-solver',
     title: 'Maze Solver Competition 1st Prize',
     description: `Team containing Kailas, Vyshakh, Adijagath, Akshaya and Nakul won 1st prize in Maze Solver Competition`,
     img: '/assets/achievements/maze.png',
-    imgAlt: 'Allianz Tech Championship',
+    imgAlt: 'Maze',
     year: 2026,
-    people: ['Govind G', 'Madhav K'],
-    prize: '€3000 each',
+    people: ['Kailas S', 'Akshaya K Joshy', 'Vyshakh Rajesh', 'Adijagath', 'Nakul'],
+    prize: '',
     featured: true,
   },
 
