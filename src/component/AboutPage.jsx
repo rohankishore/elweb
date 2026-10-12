@@ -14,7 +14,7 @@ const associationHeads = [
   {
     name: "Dr Deepa",
     role: "Staff Advisor",
-    image: "https://via.placeholder.com/150"
+    image: "/assets/heads/Deepa.jpg"
   },
   {
     name: "Rohan Kishore",
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-      
+
 
       <section className="about-page-content">
         <div className="about-page-content__intro" style={{ boxShadow: "none", background: "none", border: "none", borderRadius: 0 }}>
@@ -100,8 +100,8 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem' }}>
             {associationHeads.map((head, idx) => (
               <div key={idx} style={{ padding: '1.5rem', border: '1px solid var(--border)', borderRadius: '8px', background: 'rgba(108,99,255,0.05)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <img 
-                  src={head.image} 
+                <img
+                  src={head.image}
                   alt={head.name}
                   style={{ width: '120px', height: '120px', borderRadius: '50%', marginBottom: '1rem', objectFit: 'cover', objectPosition: head.name === 'Meera RS' ? 'center 25%' : 'center', border: '2px solid var(--accent)' }}
                 />
