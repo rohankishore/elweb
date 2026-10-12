@@ -1,7 +1,22 @@
 // src/component/achievementsData.js
 // Centralized achievements data for use in homepage and achievements section
 
+import { title } from "motion/react-client";
+
 export const achievements = [
+
+  {
+    id: 'maze-solver',
+    title: 'Maze Solver Competition 1st Prize',
+    description: `Team containing Kailas, Vyshakh, Adijagath, Akshaya and Nakul won 1st prize in Maze Solver Competition`,
+    img: '/assets/achievements/maze.png',
+    imgAlt: 'Allianz Tech Championship',
+    year: 2026,
+    people: ['Govind G', 'Madhav K'],
+    prize: '€3000 each',
+    featured: true,
+  },
+
   {
     id: 'allianz',
     title: 'Allianz Tech Championship 2026',
