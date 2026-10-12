@@ -217,12 +217,12 @@ function HomePage() {
         <Link to="/notices" className="notices-feature-card notices-feature-card--link">
           <div className="notices-meta">
             <span className="notice-tag notice-tag-pinned">Pinned</span>
-            <span className="notice-tag">Time Table</span>
+            <span className="notice-tag">Workshop</span>
           </div>
           <div className="notice-copy">
-            <h3>Semester Exam Time Table for S2 &amp; S4</h3>
+            <h3>READY TO EXPLORE MATLAB? &amp; PCB Designing Workshops</h3>
             <p className="notice-description">
-              KTU Semester exam timetables for EL S2 and S4 batches have been released.
+              Hands-on workshops on MATLAB, KiCad PCB Designing, and Proteus Circuit Simulation. Register now and level up your skills!
             </p>
           </div>
           <span className="notice-arrow" aria-hidden="true">›</span>

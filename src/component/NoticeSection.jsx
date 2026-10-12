@@ -16,19 +16,19 @@ export default function NoticeSection() {
       <div className="notice-card">
         <div className="notice-card__badges">
           <span className="notice-card__badge notice-card__badge--pinned">📌 PINNED</span>
-          <span className="notice-card__badge">Results</span>
+          <span className="notice-card__badge">Workshop</span>
         </div>
-        <div className="notice-card__title">S1 Toppers of EL</div>
-        <div className="notice-card__date">April 12, 2026</div>
+        <div className="notice-card__title">READY TO EXPLORE MATLAB?</div>
+        <div className="notice-card__date">September 2, 2026 · 4:30 PM – 6:30 PM</div>
         <div className="notice-card__desc">
-          Meet the toppers for the first semester of the 2025 EL batch and celebrate the consistency, focus, and academic excellence across the program.
+          Hands-on workshop on MATLAB, SimuLink simulations &amp; practical applications led by Varun Sathya (4th Year EEE). Registration ₹49 only!
         </div>
         <a
-          href="https://www.instagram.com/p/DWW_OoiEswz/?img_index=1"
+          href="https://www.instagram.com/el.association.cet/"
           className="notice-card__arrow"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="View S1 toppers on Instagram"
+          aria-label="Register on Instagram bio"
         >
           &gt;
         </a>
