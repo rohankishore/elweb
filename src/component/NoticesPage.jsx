@@ -59,6 +59,17 @@ const notices = [
     href: "https://www.instagram.com/el.association.cet/",
     action: "Register Now",
   },
+  {
+    pinned: true,
+    featured: true,
+    type: "Featured Event",
+    audience: "EL Association Presents · Flagship Night",
+    title: "ECHELON — EL NIGHT ’26",
+    date: "1st September 2026",
+    desc: "An evening of celebration, entertainment, and togetherness awaits. ✨ Step away from the usual and join us for an evening of music, entertainment, and shared moments, bringing everyone together for a night of celebration. Join us as we come together for an unforgettable night! 🤍",
+    href: "https://www.instagram.com/el.association.cet/",
+    action: "Explore & Celebrate",
+  },
 ];
 
 const pinnedCount = notices.filter((notice) => notice.pinned).length;
@@ -101,12 +112,12 @@ export default function NoticesPage() {
 
         <div className="notices-page-list">
           {[...notices].reverse().map((notice, idx) => (
-            <article className="notice-panel" key={notice.title}>
+            <article className={`notice-panel ${notice.featured ? 'notice-panel--featured' : ''}`} key={notice.title}>
               <div className="notice-panel__meta">
                 <span className="notice-panel__index">{String(idx + 1).padStart(2, "0")}</span>
                 <div className="notice-panel__chips">
                   {notice.pinned && <span className="notice-panel__chip notice-panel__chip--pinned">Pinned</span>}
-                  <span className="notice-panel__chip">{notice.type}</span>
+                  <span className={`notice-panel__chip ${notice.featured ? 'notice-panel__chip--featured' : ''}`}>{notice.type}</span>
                 </div>
                 <span className="notice-panel__audience">{notice.audience}</span>
               </div>
